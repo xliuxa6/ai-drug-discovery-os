@@ -91,7 +91,7 @@
   --bg-infra: oklch(0.90 0.01 250);
   --bg-panel: oklch(0.94 0.01 240);
   --bg-panel: oklch(0.94 0.01 240);
-  --progress-track: oklch(0.75 0.02 240);
+  --progress-track: oklch(0.70 0.02 240);
 }
 
 .dark {
