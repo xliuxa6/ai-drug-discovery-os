@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export function Hero() {
   return (
-    <section id="top" className="mx-auto max-w-6xl px-6 pb-24 pt-20 md:pt-32">
+    <section id="top" className="mx-auto w-full max-w-7xl px-4 pb-24 pt-20 md:px-6 md:pt-32">
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}

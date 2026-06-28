@@ -7,7 +7,7 @@ export function LoopSection() {
       id="loop"
       className="border-t border-hairline bg-paper py-24 md:py-32"
     >
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
         <SectionHeader
           number="01"
           eyebrow="Loop Engineering · Reinforcement Learning"

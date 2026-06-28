@@ -28,7 +28,7 @@ export function SiteNav() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-hairline bg-paper/85 backdrop-blur">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 md:px-6">
         <a href="#top" className="flex items-baseline gap-2">
           <span className="font-serif text-3xl text-ink">AI TF Update</span>
         </a>

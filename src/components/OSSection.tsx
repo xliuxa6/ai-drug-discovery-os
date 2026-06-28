@@ -30,7 +30,7 @@ export function OSSection() {
       id="os"
       className="border-t border-hairline bg-card py-24 md:py-32"
     >
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
         <SectionHeader
           number="02"
           eyebrow="Drug R&D AI OS"
