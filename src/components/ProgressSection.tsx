@@ -109,14 +109,16 @@ function ProjectItem({ project, showLabels }: { project: Project; showLabels?: b
   return (
     <div className="py-1">
       <div className="flex items-start gap-2">
-        <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-ink" />
+        <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-ink" />
         <div className="text-lg font-semibold leading-none text-ink">{project.name}</div>
       </div>
-      {project.feasibility ? (
-        <FeasibilityBadge />
-      ) : (
-        <ProgressBar value={project.value ?? 50} showLabels={showLabels} />
-      )}
+      <div className="ml-[14px]">
+        {project.feasibility ? (
+          <FeasibilityBadge />
+        ) : (
+          <ProgressBar value={project.value ?? 50} showLabels={showLabels} />
+        )}
+      </div>
       {project.sub && (
         <div className="mt-2 space-y-2 border-l-2 border-ink/20 pl-4">
           {project.sub.map((s) => (
