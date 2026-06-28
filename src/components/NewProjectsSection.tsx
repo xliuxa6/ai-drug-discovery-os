@@ -111,11 +111,9 @@ export function NewProjectsSection() {
                 {stream.title}
               </div>
               <div className="space-y-3">
-                {stream.projects.map((p) => {
-                  const needsLabels = !firstShown && !p.feasibility;
-                  if (needsLabels) firstShown = true;
-                  return <ProjectItem key={p.name} project={p} showLabels={needsLabels} />;
-                })}
+                {stream.projects.map((p) => (
+                  <NameOnlyItem key={p.name} name={p.name} sub={p.sub} />
+                ))}
               </div>
               {stream.candidates.length > 0 && (
                 <>
