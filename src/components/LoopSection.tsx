@@ -52,7 +52,7 @@ export function LoopSection() {
           <LoopDiagram />
 
           <div className="flex h-full flex-col justify-between">
-            <div className="space-y-4">
+            <div className="space-y-2">
               {[
                 {
                   k: "Inference → Action",
@@ -69,19 +69,19 @@ export function LoopSection() {
               ].map((row) => (
                 <div
                   key={row.k}
-                  className="border-l-2 border-teal/40 pl-5 transition-colors hover:border-teal"
+                  className="border-l-2 border-teal/40 pl-4 transition-colors hover:border-teal"
                 >
-                  <div className="eyebrow text-base mb-2">{row.k}</div>
-                  <p className="text-base text-ink md:text-lg">{row.v}</p>
+                  <div className="eyebrow text-sm mb-1 md:text-base">{row.k}</div>
+                  <p className="text-sm text-ink md:text-base">{row.v}</p>
                 </div>
               ))}
             </div>
 
-            <div className="mt-4 rounded-lg border border-hairline bg-card p-4 md:p-5">
-              <div className="eyebrow text-sm mb-3 md:text-base">
+            <div className="mt-2 rounded-lg border border-hairline bg-card p-3 md:p-4">
+              <div className="eyebrow text-sm mb-2 md:text-base">
                 Enhancing Agentic Capability
               </div>
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {[
                   {
                     title: "Prompt Engineering",
@@ -100,13 +100,13 @@ export function LoopSection() {
                     desc: "Close the execution-evaluation-update loop so every task outcome becomes a training signal for the agent.",
                   },
                 ].map((item) => (
-                  <div key={item.title} className="flex gap-3">
+                  <div key={item.title} className="flex gap-2">
                     <div className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-teal" />
                     <div>
-                      <div className="text-base font-semibold text-ink md:text-lg">
+                      <div className="text-sm font-semibold text-ink md:text-base">
                         {item.title}
                       </div>
-                      <p className="text-sm text-ink-soft md:text-base">
+                      <p className="text-xs text-ink-soft md:text-sm">
                         {item.desc}
                       </p>
                     </div>
