@@ -143,10 +143,10 @@ export function ProgressSection() {
         {/* Arrows up from CI to applications */}
         <Arrows count={3} />
 
-        {/* Tier 2: CI & Scientific Finding Checking — flat, warm tint */}
+        {/* Tier 2: CI & Scientific Finding Tracking — flat, warm tint */}
         <div className="rounded-2xl border border-hairline bg-bg-ci p-3 shadow-sm">
           <div className="mb-2 text-center text-xl font-bold uppercase tracking-[0.12em] text-ink">
-            Competitive Intelligence & Scientific Finding Checking
+            Competitive Intelligence & Scientific Finding Tracking
           </div>
           <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
             {ciItems.map((item) => (
