@@ -40,25 +40,38 @@ const rightItems = appItems.slice(
   TOP_COUNT + BOTTOM_COUNT + LEFT_COUNT + RIGHT_COUNT
 );
 
-const OS = { x: 420, y: 220, w: 160, h: 80 };
-const LABEL_W = 180;
-const LABEL_H = 32;
-const TOP_Y = 50;
-const BOTTOM_Y = 420;
-const LEFT_X = 40;
-const RIGHT_X = 780;
-const LEFT_START_Y = 100;
-const RIGHT_START_Y = 100;
+const OS = { x: 400, y: 210, w: 200, h: 60 };
+const TOP_W = 180;
+const TOP_H = 45;
+const SIDE_W = 190;
+const SIDE_H = 45;
+const RIGHT_H = 40;
+const TOP_Y = 40;
+const BOTTOM_Y = 410;
+const LEFT_X = 10;
+const RIGHT_X = 800;
+const LEFT_START_Y = 95;
+const RIGHT_START_Y = 95;
 
-function distribute(count: number, start: number, max: number) {
-  const gap = (max - start - LABEL_H * count) / (count - 1);
-  return Array.from({ length: count }, (_, i) => start + i * (LABEL_H + gap));
+const TOP_TRUNK_Y = 130;
+const BOTTOM_TRUNK_Y = 350;
+const LEFT_TRUNK_X = 210;
+const RIGHT_TRUNK_X = 790;
+
+function distribute(
+  count: number,
+  start: number,
+  itemSize: number,
+  max: number
+) {
+  const gap = (max - start - itemSize * count) / (count - 1);
+  return Array.from({ length: count }, (_, i) => start + i * (itemSize + gap));
 }
 
-const leftYs = distribute(LEFT_COUNT, LEFT_START_Y, 390);
-const rightYs = distribute(RIGHT_COUNT, RIGHT_START_Y, 410);
-const topXs = distribute(TOP_COUNT, 40, 1000 - LABEL_W - 40);
+const topXs = distribute(TOP_COUNT, 20, TOP_W, 1000 - 20);
 const bottomXs = topXs;
+const leftYs = distribute(LEFT_COUNT, LEFT_START_Y, SIDE_H, 395);
+const rightYs = distribute(RIGHT_COUNT, RIGHT_START_Y, RIGHT_H, 405);
 
 export function OSSection() {
   return (
@@ -113,50 +126,44 @@ function OSDiagram() {
           </marker>
         </defs>
 
-        {/* connection lines */}
+        {/* connection polylines */}
         {topItems.map((_, i) => {
-          const x = topXs[i] + LABEL_W / 2;
-          const y = TOP_Y + LABEL_H;
+          const x = topXs[i] + TOP_W / 2;
+          const y = TOP_Y + TOP_H;
           return (
-            <line
+            <polyline
               key={`top-line-${i}`}
-              x1={x}
-              y1={y}
-              x2={OS.x + OS.w / 2}
-              y2={OS.y}
-              className="stroke-teal/40 text-teal"
+              points={`${x},${y} ${x},${TOP_TRUNK_Y} ${OS.x + OS.w / 2},${TOP_TRUNK_Y} ${OS.x + OS.w / 2},${OS.y}`}
+              fill="none"
+              className="stroke-teal/50 text-teal"
               strokeWidth="1.5"
               markerEnd="url(#arrow-os)"
             />
           );
         })}
         {bottomItems.map((_, i) => {
-          const x = bottomXs[i] + LABEL_W / 2;
+          const x = bottomXs[i] + TOP_W / 2;
           const y = BOTTOM_Y;
           return (
-            <line
+            <polyline
               key={`bottom-line-${i}`}
-              x1={x}
-              y1={y}
-              x2={OS.x + OS.w / 2}
-              y2={OS.y + OS.h}
-              className="stroke-teal/40 text-teal"
+              points={`${x},${y} ${x},${BOTTOM_TRUNK_Y} ${OS.x + OS.w / 2},${BOTTOM_TRUNK_Y} ${OS.x + OS.w / 2},${OS.y + OS.h}`}
+              fill="none"
+              className="stroke-teal/50 text-teal"
               strokeWidth="1.5"
               markerEnd="url(#arrow-os)"
             />
           );
         })}
         {leftItems.map((_, i) => {
-          const x = LEFT_X + LABEL_W;
-          const y = leftYs[i] + LABEL_H / 2;
+          const x = LEFT_X + SIDE_W;
+          const y = leftYs[i] + SIDE_H / 2;
           return (
-            <line
+            <polyline
               key={`left-line-${i}`}
-              x1={x}
-              y1={y}
-              x2={OS.x}
-              y2={OS.y + OS.h / 2}
-              className="stroke-teal/40 text-teal"
+              points={`${x},${y} ${LEFT_TRUNK_X},${y} ${LEFT_TRUNK_X},${OS.y + OS.h / 2} ${OS.x},${OS.y + OS.h / 2}`}
+              fill="none"
+              className="stroke-teal/50 text-teal"
               strokeWidth="1.5"
               markerEnd="url(#arrow-os)"
             />
@@ -164,15 +171,13 @@ function OSDiagram() {
         })}
         {rightItems.map((_, i) => {
           const x = RIGHT_X;
-          const y = rightYs[i] + LABEL_H / 2;
+          const y = rightYs[i] + RIGHT_H / 2;
           return (
-            <line
+            <polyline
               key={`right-line-${i}`}
-              x1={x}
-              y1={y}
-              x2={OS.x + OS.w}
-              y2={OS.y + OS.h / 2}
-              className="stroke-teal/40 text-teal"
+              points={`${x},${y} ${RIGHT_TRUNK_X},${y} ${RIGHT_TRUNK_X},${OS.y + OS.h / 2} ${OS.x + OS.w},${OS.y + OS.h / 2}`}
+              fill="none"
+              className="stroke-teal/50 text-teal"
               strokeWidth="1.5"
               markerEnd="url(#arrow-os)"
             />
@@ -180,15 +185,17 @@ function OSDiagram() {
         })}
 
         {/* application labels */}
-        {topItems.map((name, i) => renderLabel(name, topXs[i], TOP_Y, "top"))}
+        {topItems.map((name, i) =>
+          renderLabel(name, topXs[i], TOP_Y, TOP_W, TOP_H, "center")
+        )}
         {bottomItems.map((name, i) =>
-          renderLabel(name, bottomXs[i], BOTTOM_Y, "bottom")
+          renderLabel(name, bottomXs[i], BOTTOM_Y, TOP_W, TOP_H, "center")
         )}
         {leftItems.map((name, i) =>
-          renderLabel(name, LEFT_X, leftYs[i], "left")
+          renderLabel(name, LEFT_X, leftYs[i], SIDE_W, SIDE_H, "right")
         )}
         {rightItems.map((name, i) =>
-          renderLabel(name, RIGHT_X, rightYs[i], "right")
+          renderLabel(name, RIGHT_X, rightYs[i], SIDE_W, RIGHT_H, "left")
         )}
 
         {/* central OS kernel */}
@@ -213,7 +220,7 @@ function OSDiagram() {
           </text>
           <text
             x={OS.x + OS.w / 2}
-            y={OS.y + OS.h - 12}
+            y={OS.y + OS.h - 10}
             textAnchor="middle"
             fontSize="11"
             letterSpacing="3"
@@ -242,23 +249,24 @@ function renderLabel(
   name: string,
   x: number,
   y: number,
-  position: "top" | "bottom" | "left" | "right"
+  w: number,
+  h: number,
+  align: "left" | "right" | "center"
 ) {
-  const isSide = position === "left" || position === "right";
-  const textAlign =
-    position === "left" ? "text-right" : position === "right" ? "text-left" : "text-center";
+  const alignClass =
+    align === "left"
+      ? "text-left"
+      : align === "right"
+      ? "text-right"
+      : "text-center";
 
   return (
-    <foreignObject key={name} x={x} y={y} width={LABEL_W} height={LABEL_H}>
+    <foreignObject key={name} x={x} y={y} width={w} height={h}>
       <div className="flex h-full w-full items-center">
         <div
-          className={`w-full rounded-md border border-hairline bg-card px-2 py-0.5 shadow-sm ${textAlign}`}
+          className={`w-full rounded-md border border-hairline bg-card px-2 py-1 shadow-sm ${alignClass}`}
         >
-          <span
-            className={`inline-block text-[10px] font-semibold leading-tight text-ink md:text-xs ${
-              isSide ? "text-left" : "text-center"
-            }`}
-          >
+          <span className="inline-block text-xs font-semibold leading-tight text-ink md:text-sm">
             {name}
           </span>
         </div>
