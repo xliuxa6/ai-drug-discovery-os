@@ -137,16 +137,16 @@ export function ProgressSection() {
         </div>
 
         {/* Tier 3: Applications */}
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
           {streams.map((stream) => (
             <div
               key={stream.id}
-              className={`rounded-2xl border border-hairline p-3 shadow-sm ${stream.color}`}
+              className={`rounded-2xl border border-hairline p-4 shadow-sm ${stream.color}`}
             >
-              <div className="mb-2 text-center text-xl font-bold uppercase tracking-[0.12em] text-ink">
+              <div className="mb-3 text-center text-xl font-bold uppercase tracking-[0.12em] text-ink">
                 {stream.title}
               </div>
-              <div className="space-y-2">
+              <div className="space-y-3">
                 {stream.projects.map((p) => {
                   const needsLabels = !firstShown && !p.feasibility;
                   if (needsLabels) firstShown = true;
@@ -158,11 +158,11 @@ export function ProgressSection() {
         </div>
 
         {/* Tier 2: CI & Scientific Finding Tracking — flat, warm tint */}
-        <div className="mt-3 rounded-2xl border border-hairline bg-bg-panel p-3 shadow-sm">
-          <div className="mb-2 text-center text-xl font-bold uppercase tracking-[0.12em] text-ink">
+        <div className="mt-5 rounded-2xl border border-hairline bg-bg-panel p-4 shadow-sm">
+          <div className="mb-3 text-center text-xl font-bold uppercase tracking-[0.12em] text-ink">
             Competitive Intelligence & Scientific Finding Tracking
           </div>
-          <div className="grid grid-cols-1 gap-x-3 gap-y-1 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
             {ciItems.map((item) => (
               <div key={item.name} className="py-1">
                 <div className="text-base font-semibold leading-tight text-ink">{item.name}</div>
@@ -173,7 +173,7 @@ export function ProgressSection() {
         </div>
 
         {/* Tier 1: IT Infrastructure — flat, cool tint */}
-        <div className="mt-3 rounded-2xl border border-hairline bg-bg-panel px-3 py-2.5 text-center shadow-sm">
+        <div className="mt-5 rounded-2xl border border-hairline bg-bg-panel px-4 py-3 text-center shadow-sm">
           <div className="text-xl font-bold uppercase tracking-[0.12em] text-ink">
             IT Infrastructure Excellence Enablement
           </div>
