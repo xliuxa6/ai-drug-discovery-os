@@ -81,12 +81,6 @@ export function OSSection() {
     >
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
         <div className="mb-4 max-w-5xl">
-          <div className="mb-2 flex items-center gap-3">
-            <span className="h-px w-12 bg-teal/60" />
-            <span className="text-base font-semibold uppercase tracking-[0.18em] text-teal md:text-lg">
-              Multi-Agent Platform
-            </span>
-          </div>
           <h2 className="font-sans text-2xl font-black leading-[1.05] text-ink md:text-3xl lg:text-4xl">
             Multi-agent Platform for Drug R&D AI OS
           </h2>
