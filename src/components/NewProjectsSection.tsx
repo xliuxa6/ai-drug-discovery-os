@@ -67,8 +67,11 @@ const ciItems: { name: string; value: number; candidates?: string[] }[] = [
 function NameOnlyItem({ name, gray, sub }: { name: string; gray?: boolean; sub?: Project["sub"] }) {
   return (
     <div className="py-1">
-      <div className={`text-lg leading-none ${gray ? "font-medium text-ink/60" : "font-semibold text-ink"}`}>
-        {name}
+      <div className="flex items-start gap-2">
+        <span className={`mt-1.5 h-2 w-2 flex-shrink-0 rounded-full ${gray ? "bg-ink/60" : "bg-ink"}`} />
+        <div className={`text-lg leading-none ${gray ? "font-medium text-ink/60" : "font-semibold text-ink"}`}>
+          {name}
+        </div>
       </div>
       {sub && sub.length > 0 && (
         <div className="mt-2 space-y-2 border-l-2 border-ink/20 pl-4">
@@ -84,7 +87,10 @@ function NameOnlyItem({ name, gray, sub }: { name: string; gray?: boolean; sub?:
 function CandidateItem({ name }: { name: string }) {
   return (
     <div className="py-1">
-      <div className="text-lg font-medium leading-none text-ink/60">{name}</div>
+      <div className="flex items-start gap-2">
+        <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-ink/60" />
+        <div className="text-lg font-medium leading-none text-ink/60">{name}</div>
+      </div>
     </div>
   );
 }
@@ -106,7 +112,7 @@ export function NewProjectsSection() {
               key={stream.id}
               className={`rounded-2xl border border-hairline p-4 shadow-sm ${stream.color}`}
             >
-              <div className="mb-3 text-center text-2xl font-bold uppercase tracking-[0.12em] text-ink">
+              <div className="mb-3 text-center text-lg font-bold uppercase tracking-[0.12em] text-ink">
                 {stream.title}
               </div>
               <div className="space-y-3">
@@ -130,7 +136,7 @@ export function NewProjectsSection() {
 
         {/* Tier 2: CI & Scientific Finding Tracking */}
         <div className="mt-5 rounded-2xl border border-hairline bg-bg-panel p-4 shadow-sm">
-          <div className="mb-3 text-center text-2xl font-bold uppercase tracking-[0.12em] text-ink">
+          <div className="mb-3 text-center text-lg font-bold uppercase tracking-[0.12em] text-ink">
             Competitive Intelligence & Scientific Finding Tracking
           </div>
           <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
@@ -151,7 +157,7 @@ export function NewProjectsSection() {
 
         {/* Tier 1: IT Infrastructure */}
         <div className="mt-5 rounded-2xl border border-hairline bg-bg-panel p-4 shadow-sm">
-          <div className="mb-3 text-center text-2xl font-bold uppercase tracking-[0.12em] text-ink">
+          <div className="mb-3 text-center text-lg font-bold uppercase tracking-[0.12em] text-ink">
             IT Infrastructure Excellence Enablement
           </div>
           <div className="grid grid-cols-1 gap-x-5 gap-y-1 md:grid-cols-2">

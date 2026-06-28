@@ -108,7 +108,10 @@ function FeasibilityBadge() {
 function ProjectItem({ project, showLabels }: { project: Project; showLabels?: boolean }) {
   return (
     <div className="py-1">
-      <div className="text-lg font-semibold leading-none text-ink">{project.name}</div>
+      <div className="flex items-start gap-2">
+        <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-ink" />
+        <div className="text-lg font-semibold leading-none text-ink">{project.name}</div>
+      </div>
       {project.feasibility ? (
         <FeasibilityBadge />
       ) : (
@@ -145,7 +148,7 @@ export function ProgressSection() {
               key={stream.id}
               className={`rounded-2xl border border-hairline p-4 shadow-sm ${stream.color}`}
             >
-              <div className="mb-3 text-center text-2xl font-bold uppercase tracking-[0.12em] text-ink">
+              <div className="mb-3 text-center text-lg font-bold uppercase tracking-[0.12em] text-ink">
                 {stream.title}
               </div>
               <div className="space-y-3">
@@ -161,13 +164,16 @@ export function ProgressSection() {
 
         {/* Tier 2: CI & Scientific Finding Tracking — flat, warm tint */}
         <div className="mt-5 rounded-2xl border border-hairline bg-bg-panel p-4 shadow-sm">
-          <div className="mb-3 text-center text-2xl font-bold uppercase tracking-[0.12em] text-ink">
+          <div className="mb-3 text-center text-lg font-bold uppercase tracking-[0.12em] text-ink">
             Competitive Intelligence & Scientific Finding Tracking
           </div>
           <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
             {ciItems.map((item) => (
               <div key={item.name} className="py-1">
-                <div className="text-lg font-semibold leading-none text-ink">{item.name}</div>
+                <div className="flex items-start gap-2">
+                  <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-ink" />
+                  <div className="text-lg font-semibold leading-none text-ink">{item.name}</div>
+                </div>
                 <ProgressBar value={item.value} />
               </div>
             ))}
@@ -176,7 +182,7 @@ export function ProgressSection() {
 
         {/* Tier 1: IT Infrastructure — flat, cool tint */}
         <div className="mt-5 rounded-2xl border border-hairline bg-bg-panel px-4 py-3 text-center shadow-sm">
-          <div className="text-2xl font-bold uppercase tracking-[0.12em] text-ink">
+          <div className="text-lg font-bold uppercase tracking-[0.12em] text-ink">
             IT Infrastructure Excellence Enablement
           </div>
         </div>
