@@ -84,9 +84,9 @@ function LoopDiagram() {
         />
         <text
           x="250"
-          y="40"
+          y="34"
           textAnchor="middle"
-          className="fill-current text-[10px] uppercase tracking-[0.3em]"
+          className="fill-current text-xs uppercase tracking-[0.3em]"
           fill="currentColor"
           opacity="0.5"
         >
