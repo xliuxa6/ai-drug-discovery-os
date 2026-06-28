@@ -29,7 +29,9 @@ export function CaseStudySection() {
         <div className="mb-2">
           <div className="mb-1 flex items-center gap-3">
             <span className="h-px w-12 bg-teal/60" />
-            <span className="eyebrow text-lg">Case Study <span className="mx-1 text-ink/40">·</span> AI-Assisted Protocol Deviation</span>
+            <span className="text-lg font-semibold uppercase tracking-[0.18em] text-teal md:text-xl">
+              Case Study <span className="mx-1 text-ink/40">·</span> AI-Assisted Protocol Deviation
+            </span>
           </div>
         </div>
 

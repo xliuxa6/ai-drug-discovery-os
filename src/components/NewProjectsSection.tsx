@@ -102,7 +102,9 @@ export function NewProjectsSection() {
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
         <div className="mb-4 flex items-center gap-3">
           <span className="h-px w-12 bg-teal/60" />
-          <span className="eyebrow text-lg">Project Overview</span>
+          <span className="text-lg font-semibold uppercase tracking-[0.18em] text-teal md:text-xl">
+            Project Overview
+          </span>
         </div>
 
         {/* Tier 3: Applications */}

@@ -15,8 +15,10 @@ export function Timeline() {
     <section className="border-b border-hairline bg-paper/60">
       <div className="mx-auto w-full max-w-7xl px-4 py-6 md:px-6 md:py-8">
         <div className="mb-6 flex items-center gap-3">
-          <span className="h-px w-8 bg-teal" />
-          <span className="eyebrow text-base">TIMELINE · 2026</span>
+          <span className="h-px w-12 bg-teal/60" />
+          <span className="text-lg font-semibold uppercase tracking-[0.18em] text-teal md:text-xl">
+            TIMELINE · 2026
+          </span>
         </div>
         <div className="w-full">
           <div className="flex w-full items-start gap-1 md:gap-2">
