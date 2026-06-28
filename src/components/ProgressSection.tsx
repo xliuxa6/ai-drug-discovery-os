@@ -164,13 +164,21 @@ function ProjectItem({
 
 export function ProgressSection() {
   const [animate, setAnimate] = useState(false);
+  const [resetting, setResetting] = useState(false);
+  const [hasPlayed, setHasPlayed] = useState(false);
   let firstShown = false;
 
   const handlePlay = () => {
-    if (animate) {
+    if (hasPlayed) {
+      // Replay: instantly reset to beginning, then re-animate at original speed
+      setResetting(true);
       setAnimate(false);
-      setTimeout(() => setAnimate(true), 60);
+      setTimeout(() => {
+        setResetting(false);
+        setAnimate(true);
+      }, 60);
     } else {
+      setHasPlayed(true);
       setAnimate(true);
     }
   };
@@ -186,8 +194,8 @@ export function ProgressSection() {
             onClick={handlePlay}
             className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-paper shadow-sm transition-colors hover:bg-teal focus:outline-none focus:ring-2 focus:ring-teal focus:ring-offset-2"
           >
-            {animate ? <RotateCcw className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-            {animate ? "Replay" : "Play Progress"}
+            {hasPlayed ? <RotateCcw className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+            {hasPlayed ? "Replay" : "Play Progress"}
           </button>
         </div>
 
@@ -205,7 +213,7 @@ export function ProgressSection() {
                 {stream.projects.map((p) => {
                   const needsLabels = !firstShown && !p.feasibility;
                   if (needsLabels) firstShown = true;
-                  return <ProjectItem key={p.name} project={p} showLabels={needsLabels} animate={animate} />;
+                  return <ProjectItem key={p.name} project={p} showLabels={needsLabels} animate={animate} resetting={resetting} />;
                 })}
               </div>
             </div>
@@ -225,7 +233,7 @@ export function ProgressSection() {
                   <div className="text-lg font-semibold leading-none text-ink">{item.name}</div>
                 </div>
                 <div className="ml-[14px]">
-                  <ProgressBar value={item.value} animate={animate} />
+                  <ProgressBar value={item.value} animate={animate} resetting={resetting} />
                 </div>
               </div>
             ))}
