@@ -47,6 +47,8 @@
   --color-bg-panel: var(--bg-panel);
   --color-success: var(--success);
   --color-success-dim: var(--success-dim);
+  --color-progress-track: var(--progress-track);
+  --color-success-dim: var(--success-dim);
   --font-serif: "Instrument Serif", "Times New Roman", serif;
   --font-sans: "Work Sans", system-ui, sans-serif;
 }
