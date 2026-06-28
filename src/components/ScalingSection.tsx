@@ -75,10 +75,11 @@ function tileState(r: number, c: number, step: number) {
     return { filled: false, delay: 0 };
   }
 
-  // Step 3: fill rightmost 3 columns first, then the rest from bottom-left to top-right
+  // Step 3: fill the rightmost 3 columns bottom-to-top first, then the rest
+  // from bottom-left to top-right.
   const isRightmost = c >= STEP1_END;
   if (isRightmost) {
-    return { filled: true, delay: (ROWS - 1 - r) * 0.08 };
+    return { filled: true, delay: r * 0.08 };
   }
 
   if (r < height) return { filled: true, delay: 0 };
