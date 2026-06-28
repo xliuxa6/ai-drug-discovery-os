@@ -65,13 +65,13 @@ function ProgressBar({ value = 50, showLabels = false }: { value?: number; showL
               "repeating-linear-gradient(45deg, var(--success) 0 6px, var(--success-dim) 6px 12px)",
           }}
         />
-        {/* Markers inside the bar, pointing up */}
-        <div className="absolute top-0 h-full w-full">
-          <div className="absolute top-0 h-full -translate-x-1/2" style={{ left: "80%" }}>
-            <div className="h-0 w-0 border-x-[7px] border-b-[10px] border-x-transparent border-b-teal" />
+        {/* Markers centered inside the bar, pointing up */}
+        <div className="absolute inset-y-0 w-full">
+          <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2" style={{ left: "80%" }}>
+            <div className="h-0 w-0 border-x-[8px] border-b-[12px] border-x-transparent border-b-teal drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]" />
           </div>
-          <div className="absolute top-0 h-full -translate-x-1/2" style={{ left: "100%" }}>
-            <div className="h-0 w-0 border-x-[7px] border-b-[10px] border-x-transparent border-b-ink" />
+          <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2" style={{ left: "100%" }}>
+            <div className="h-0 w-0 border-x-[8px] border-b-[12px] border-x-transparent border-b-ink drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]" />
           </div>
         </div>
       </div>
