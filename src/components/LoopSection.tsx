@@ -51,33 +51,8 @@ export function LoopSection() {
         >
           <LoopDiagram />
 
-          <div className="flex h-full flex-col justify-between">
-            <div className="space-y-2">
-              {[
-                {
-                  k: "Inference → Action",
-                  v: "The agent reasons over the task, drafts a plan, and executes — producing a trajectory of decisions and tool calls.",
-                },
-                {
-                  k: "Outcome Evaluation",
-                  v: "The task scores the result against ground truth, expert rubrics, or downstream metrics — yielding a dense reward.",
-                },
-                {
-                  k: "Policy Update",
-                  v: "The signal flows back through RL fine-tuning, updating the agent so the next inference is measurably better.",
-                },
-              ].map((row) => (
-                <div
-                  key={row.k}
-                  className="border-l-2 border-teal/40 pl-4 transition-colors hover:border-teal"
-                >
-                  <div className="eyebrow text-sm mb-1 md:text-base">{row.k}</div>
-                  <p className="text-sm text-ink md:text-base">{row.v}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-2 rounded-lg border border-hairline bg-card p-3 md:p-4">
+          <div className="flex h-full flex-col justify-center">
+            <div className="rounded-lg border border-hairline bg-card p-3 md:p-4">
               <div className="eyebrow text-sm mb-2 md:text-base">
                 Enhancing Agentic Capability
               </div>
