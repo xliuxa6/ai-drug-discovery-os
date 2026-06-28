@@ -232,7 +232,7 @@ function OSDiagram() {
           letterSpacing="3"
           className="fill-ink-soft"
         >
-          SHARED MEMORY · TOOL REGISTRY · TASK ROUTER
+          {" "}
         </text>
       </svg>
     </div>
