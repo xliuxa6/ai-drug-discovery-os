@@ -143,7 +143,7 @@ function LoopDiagram() {
             cx="120"
             cy="220"
             r="70"
-            className="fill-teal/15 stroke-teal"
+            className="fill-paper stroke-teal"
             strokeWidth="1.5"
           />
           <text
@@ -202,15 +202,15 @@ function LoopDiagram() {
         {/* Top arrow: inference */}
         <g className="text-teal">
           <path
-            d="M 180 175 Q 247 115 315 175"
+            d="M 180 175 Q 235 115 290 175"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
             markerEnd="url(#arrow-loop)"
           />
           <text
-            x="247"
-            y="138"
+            x="235"
+            y="115"
             textAnchor="middle"
             fontSize="14"
             className="fill-ink"
@@ -218,8 +218,8 @@ function LoopDiagram() {
             Inference / Action
           </text>
           <text
-            x="247"
-            y="156"
+            x="235"
+            y="125"
             textAnchor="middle"
             fontSize="11"
             letterSpacing="2"
@@ -232,15 +232,15 @@ function LoopDiagram() {
         {/* Bottom arrow: reward */}
         <g className="text-ink-soft">
           <path
-            d="M 315 265 Q 247 325 180 265"
+            d="M 290 265 Q 235 325 180 265"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
             markerEnd="url(#arrow-loop)"
           />
           <text
-            x="247"
-            y="310"
+            x="235"
+            y="245"
             textAnchor="middle"
             fontSize="14"
             className="fill-ink"
@@ -248,8 +248,8 @@ function LoopDiagram() {
             Reward / Feedback
           </text>
           <text
-            x="247"
-            y="328"
+            x="235"
+            y="262"
             textAnchor="middle"
             fontSize="11"
             letterSpacing="2"
