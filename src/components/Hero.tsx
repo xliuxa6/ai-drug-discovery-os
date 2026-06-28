@@ -10,25 +10,25 @@ export function Hero() {
       >
         <div className="mb-8 flex items-center gap-3">
           <span className="h-px w-12 bg-teal" />
-          <span className="eyebrow">A thesis in three movements</span>
+          <span className="eyebrow text-base">A thesis in three movements</span>
         </div>
-        <h1 className="max-w-5xl text-5xl leading-[1.05] text-ink md:text-7xl">
+        <h1 className="max-w-5xl text-6xl leading-[1.05] text-ink md:text-8xl">
           Engineering the loop, the operating system,
           <span className="text-teal"> and the two scalings</span> behind Drug
           R&amp;D Super Intelligence.
         </h1>
-        <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft">
+        <p className="mt-8 max-w-3xl text-2xl leading-relaxed text-ink">
           From a single self-improving agent, to an orchestrated R&amp;D
           operating system, to the two orthogonal axes along which agentic
           drug discovery must scale.
         </p>
-        <div className="mt-12 flex flex-wrap gap-3 text-sm">
+        <div className="mt-12 flex flex-wrap gap-3 text-base">
           {["Loop Engineering · RL", "Drug R&D AI OS", "Two Axes of Scaling"].map(
             (t, i) => (
               <a
                 key={t}
                 href={`#${["loop", "os", "scaling"][i]}`}
-                className="rounded-full border border-hairline bg-card px-4 py-2 text-ink-soft transition-colors hover:border-teal hover:text-teal"
+                className="rounded-full border border-hairline bg-card px-5 py-3 text-ink transition-colors hover:border-teal hover:text-teal"
               >
                 {t}
               </a>
