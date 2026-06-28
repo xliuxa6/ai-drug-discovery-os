@@ -48,8 +48,8 @@ const streams: {
 
 const ciItems: { name: string; value: number }[] = [
   { name: "Scientific Finding Tracking", value: 50 },
-  { name: "Disease Deep Dive", value: 50 },
-  { name: "Clinical Data Benchmarking", value: 50 },
+  { name: "Disease Deep Dive", value: 30 },
+  { name: "Clinical Data Benchmarking", value: 30 },
   { name: "Competitive Intelligence Monitoring", value: 50 },
 ];
 
