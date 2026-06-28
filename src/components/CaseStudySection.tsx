@@ -142,7 +142,7 @@ export function CaseStudySection() {
                   AI Agent
                 </div>
                 <div className="mt-1 text-xs font-semibold uppercase tracking-wider text-teal/80 md:text-sm">
-                  PD Category · IPD · Trend
+                  PD CATEGORY · IPD DETERMINATION · TREND ANALYSIS
                 </div>
               </div>
               <div className="flex items-center justify-center">
