@@ -56,7 +56,7 @@ const ciItems: { name: string; value: number }[] = [
 function ProgressBar({ value = 50, showLabels = false }: { value?: number; showLabels?: boolean }) {
   return (
     <div className="mt-1">
-      <div className="relative h-4 w-full overflow-hidden rounded-full bg-progress-track">
+      <div className="relative h-6 w-full overflow-hidden rounded-full bg-progress-track">
         <div
           className="h-full rounded-full"
           style={{
@@ -65,14 +65,14 @@ function ProgressBar({ value = 50, showLabels = false }: { value?: number; showL
               "repeating-linear-gradient(45deg, var(--success) 0 6px, var(--success-dim) 6px 12px)",
           }}
         />
-      </div>
-      {/* Markers below the bar pointing up */}
-      <div className="relative h-3">
-        <div className="absolute top-0 -translate-x-1/2" style={{ left: "80%" }}>
-          <div className="h-0 w-0 border-x-[7px] border-b-[10px] border-x-transparent border-b-teal" />
-        </div>
-        <div className="absolute top-0 -translate-x-1/2" style={{ left: "100%" }}>
-          <div className="h-0 w-0 border-x-[7px] border-b-[10px] border-x-transparent border-b-ink" />
+        {/* Markers inside the bar, pointing up */}
+        <div className="absolute top-0 h-full w-full">
+          <div className="absolute top-0 h-full -translate-x-1/2" style={{ left: "80%" }}>
+            <div className="h-0 w-0 border-x-[7px] border-b-[10px] border-x-transparent border-b-teal" />
+          </div>
+          <div className="absolute top-0 h-full -translate-x-1/2" style={{ left: "100%" }}>
+            <div className="h-0 w-0 border-x-[7px] border-b-[10px] border-x-transparent border-b-ink" />
+          </div>
         </div>
       </div>
       {showLabels && (
