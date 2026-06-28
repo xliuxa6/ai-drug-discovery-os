@@ -66,6 +66,16 @@ export function CaseStudySection() {
               </div>
             ))}
           </div>
+          <div className="mt-3 rounded-xl border-2 border-dashed border-teal bg-paper p-2.5 text-center md:p-3">
+            <div className="text-sm font-black uppercase tracking-wider text-ink md:text-base">
+              Human review-based feedback and manual AI tool tuning
+              <span className="mx-2 text-teal">·</span>
+              <span className="text-teal">87%</span>
+              <span className="ml-2 text-xs font-semibold normal-case tracking-normal text-ink/70 md:text-sm">
+                of total time spent
+              </span>
+            </div>
+          </div>
         </div>
 
         {/* Before AI vs With AI */}
