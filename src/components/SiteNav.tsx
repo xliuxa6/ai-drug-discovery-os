@@ -1,16 +1,29 @@
 import { useEffect, useState } from "react";
-import { Sun, Moon } from "lucide-react";
+import {
+  Sun,
+  Moon,
+  Calendar,
+  Activity,
+  Lightbulb,
+  FileSearch,
+  RefreshCw,
+  Network,
+  Scaling,
+  Compass,
+  type LucideIcon,
+} from "lucide-react";
 
-const links = [
-  { id: "timeline", label: "Timeline" },
-  { id: "progress", label: "Progress" },
-  { id: "new-projects", label: "New Projects" },
-  { id: "case-study", label: "Case Study" },
-  { id: "loop", label: "Self-Evolving Agent" },
-  { id: "os", label: "Multi-Agent OS" },
-  { id: "scaling", label: "Two-way Scaling" },
-  { id: "opportunities", label: "Opportunities" },
+const links: { id: string; label: string; Icon: LucideIcon }[] = [
+  { id: "timeline", label: "Timeline", Icon: Calendar },
+  { id: "progress", label: "Progress", Icon: Activity },
+  { id: "new-projects", label: "New Projects", Icon: Lightbulb },
+  { id: "case-study", label: "Case Study", Icon: FileSearch },
+  { id: "loop", label: "Self-Evolving Agent", Icon: RefreshCw },
+  { id: "os", label: "Multi-Agent OS", Icon: Network },
+  { id: "scaling", label: "Two-way Scaling", Icon: Scaling },
+  { id: "opportunities", label: "Opportunities", Icon: Compass },
 ];
+
 
 export function SiteNav() {
   const [active, setActive] = useState("timeline");
