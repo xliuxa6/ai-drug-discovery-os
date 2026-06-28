@@ -6,6 +6,7 @@ import { OSSection } from "@/components/OSSection";
 import { ScalingSection } from "@/components/ScalingSection";
 import { PlaceholderSection } from "@/components/PlaceholderSection";
 import { ProgressSection } from "@/components/ProgressSection";
+import { NewProjectsSection } from "@/components/NewProjectsSection";
 
 export const Route = createFileRoute("/")({
   head: () => ({
