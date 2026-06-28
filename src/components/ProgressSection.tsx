@@ -155,7 +155,7 @@ export function ProgressSection() {
               key={stream.id}
               className={`rounded-2xl border border-hairline p-4 shadow-sm ${stream.color}`}
             >
-              <div className="mb-3 text-center text-lg font-bold uppercase tracking-[0.12em] text-ink">
+              <div className="mb-3 text-center text-lg font-bold uppercase tracking-[0.12em] text-teal">
                 {stream.title}
               </div>
               <div className="space-y-2">
@@ -171,7 +171,7 @@ export function ProgressSection() {
 
         {/* Tier 2: CI & Scientific Finding Tracking — flat, warm tint */}
         <div className="mt-5 rounded-2xl border border-hairline bg-bg-panel p-4 shadow-sm">
-          <div className="mb-3 text-center text-lg font-bold uppercase tracking-[0.12em] text-ink">
+          <div className="mb-3 text-center text-lg font-bold uppercase tracking-[0.12em] text-teal">
             Competitive Intelligence & Scientific Finding Tracking
           </div>
           <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
@@ -191,7 +191,7 @@ export function ProgressSection() {
 
         {/* Tier 1: IT Infrastructure — flat, cool tint */}
         <div className="mt-5 rounded-2xl border border-hairline bg-bg-panel px-4 py-3 text-center shadow-sm">
-          <div className="text-lg font-bold uppercase tracking-[0.12em] text-ink">
+          <div className="text-lg font-bold uppercase tracking-[0.12em] text-teal">
             IT Infrastructure Excellence Enablement
           </div>
         </div>
