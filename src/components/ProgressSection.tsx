@@ -110,21 +110,25 @@ function ProjectItem({ project, showLabels }: { project: Project; showLabels?: b
     <div className="py-1">
       <div className="flex items-start gap-2">
         <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-ink" />
-        <div className="text-lg font-semibold leading-none text-ink">{project.name}</div>
+        <div className="flex flex-wrap items-center gap-2">
+          <div className="text-lg font-semibold leading-none text-ink">{project.name}</div>
+          {project.feasibility && <FeasibilityBadge />}
+        </div>
       </div>
-      <div className="ml-[14px]">
-        {project.feasibility ? (
-          <FeasibilityBadge />
-        ) : (
+      {!project.feasibility && (
+        <div className="ml-[14px]">
           <ProgressBar value={project.value ?? 50} showLabels={showLabels} />
-        )}
-      </div>
+        </div>
+      )}
       {project.sub && (
         <div className="mt-2 space-y-2 border-l-2 border-ink/20 pl-4">
           {project.sub.map((s) => (
             <div key={s.name}>
-              <div className="text-base font-medium leading-none text-ink/90">{s.name}</div>
-              {s.feasibility ? <FeasibilityBadge /> : <ProgressBar value={s.value ?? 50} />}
+              <div className="flex flex-wrap items-center gap-2">
+                <div className="text-base font-medium leading-none text-ink/90">{s.name}</div>
+                {s.feasibility && <FeasibilityBadge />}
+              </div>
+              {!s.feasibility && <ProgressBar value={s.value ?? 50} />}
             </div>
           ))}
         </div>
