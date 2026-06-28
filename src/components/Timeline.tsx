@@ -13,7 +13,7 @@ const milestones = [
 export function Timeline() {
   return (
     <section className="border-b border-hairline bg-paper/60">
-      <div className="mx-auto w-full max-w-7xl px-4 py-8 md:px-6 md:py-10">
+      <div className="mx-auto w-full max-w-7xl px-4 py-6 md:px-6 md:py-8">
         <div className="mb-6 flex items-center gap-3">
           <span className="h-px w-8 bg-teal" />
           <span className="eyebrow text-base">TIMELINE · 2026</span>

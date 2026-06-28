@@ -19,7 +19,7 @@ export function ScalingSection() {
   return (
     <section
       id="scaling"
-      className="border-t border-hairline bg-paper py-24 md:py-32"
+      className="border-t border-hairline bg-paper py-12 md:py-16"
     >
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
         <SectionHeader
