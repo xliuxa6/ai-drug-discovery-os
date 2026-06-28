@@ -23,8 +23,8 @@ export function ScalingSection() {
     >
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
         <SectionHeader
-          number="03"
-          eyebrow="Two Axes of Scaling"
+          number="07"
+          eyebrow="Two-way Scaling"
           title="Super intelligence emerges along two orthogonal axes."
           lede="One axis scales the agent's reasoning and planning. The other scales its action space — the tools and data it can wield. Drug R&D Super Intelligence lives in the upper-right corner."
         />

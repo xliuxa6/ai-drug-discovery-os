@@ -32,8 +32,8 @@ export function OSSection() {
     >
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
         <SectionHeader
-          number="02"
-          eyebrow="Drug R&D AI OS"
+          number="06"
+          eyebrow="Multi-Agent AI OS"
           title="An operating system that composes specialist agents."
           lede="No single agent solves a drug program. The R&D AI OS routes tasks, shares context, and orchestrates specialized agents — turning fragmented tools into one coherent workflow."
         />

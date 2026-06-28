@@ -9,8 +9,8 @@ export function LoopSection() {
     >
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
         <SectionHeader
-          number="01"
-          eyebrow="Loop Engineering · Reinforcement Learning"
+          number="05"
+          eyebrow="Self-Evolving Agent · Loop Engineering + RL"
           title="An agent that gets better by living inside its task."
           lede="The AI Agent uses inference to attempt a task. The task evaluates the outcome and returns a reward signal. That signal updates the agent — closing the loop. Loop Engineering + RL turns each attempt into training data."
         />
