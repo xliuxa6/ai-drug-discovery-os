@@ -88,11 +88,11 @@ function ProgressBar({ value = 50, showLabels = false }: { value?: number; showL
       </div>
       {showLabels && (
         <div className="relative mt-1 h-12 text-sm font-semibold uppercase tracking-wider text-ink/80">
-          <div className="absolute text-center leading-tight" style={{ left: "80%", transform: "translateX(-50%)" }}>
+          <div className="absolute text-right leading-tight whitespace-nowrap" style={{ left: "80%", transform: "translateX(-100%)" }}>
             <div>Pilot</div>
             <div className="font-normal text-ink/60">Sep</div>
           </div>
-          <div className="absolute text-center leading-tight" style={{ left: "100%", transform: "translateX(-50%)" }}>
+          <div className="absolute text-left leading-tight whitespace-nowrap" style={{ left: "100%" }}>
             <div>MASSIVE USE</div>
             <div className="font-normal text-ink/60">Nov</div>
           </div>
