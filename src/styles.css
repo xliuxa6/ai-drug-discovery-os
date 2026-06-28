@@ -47,6 +47,8 @@
   --color-bg-panel: var(--bg-panel);
   --color-success: var(--success);
   --color-success-dim: var(--success-dim);
+  --color-progress-track: var(--progress-track);
+  --color-success-dim: var(--success-dim);
   --font-serif: "Instrument Serif", "Times New Roman", serif;
   --font-sans: "Work Sans", system-ui, sans-serif;
 }
@@ -88,6 +90,8 @@
   --bg-ci: oklch(0.94 0.02 80);
   --bg-infra: oklch(0.90 0.01 250);
   --bg-panel: oklch(0.94 0.01 240);
+  --bg-panel: oklch(0.94 0.01 240);
+  --progress-track: oklch(0.70 0.02 240);
 }
 
 .dark {
@@ -125,6 +129,7 @@
   --bg-ci: oklch(0.34 0.03 80);
   --bg-infra: oklch(0.30 0.03 250);
   --bg-panel: oklch(0.28 0.03 250);
+  --progress-track: oklch(0.45 0.03 250);
 }
 
 html {

@@ -56,7 +56,7 @@ const ciItems: { name: string; value: number }[] = [
 function ProgressBar({ value = 50, showLabels = false }: { value?: number; showLabels?: boolean }) {
   return (
     <div className="mt-1">
-      <div className="relative h-4 w-full overflow-hidden rounded-full bg-paper/70">
+      <div className="relative h-4 w-full overflow-hidden rounded-full bg-progress-track">
         <div
           className="h-full rounded-full"
           style={{
