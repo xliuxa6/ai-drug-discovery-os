@@ -49,7 +49,7 @@ export function SiteNav() {
                     <span
                       className={`flex h-6 w-6 items-center justify-center rounded-full font-mono text-sm font-bold ${
                         isActive
-                          ? "bg-white/20 text-white"
+                          ? "bg-primary-foreground/20 text-primary-foreground"
                           : "bg-muted text-ink/70 group-hover:text-teal"
                       }`}
                     >
