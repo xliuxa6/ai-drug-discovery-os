@@ -111,7 +111,7 @@ function FeasibilityBadge() {
         <circle cx="6" cy="6" r="6" fill="currentColor" />
         <path d="M3.5 6.2L5.2 7.8L8.5 4.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
-      Feasibility Analysis Complete
+      Feasibility Analysis
     </div>
   );
 }
