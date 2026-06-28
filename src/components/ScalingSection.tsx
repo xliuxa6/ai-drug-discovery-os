@@ -159,10 +159,10 @@ export function ScalingSection() {
                   {/* X-axis labels row — diagonal so they don't overlap */}
                   <div />
                   {xLabels.map((label, c) => (
-                    <div key={c} className="relative h-32">
+                    <div key={c} className="relative h-16">
                       {label && (
                         <div
-                          className={`absolute left-1/2 top-1 origin-top-left -rotate-45 whitespace-nowrap text-xs font-medium leading-tight transition-opacity duration-500 md:text-sm ${
+                          className={`absolute bottom-0 left-1/2 origin-bottom-left -rotate-45 whitespace-nowrap text-xs font-medium leading-tight transition-opacity duration-500 md:text-sm ${
                             colRevealed(c, step)
                               ? "text-teal opacity-100"
                               : "text-ink-soft opacity-30"
@@ -173,6 +173,7 @@ export function ScalingSection() {
                       )}
                     </div>
                   ))}
+
 
                 </div>
 
