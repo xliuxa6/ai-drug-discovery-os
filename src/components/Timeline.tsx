@@ -16,7 +16,7 @@ export function Timeline() {
       <div className="mx-auto max-w-6xl px-6 py-10">
         <div className="mb-6 flex items-center gap-3">
           <span className="h-px w-8 bg-teal" />
-          <span className="eyebrow">Program Timeline · 2026</span>
+          <span className="eyebrow text-sm">Program Timeline · 2026</span>
         </div>
         <div className="relative overflow-x-auto pb-2">
           <div className="relative flex min-w-[900px] items-start">
@@ -34,7 +34,7 @@ export function Timeline() {
                   </div>
                 )}
                 <div className="flex min-w-[110px] flex-1 shrink-0 flex-col items-center text-center">
-                  <div className="font-mono text-xs uppercase tracking-wider text-ink-soft">
+                  <div className="font-mono text-sm uppercase tracking-wider text-ink-soft">
                     {m.date}
                   </div>
                   <div className="relative mt-2 flex h-4 items-center justify-center">
@@ -48,7 +48,7 @@ export function Timeline() {
                     )}
                   </div>
                   <div
-                    className={`mt-3 text-xs leading-snug ${
+                    className={`mt-3 text-sm leading-snug ${
                       m.highlight ? "font-medium text-teal" : "text-ink-soft"
                     }`}
                   >
