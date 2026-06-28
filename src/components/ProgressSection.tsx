@@ -1,4 +1,4 @@
-import { SectionHeader } from "./SectionHeader";
+
 
 type Project = { name: string; progress?: number; sub?: string[] };
 
