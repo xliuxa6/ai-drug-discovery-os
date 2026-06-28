@@ -39,11 +39,11 @@ const streams = [
   },
 ];
 
-const ciItems = [
-  "Scientific Finding Tracking",
-  "Disease Deep Dive",
-  "Clinical Data Benchmarking",
-  "Competitive Intelligence Monitoring",
+const ciItems: { name: string; candidates?: string[] }[] = [
+  { name: "Scientific Finding Tracking", candidates: ["PV Literature Search"] },
+  { name: "Disease Deep Dive" },
+  { name: "Clinical Data Benchmarking" },
+  { name: "Competitive Intelligence Monitoring" },
 ];
 
 function ProgressBar({ value = 50, showLabels = false }: { value?: number; showLabels?: boolean }) {
@@ -106,7 +106,7 @@ function ProjectItem({ project, showLabels }: { project: Project; showLabels?: b
 function CandidateItem({ project }: { project: Project }) {
   return (
     <div className="py-1">
-      <div className="text-base font-medium leading-tight text-ink/40">{project.name}</div>
+      <div className="text-base font-medium leading-tight text-ink/60">{project.name}</div>
     </div>
   );
 }
@@ -178,8 +178,19 @@ export function NewProjectsSection() {
           </div>
           <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
             {ciItems.map((item) => (
-              <div key={item} className="text-base font-semibold text-ink">
-                {item}
+              <div key={item.name}>
+                <div className="text-base font-semibold leading-tight text-ink">
+                  {item.name}
+                </div>
+                {item.candidates && item.candidates.length > 0 && (
+                  <div className="mt-1 space-y-1 border-l-2 border-ink/20 pl-4">
+                    {item.candidates.map((c) => (
+                      <div key={c} className="text-base font-medium leading-tight text-ink/60">
+                        {c}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
