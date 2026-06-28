@@ -100,7 +100,7 @@ export function LoopSection() {
 function LoopDiagram() {
   return (
     <div className="relative aspect-square w-full max-w-xl">
-      <svg viewBox="0 0 500 500" className="h-full w-full text-ink">
+      <svg viewBox="0 0 500 440" className="h-full w-full text-ink">
         <defs>
           <marker
             id="arrow-loop"
@@ -118,20 +118,21 @@ function LoopDiagram() {
         {/* outer dotted ring */}
         <circle
           cx="250"
-          cy="250"
-          r="220"
+          cy="220"
+          r="180"
           fill="none"
           stroke="currentColor"
-          strokeOpacity="0.15"
-          strokeDasharray="2 6"
+          strokeOpacity="0.5"
+          strokeWidth="2"
+          strokeDasharray="4 8"
         />
         <text
           x="250"
-          y="34"
+          y="20"
           textAnchor="middle"
           className="fill-current text-xs uppercase tracking-[0.3em]"
           fill="currentColor"
-          opacity="0.5"
+          opacity="0.7"
         >
           Loop Engineering · RL
         </text>
@@ -140,23 +141,23 @@ function LoopDiagram() {
         <g>
           <circle
             cx="120"
-            cy="250"
-            r="80"
+            cy="220"
+            r="70"
             className="fill-teal/15 stroke-teal"
             strokeWidth="1.5"
           />
           <text
             x="120"
-            y="238"
+            y="210"
             textAnchor="middle"
             className="font-serif fill-ink"
-            fontSize="28"
+            fontSize="26"
           >
             AI Agent
           </text>
           <text
             x="120"
-            y="268"
+            y="236"
             textAnchor="middle"
             fontSize="12"
             letterSpacing="2"
@@ -170,25 +171,25 @@ function LoopDiagram() {
         <g>
           <rect
             x="300"
-            y="170"
-            width="160"
-            height="160"
+            y="150"
+            width="150"
+            height="150"
             rx="8"
             className="fill-card stroke-ink"
             strokeWidth="1.5"
           />
           <text
-            x="380"
-            y="238"
+            x="375"
+            y="210"
             textAnchor="middle"
             className="font-serif fill-ink"
-            fontSize="28"
+            fontSize="26"
           >
             Task
           </text>
           <text
-            x="380"
-            y="268"
+            x="375"
+            y="236"
             textAnchor="middle"
             fontSize="12"
             letterSpacing="2"
@@ -201,15 +202,15 @@ function LoopDiagram() {
         {/* Top arrow: inference */}
         <g className="text-teal">
           <path
-            d="M 180 200 Q 250 130 320 200"
+            d="M 180 175 Q 247 115 315 175"
             fill="none"
             stroke="currentColor"
-            strokeWidth="1.5"
+            strokeWidth="2"
             markerEnd="url(#arrow-loop)"
           />
           <text
-            x="250"
-            y="148"
+            x="247"
+            y="138"
             textAnchor="middle"
             fontSize="14"
             className="fill-ink"
@@ -217,8 +218,8 @@ function LoopDiagram() {
             Inference / Action
           </text>
           <text
-            x="250"
-            y="170"
+            x="247"
+            y="156"
             textAnchor="middle"
             fontSize="11"
             letterSpacing="2"
@@ -231,15 +232,15 @@ function LoopDiagram() {
         {/* Bottom arrow: reward */}
         <g className="text-ink-soft">
           <path
-            d="M 320 300 Q 250 370 180 300"
+            d="M 315 265 Q 247 325 180 265"
             fill="none"
             stroke="currentColor"
-            strokeWidth="1.5"
+            strokeWidth="2"
             markerEnd="url(#arrow-loop)"
           />
           <text
-            x="250"
-            y="366"
+            x="247"
+            y="310"
             textAnchor="middle"
             fontSize="14"
             className="fill-ink"
@@ -247,8 +248,8 @@ function LoopDiagram() {
             Reward / Feedback
           </text>
           <text
-            x="250"
-            y="388"
+            x="247"
+            y="328"
             textAnchor="middle"
             fontSize="11"
             letterSpacing="2"
@@ -259,10 +260,10 @@ function LoopDiagram() {
         </g>
 
         {/* corner annotations */}
-        <text x="28" y="452" fontSize="11" letterSpacing="2" className="fill-ink-soft">
+        <text x="48" y="398" fontSize="11" letterSpacing="2" className="fill-ink-soft">
           OUTCOME EVAL
         </text>
-        <text x="360" y="452" fontSize="11" letterSpacing="2" className="fill-ink-soft">
+        <text x="330" y="398" fontSize="11" letterSpacing="2" className="fill-ink-soft">
           REWARD MODEL
         </text>
       </svg>
