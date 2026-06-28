@@ -15,8 +15,8 @@ import {
 
 const links: { id: string; label: string; Icon: LucideIcon }[] = [
   { id: "timeline", label: "Timeline", Icon: Calendar },
-  { id: "progress", label: "Progress", Icon: Activity },
-  { id: "new-projects", label: "New Projects", Icon: Lightbulb },
+  { id: "new-projects", label: "Project Overview", Icon: Lightbulb },
+  { id: "progress", label: "Current Project Progress", Icon: Activity },
   { id: "case-study", label: "Case Study", Icon: FileSearch },
   { id: "loop", label: "Self-Evolving Agent", Icon: RefreshCw },
   { id: "os", label: "Multi-Agent OS", Icon: Network },
