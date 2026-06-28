@@ -374,7 +374,7 @@ export function ScalingSection() {
             </AnimatePresence>
           </svg>
         </div>
-
+      </div>
     </section>
   );
 }
