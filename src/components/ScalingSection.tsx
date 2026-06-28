@@ -86,17 +86,13 @@ export function ScalingSection() {
         />
 
         <div className="mt-4 flex items-center justify-between gap-4">
-          <div className="text-xl font-medium text-ink md:text-2xl">
-            {STEPS[step]}
-          </div>
+          <div className="text-xl font-medium text-ink md:text-2xl">{STEPS[step]}</div>
           <div className="flex items-center gap-3">
             <div className="flex gap-1.5">
               {STEPS.map((_, i) => (
                 <span
                   key={i}
-                  className={`h-2.5 w-8 rounded-full ${
-                    i <= step ? "bg-teal" : "bg-hairline"
-                  }`}
+                  className={`h-2.5 w-8 rounded-full ${i <= step ? "bg-teal" : "bg-hairline"}`}
                 />
               ))}
             </div>
@@ -116,9 +112,7 @@ export function ScalingSection() {
           <div className="relative">
             {/* Target badge — top right */}
             <div className="absolute right-2 top-2 z-10 rounded-lg bg-ink px-5 py-2 text-center shadow-md md:px-6 md:py-3">
-              <div className="font-serif text-2xl text-paper md:text-3xl">
-                Drug R&amp;D
-              </div>
+              <div className="font-serif text-2xl text-paper md:text-3xl">Drug R&amp;D</div>
               <div className="text-xs font-semibold tracking-[0.25em] text-teal-soft md:text-sm">
                 SUPER INTELLIGENCE
               </div>
@@ -146,13 +140,7 @@ export function ScalingSection() {
                     const r = ROWS - 1 - idxFromTop;
                     const labelOn = rowRevealed(r, step);
                     return (
-                      <RowFragment
-                        key={r}
-                        r={r}
-                        step={step}
-                        labelOn={labelOn}
-                        label={yItems[r]}
-                      />
+                      <RowFragment key={r} r={r} step={step} labelOn={labelOn} label={yItems[r]} />
                     );
                   })}
 
