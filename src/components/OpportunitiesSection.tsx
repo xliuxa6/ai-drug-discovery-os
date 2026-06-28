@@ -157,17 +157,17 @@ export function OpportunitiesSection() {
         {/* Title + legend */}
         <div className="mb-3 flex items-end justify-between gap-4">
           <div>
-            <h2 className="font-sans text-2xl font-black leading-[1.05] text-ink md:text-3xl lg:text-4xl">
+            <h2 className="font-sans text-3xl font-black leading-[1.05] text-ink md:text-4xl lg:text-5xl">
               Opportunities Across R&amp;D Value Chain
             </h2>
             <p className="mt-1 text-base text-ink/70 md:text-lg">
               {"\n"}
             </p>
           </div>
-          <div className="flex flex-wrap items-center gap-3 text-sm">
+          <div className="flex flex-wrap items-center gap-3 text-base">
             {(Object.keys(chipClass) as Ownership[]).map((k) => (
               <div key={k} className="flex items-center gap-1.5">
-                <span className={`h-3 w-3 rounded-sm ${dotClass[k]}`} />
+                <span className={`h-4 w-4 rounded-sm ${dotClass[k]}`} />
                 <span className="font-medium text-ink">{k}</span>
               </div>
             ))}
