@@ -94,14 +94,26 @@ export function ScalingSection() {
           lede="Scaling Through Applications × Agentic Capabilities"
         />
 
-        <ul className="mt-2 list-disc space-y-1 pl-6 text-base text-ink md:text-lg">
-          <li>Expand the Application Layer by building specialized tools and scaling trusted data assets</li>
-          <li>Upgrade Agentic Intelligence by embedding advanced reasoning and planning capabilities</li>
-          <li>Accelerate Organizational AI Maturity by developing talent while shipping solutions faster</li>
-        </ul>
+        <div className="mt-2 grid gap-2 md:grid-cols-3">
+          {[
+            "Expand the Application Layer by building specialized tools and scaling trusted data assets",
+            "Upgrade Agentic Intelligence by embedding advanced reasoning and planning capabilities",
+            "Accelerate Organizational AI Maturity by developing talent while shipping solutions faster",
+          ].map((text, i) => (
+            <div
+              key={i}
+              className={`flex items-start gap-2 text-base text-ink transition-opacity duration-500 md:text-lg ${
+                step > i ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal" />
+              <span className="leading-snug">{text}</span>
+            </div>
+          ))}
+        </div>
 
         {/* Next control — above the matrix, far right */}
-        <div className="mt-4 flex items-start justify-end">
+        <div className="mt-2 flex items-start justify-end">
           <button
             onClick={(e) => {
               e.stopPropagation();
