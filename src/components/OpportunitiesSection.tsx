@@ -245,7 +245,7 @@ export function OpportunitiesSection() {
                     return (
                       <div
                         key={app}
-                        className={`rounded-md border px-2 py-1.5 text-[12px] font-semibold leading-tight md:text-[13px] ${chipClass[own]}`}
+                        className={`rounded-md border px-2 py-1.5 text-[13px] font-semibold leading-tight md:text-sm ${chipClass[own]}`}
                       >
                         {app}
                       </div>
