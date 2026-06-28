@@ -120,7 +120,17 @@ function FeasibilityBadge() {
   );
 }
 
-function ProjectItem({ project, showLabels, animate }: { project: Project; showLabels?: boolean; animate?: boolean }) {
+function ProjectItem({
+  project,
+  showLabels,
+  animate,
+  resetting,
+}: {
+  project: Project;
+  showLabels?: boolean;
+  animate?: boolean;
+  resetting?: boolean;
+}) {
   return (
     <div className="py-1">
       <div className="flex items-start gap-2">
@@ -132,7 +142,7 @@ function ProjectItem({ project, showLabels, animate }: { project: Project; showL
       </div>
       {!project.feasibility && (
         <div className="ml-[14px]">
-          <ProgressBar value={project.value ?? 50} showLabels={showLabels} animate={animate} />
+          <ProgressBar value={project.value ?? 50} showLabels={showLabels} animate={animate} resetting={resetting} />
         </div>
       )}
       {project.sub && (
@@ -143,7 +153,7 @@ function ProjectItem({ project, showLabels, animate }: { project: Project; showL
                 <span className="font-medium">{s.name}</span>
                 {s.feasibility && <> <FeasibilityBadge /></>}
               </div>
-              {!s.feasibility && <ProgressBar value={s.value ?? 50} animate={animate} />}
+              {!s.feasibility && <ProgressBar value={s.value ?? 50} animate={animate} resetting={resetting} />}
             </div>
           ))}
         </div>
