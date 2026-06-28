@@ -202,15 +202,15 @@ function LoopDiagram() {
         {/* Top arrow: inference */}
         <g className="text-teal">
           <path
-            d="M 180 175 Q 247 115 315 175"
+            d="M 180 175 Q 235 115 290 175"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
             markerEnd="url(#arrow-loop)"
           />
           <text
-            x="247"
-            y="138"
+            x="235"
+            y="115"
             textAnchor="middle"
             fontSize="14"
             className="fill-ink"
@@ -218,8 +218,8 @@ function LoopDiagram() {
             Inference / Action
           </text>
           <text
-            x="247"
-            y="156"
+            x="235"
+            y="132"
             textAnchor="middle"
             fontSize="11"
             letterSpacing="2"
