@@ -13,7 +13,7 @@ export function LoopSection() {
           title="Loop Engineering for Self-Evolving Agents"
         />
 
-        <div className="mb-4 grid gap-3 sm:grid-cols-2">
+        <div className="mb-2 grid gap-3 sm:grid-cols-2">
           {[
             {
               title: "Learn",
@@ -47,7 +47,7 @@ export function LoopSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="grid h-full gap-4 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8"
+          className="grid h-full gap-2 lg:grid-cols-[1.1fr_0.9fr] lg:gap-6"
         >
           <LoopDiagram />
 
