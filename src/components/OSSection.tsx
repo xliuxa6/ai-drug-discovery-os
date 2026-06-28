@@ -223,17 +223,6 @@ function OSDiagram() {
             KERNEL
           </text>
         </g>
-
-        <text
-          x="500"
-          y="472"
-          textAnchor="middle"
-          fontSize="12"
-          letterSpacing="3"
-          className="fill-ink-soft"
-        >
-          {" "}
-        </text>
       </svg>
     </div>
   );
