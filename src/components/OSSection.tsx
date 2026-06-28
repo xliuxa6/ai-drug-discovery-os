@@ -85,7 +85,7 @@ export function OSSection() {
             Multi-agent Platform for Drug R&D AI OS
           </h2>
           <p className="mt-2 max-w-3xl text-lg leading-relaxed text-ink md:text-xl">
-            No single agent solves a drug program. The R&D AI OS routes tasks, shares context, and orchestrates specialized agents — turning fragmented tools into one coherent workflow.
+            Complex problems are rarely solved by a single agent—they require coordinated multi-agent orchestration - turning fragmented into one coherent workflow.
           </p>
         </div>
 
