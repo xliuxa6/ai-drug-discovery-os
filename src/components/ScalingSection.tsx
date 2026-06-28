@@ -106,8 +106,8 @@ function ScalingChart() {
       <svg viewBox={`0 0 ${W} ${H}`} className="h-auto w-full">
         <defs>
           <linearGradient id="diag" x1="0" x2="1" y1="1" y2="0">
-            <stop offset="0%" stopColor="oklch(0.82 0.05 210)" />
-            <stop offset="100%" stopColor="oklch(0.45 0.13 220)" />
+            <stop offset="0%" stopColor="var(--color-teal-soft)" />
+            <stop offset="100%" stopColor="var(--color-teal)" />
           </linearGradient>
           <marker
             id="arrow-diag"
@@ -118,7 +118,7 @@ function ScalingChart() {
             markerHeight="10"
             orient="auto-start-reverse"
           >
-            <path d="M0,0 L10,5 L0,10 z" fill="oklch(0.45 0.13 220)" />
+            <path d="M0,0 L10,5 L0,10 z" fill="var(--color-teal)" />
           </marker>
         </defs>
 
@@ -128,7 +128,7 @@ function ScalingChart() {
           y1={H - padB}
           x2={W - padR}
           y2={H - padB}
-          stroke="oklch(0.22 0.04 250)"
+          className="stroke-ink"
           strokeWidth="1.5"
         />
         <line
@@ -136,7 +136,7 @@ function ScalingChart() {
           y1={H - padB}
           x2={padL}
           y2={padT}
-          stroke="oklch(0.22 0.04 250)"
+          className="stroke-ink"
           strokeWidth="1.5"
         />
 
@@ -151,7 +151,7 @@ function ScalingChart() {
                 y1={y}
                 x2={W - padR}
                 y2={y}
-                stroke="oklch(0.88 0.01 240)"
+                className="stroke-hairline"
                 strokeDasharray="2 4"
               />
               <text
@@ -159,7 +159,7 @@ function ScalingChart() {
                 y={y + 5}
                 textAnchor="end"
                 fontSize="14"
-                fill="oklch(0.22 0.04 250)"
+                className="fill-ink"
               >
                 {t}
               </text>
@@ -178,7 +178,7 @@ function ScalingChart() {
                 y1={H - padB}
                 x2={x}
                 y2={padT}
-                stroke="oklch(0.88 0.01 240)"
+                className="stroke-hairline"
                 strokeDasharray="2 4"
               />
               <text
@@ -186,7 +186,7 @@ function ScalingChart() {
                 y={H - padB + 26}
                 textAnchor="middle"
                 fontSize="14"
-                fill="oklch(0.22 0.04 250)"
+                className="fill-ink"
               >
                 {t}
               </text>
@@ -201,7 +201,7 @@ function ScalingChart() {
           textAnchor="end"
           fontSize="12"
           letterSpacing="3"
-          fill="oklch(0.58 0.09 210)"
+          className="fill-teal"
         >
           AGENTIC CAPABILITY ↑
         </text>
@@ -211,7 +211,7 @@ function ScalingChart() {
           textAnchor="end"
           fontSize="12"
           letterSpacing="3"
-          fill="oklch(0.58 0.09 210)"
+          className="fill-teal"
         >
           ACTION SPACE →
         </text>
@@ -235,15 +235,14 @@ function ScalingChart() {
             width="200"
             height="46"
             rx="6"
-            fill="oklch(0.22 0.04 250)"
+            className="fill-ink"
           />
           <text
             x={W - padR - 140}
             y={padT + 36}
             textAnchor="middle"
-            className="font-serif"
+            className="font-serif fill-paper"
             fontSize="18"
-            fill="oklch(0.97 0.01 240)"
           >
             Drug R&amp;D
           </text>
@@ -253,7 +252,7 @@ function ScalingChart() {
             textAnchor="middle"
             fontSize="12"
             letterSpacing="3"
-            fill="oklch(0.82 0.05 210)"
+            className="fill-teal-soft"
           >
             SUPER INTELLIGENCE
           </text>
@@ -264,7 +263,7 @@ function ScalingChart() {
           x={padL + 8}
           y={H - padB - 10}
           fontSize="12"
-          fill="oklch(0.45 0.03 250)"
+          className="fill-ink-soft"
         >
           today
         </text>
