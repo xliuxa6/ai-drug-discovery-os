@@ -100,8 +100,8 @@ export function ScalingSection() {
           <li>Accelerate Organizational AI Maturity by developing talent while shipping solutions faster</li>
         </ul>
 
-        {/* Target badge + Next — above the matrix */}
-        <div className="mt-4 flex items-start justify-end gap-3">
+        {/* Next control — above the matrix, far right */}
+        <div className="mt-4 flex items-start justify-end">
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -111,12 +111,6 @@ export function ScalingSection() {
           >
             Next
           </button>
-          <div className="rounded-lg bg-ink px-5 py-2 text-center shadow-md md:px-6 md:py-3">
-            <div className="font-serif text-2xl text-paper md:text-3xl">Drug R&amp;D</div>
-            <div className="text-xs font-semibold tracking-[0.25em] text-teal-soft md:text-sm">
-              SUPER INTELLIGENCE
-            </div>
-          </div>
         </div>
 
         <div
