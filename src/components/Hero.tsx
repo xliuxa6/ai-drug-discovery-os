@@ -12,7 +12,7 @@ export function Hero() {
           <span className="h-px w-12 bg-teal" />
           <span className="eyebrow text-base">A thesis in three movements</span>
         </div>
-        <h1 className="max-w-5xl text-6xl leading-[1.05] text-ink md:text-8xl">
+        <h1 className="font-sans max-w-5xl text-6xl leading-[1.05] text-ink md:text-8xl">
           Engineering the loop, the operating system,
           <span className="text-teal"> and the two scalings</span> behind Drug
           R&amp;D Super Intelligence.
