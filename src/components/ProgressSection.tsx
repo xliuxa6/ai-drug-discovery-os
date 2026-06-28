@@ -36,15 +36,55 @@ const ciItems = [
   "Competitive Intelligence Monitoring",
 ];
 
-function ProjectItem({ project }: { project: Project }) {
+function ProgressBar({ value = 50, showLabels = false }: { value?: number; showLabels?: boolean }) {
+  return (
+    <div className="mt-1">
+      <div className="relative h-4 w-full overflow-hidden rounded-full bg-paper/70">
+        <div
+          className="h-full rounded-full"
+          style={{
+            width: `${value}%`,
+            backgroundImage:
+              "repeating-linear-gradient(45deg, var(--success) 0 6px, var(--success-dim) 6px 12px)",
+          }}
+        />
+      </div>
+      {/* Markers below the bar pointing up */}
+        <div className="relative h-3">
+          <div className="absolute top-0 -translate-x-1/2" style={{ left: "80%" }}>
+            <div className="h-0 w-0 border-x-[7px] border-b-[10px] border-x-transparent border-b-teal" />
+          </div>
+          <div className="absolute top-0 -translate-x-1/2" style={{ left: "100%" }}>
+            <div className="h-0 w-0 border-x-[7px] border-b-[10px] border-x-transparent border-b-ink" />
+          </div>
+        </div>
+      {showLabels && (
+        <div className="relative mt-1 h-12 text-sm font-semibold uppercase tracking-wider text-ink/80">
+          <div className="absolute text-center leading-tight" style={{ left: "80%", transform: "translateX(-50%)" }}>
+            <div>Pilot</div>
+            <div className="font-normal text-ink/60">September</div>
+          </div>
+          <div className="absolute right-0 top-0 text-right leading-tight">
+            <div>Massive Reuse</div>
+            <div className="font-normal text-ink/60">November</div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ProjectItem({ project, showLabels }: { project: Project; showLabels?: boolean }) {
   return (
     <div className="py-1">
-      <div className="text-lg font-semibold leading-tight text-ink">{project.name}</div>
+      <div className="text-base font-semibold leading-tight text-ink">{project.name}</div>
+      <ProgressBar value={50} showLabels={showLabels} />
       {project.sub && (
         <div className="mt-2 space-y-2 border-l-2 border-ink/20 pl-4">
           {project.sub.map((s) => (
-            <div key={s} className="text-base font-medium text-ink/90">
-              {s}
+            <div key={s}>
+              <div className="text-sm font-medium text-ink/90">{s}</div>
+              <ProgressBar value={50} />
             </div>
           ))}
         </div>
@@ -70,12 +110,13 @@ function Arrows({ count }: { count: number }) {
 }
 
 export function ProgressSection() {
+  let firstShown = false;
   return (
     <section id="progress" className="border-t border-hairline bg-paper pt-6 pb-6">
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
-        <div className="mb-6 flex items-center gap-3">
+        <div className="mb-4 flex items-center gap-3">
           <span className="h-px w-12 bg-teal/60" />
-          <span className="eyebrow text-lg font-bold">Current Project Progress · Five Streams</span>
+          <span className="eyebrow text-base">Current Project Progress · Five Streams</span>
         </div>
 
         {/* Tier 3: Applications */}
@@ -89,9 +130,11 @@ export function ProgressSection() {
                 {stream.title}
               </div>
               <div className="space-y-2">
-                {stream.projects.map((p) => (
-                  <ProjectItem key={p.name} project={p} />
-                ))}
+                {stream.projects.map((p) => {
+                  const showLabels = !firstShown;
+                  firstShown = true;
+                  return <ProjectItem key={p.name} project={p} showLabels={showLabels} />;
+                })}
               </div>
             </div>
           ))}
@@ -107,7 +150,10 @@ export function ProgressSection() {
           </div>
           <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
             {ciItems.map((item) => (
-              <div key={item} className="text-lg font-semibold text-ink">
+              <div
+                key={item}
+                className="text-base font-semibold text-ink"
+              >
                 {item}
               </div>
             ))}
