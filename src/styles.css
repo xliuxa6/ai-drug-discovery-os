@@ -124,6 +124,7 @@
   --bg-frontier: oklch(0.32 0.03 270);
   --bg-ci: oklch(0.34 0.03 80);
   --bg-infra: oklch(0.30 0.03 250);
+  --bg-panel: oklch(0.28 0.03 250);
 }
 
 html {
