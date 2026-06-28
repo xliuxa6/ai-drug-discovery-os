@@ -6,6 +6,7 @@ import { OSSection } from "@/components/OSSection";
 import { ScalingSection } from "@/components/ScalingSection";
 import { PlaceholderSection } from "@/components/PlaceholderSection";
 import { ProgressSection } from "@/components/ProgressSection";
+import { NewProjectsSection } from "@/components/NewProjectsSection";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -38,12 +39,8 @@ function Index() {
 
         <ProgressSection />
 
-        <PlaceholderSection
-          id="new-projects"
-          eyebrow="Potential New Projects"
-          title="Candidate projects under evaluation."
-          lede="A shortlist of new opportunities being scoped for the next wave — problem statements, hypotheses, and expected value."
-        />
+        <NewProjectsSection />
+
 
         <PlaceholderSection
           id="case-study"
