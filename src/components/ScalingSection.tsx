@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Play } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 
 // Action Space — applications, tools & data (left → right)
@@ -119,9 +120,10 @@ export function ScalingSection() {
               e.stopPropagation();
               next();
             }}
-            className="rounded-full bg-ink px-5 py-1.5 text-sm font-semibold text-paper shadow-sm transition-transform hover:scale-105 active:scale-95 md:text-base"
+            aria-label="Next step"
+            className="inline-flex items-center justify-center rounded-full bg-ink p-3 text-paper shadow-sm transition-transform hover:scale-105 active:scale-95"
           >
-            Next
+            <Play className="h-6 w-6" />
           </button>
         </div>
 
