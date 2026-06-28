@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { Play, RotateCcw } from "lucide-react";
+
 type Project = {
   name: string;
   sub?: { name: string; value?: number; feasibility?: boolean }[];
@@ -53,7 +56,7 @@ const ciItems: { name: string; value: number }[] = [
   { name: "Competitive Intelligence Monitoring", value: 50 },
 ];
 
-function ProgressBar({ value = 50, showLabels = false }: { value?: number; showLabels?: boolean }) {
+function ProgressBar({ value = 50, showLabels = false, animate = false }: { value?: number; showLabels?: boolean; animate?: boolean }) {
   return (
     <div className="mt-1 w-[65%]">
       {/* Markers above the bar, pointing down */}
@@ -69,9 +72,9 @@ function ProgressBar({ value = 50, showLabels = false }: { value?: number; showL
       {/* Progress track */}
       <div className="relative h-3 w-full overflow-hidden rounded-full bg-progress-track">
         <div
-          className="h-full rounded-full"
+          className="h-full rounded-full transition-[width] duration-1000 ease-out"
           style={{
-            width: `${value}%`,
+            width: animate ? `${value}%` : "0%",
             backgroundImage:
               "repeating-linear-gradient(45deg, var(--success) 0 5px, var(--success-dim) 5px 10px)",
           }}
@@ -105,7 +108,7 @@ function FeasibilityBadge() {
   );
 }
 
-function ProjectItem({ project, showLabels }: { project: Project; showLabels?: boolean }) {
+function ProjectItem({ project, showLabels, animate }: { project: Project; showLabels?: boolean; animate?: boolean }) {
   return (
     <div className="py-1">
       <div className="flex items-start gap-2">
@@ -117,7 +120,7 @@ function ProjectItem({ project, showLabels }: { project: Project; showLabels?: b
       </div>
       {!project.feasibility && (
         <div className="ml-[14px]">
-          <ProgressBar value={project.value ?? 50} showLabels={showLabels} />
+          <ProgressBar value={project.value ?? 50} showLabels={showLabels} animate={animate} />
         </div>
       )}
       {project.sub && (
@@ -128,7 +131,7 @@ function ProjectItem({ project, showLabels }: { project: Project; showLabels?: b
                 <span className="font-medium">{s.name}</span>
                 {s.feasibility && <> <FeasibilityBadge /></>}
               </div>
-              {!s.feasibility && <ProgressBar value={s.value ?? 50} />}
+              {!s.feasibility && <ProgressBar value={s.value ?? 50} animate={animate} />}
             </div>
           ))}
         </div>
@@ -138,14 +141,32 @@ function ProjectItem({ project, showLabels }: { project: Project; showLabels?: b
 }
 
 export function ProgressSection() {
+  const [animate, setAnimate] = useState(false);
   let firstShown = false;
+
+  const handlePlay = () => {
+    if (animate) {
+      setAnimate(false);
+      setTimeout(() => setAnimate(true), 60);
+    } else {
+      setAnimate(true);
+    }
+  };
+
   return (
     <section id="progress" className="border-t border-hairline bg-paper pt-6 pb-6">
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
-        <div className="mb-8">
+        <div className="mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <h2 className="text-4xl font-black leading-[1.05] text-ink md:text-5xl lg:text-6xl">
             Current Project Progress
           </h2>
+          <button
+            onClick={handlePlay}
+            className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-paper shadow-sm transition-colors hover:bg-teal focus:outline-none focus:ring-2 focus:ring-teal focus:ring-offset-2"
+          >
+            {animate ? <RotateCcw className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+            {animate ? "Replay" : "Play Progress"}
+          </button>
         </div>
 
         {/* Tier 3: Applications */}
@@ -162,7 +183,7 @@ export function ProgressSection() {
                 {stream.projects.map((p) => {
                   const needsLabels = !firstShown && !p.feasibility;
                   if (needsLabels) firstShown = true;
-                  return <ProjectItem key={p.name} project={p} showLabels={needsLabels} />;
+                  return <ProjectItem key={p.name} project={p} showLabels={needsLabels} animate={animate} />;
                 })}
               </div>
             </div>
@@ -182,7 +203,7 @@ export function ProgressSection() {
                   <div className="text-lg font-semibold leading-none text-ink">{item.name}</div>
                 </div>
                 <div className="ml-[14px]">
-                  <ProgressBar value={item.value} />
+                  <ProgressBar value={item.value} animate={animate} />
                 </div>
               </div>
             ))}
