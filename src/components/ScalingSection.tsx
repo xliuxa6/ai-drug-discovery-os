@@ -162,7 +162,7 @@ export function ScalingSection() {
                     <div key={c} className="relative h-16">
                       {label && (
                         <div
-                          className={`absolute bottom-0 left-1/2 origin-bottom-left -rotate-45 whitespace-nowrap text-xs font-medium leading-tight transition-opacity duration-500 md:text-sm ${
+                          className={`absolute bottom-0 left-1/2 origin-bottom-left rotate-45 whitespace-nowrap text-xs font-medium leading-tight transition-opacity duration-500 md:text-sm ${
                             colRevealed(c, step)
                               ? "text-teal opacity-100"
                               : "text-ink-soft opacity-30"
