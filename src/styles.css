@@ -166,3 +166,7 @@ html {
   color: var(--color-teal);
   font-weight: 500;
 }
+
+@utility font-wide {
+  font-family: "Archivo Black", "Arial Black", system-ui, sans-serif;
+}
