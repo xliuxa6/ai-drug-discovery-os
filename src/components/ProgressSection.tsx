@@ -55,23 +55,23 @@ const ciItems: { name: string; value: number }[] = [
 
 function ProgressBar({ value = 50, showLabels = false }: { value?: number; showLabels?: boolean }) {
   return (
-    <div className="mt-1">
-      <div className="relative h-6 w-full overflow-hidden rounded-full bg-progress-track">
+    <div className="mt-1 w-[65%]">
+      <div className="relative h-3 w-full overflow-hidden rounded-full bg-progress-track">
         <div
           className="h-full rounded-full"
           style={{
             width: `${value}%`,
             backgroundImage:
-              "repeating-linear-gradient(45deg, var(--success) 0 6px, var(--success-dim) 6px 12px)",
+              "repeating-linear-gradient(45deg, var(--success) 0 5px, var(--success-dim) 5px 10px)",
           }}
         />
         {/* Markers centered inside the bar, pointing up */}
         <div className="absolute inset-y-0 w-full">
           <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2" style={{ left: "80%" }}>
-            <div className="h-0 w-0 border-x-[8px] border-b-[12px] border-x-transparent border-b-teal drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]" />
+            <div className="h-0 w-0 border-x-[5px] border-b-[7px] border-x-transparent border-b-teal drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]" />
           </div>
           <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2" style={{ left: "100%" }}>
-            <div className="h-0 w-0 border-x-[8px] border-b-[12px] border-x-transparent border-b-ink drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]" />
+            <div className="h-0 w-0 border-x-[5px] border-b-[7px] border-x-transparent border-b-ink drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]" />
           </div>
         </div>
       </div>
