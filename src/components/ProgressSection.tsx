@@ -1,15 +1,25 @@
-type Project = { name: string; sub?: string[] };
+type Project = {
+  name: string;
+  sub?: { name: string; value?: number; feasibility?: boolean }[];
+  value?: number;
+  feasibility?: boolean;
+};
 
-const streams = [
+const streams: {
+  id: string;
+  title: string;
+  color: string;
+  projects: Project[];
+}[] = [
   {
     id: "search",
     title: "Search & Evaluation",
     color: "bg-bg-search",
     projects: [
-      { name: "Target Research" },
-      { name: "Animal Model Translatability Evaluation" },
-      { name: "ADMET Prediction" },
-      { name: "Molecule Differentiation Analysis" },
+      { name: "Target Research", value: 80 },
+      { name: "ADMET Prediction", value: 70 },
+      { name: "Molecule Differentiation Analysis", value: 50 },
+      { name: "Animal Model Translatability Evaluation", value: 20 },
     ],
   },
   {
@@ -17,23 +27,30 @@ const streams = [
     title: "Clinical Development",
     color: "bg-bg-clinical",
     projects: [
-      { name: "Clinical Study QC & QA", sub: ["Protocol Deviation Analysis"] },
-      { name: "Project Risk & Issue Identification & Management" },
+      {
+        name: "Clinical Study QC & QA",
+        feasibility: true,
+        sub: [{ name: "Protocol Deviation Analysis", value: 70 }],
+      },
+      { name: "Project Risk & Issue Identification & Management", feasibility: true },
     ],
   },
   {
     id: "frontier",
     title: "Frontier Technology",
     color: "bg-bg-frontier",
-    projects: [{ name: "Virtual Cell" }, { name: "Digital Pathology" }],
+    projects: [
+      { name: "Virtual Cell", value: 20 },
+      { name: "Digital Pathology", feasibility: true },
+    ],
   },
 ];
 
-const ciItems = [
-  "Scientific Finding Tracking",
-  "Disease Deep Dive",
-  "Clinical Data Benchmarking",
-  "Competitive Intelligence Monitoring",
+const ciItems: { name: string; value: number }[] = [
+  { name: "Scientific Finding Tracking", value: 50 },
+  { name: "Disease Deep Dive", value: 50 },
+  { name: "Clinical Data Benchmarking", value: 50 },
+  { name: "Competitive Intelligence Monitoring", value: 50 },
 ];
 
 function ProgressBar({ value = 50, showLabels = false }: { value?: number; showLabels?: boolean }) {
@@ -50,14 +67,14 @@ function ProgressBar({ value = 50, showLabels = false }: { value?: number; showL
         />
       </div>
       {/* Markers below the bar pointing up */}
-        <div className="relative h-3">
-          <div className="absolute top-0 -translate-x-1/2" style={{ left: "80%" }}>
-            <div className="h-0 w-0 border-x-[7px] border-b-[10px] border-x-transparent border-b-teal" />
-          </div>
-          <div className="absolute top-0 -translate-x-1/2" style={{ left: "100%" }}>
-            <div className="h-0 w-0 border-x-[7px] border-b-[10px] border-x-transparent border-b-ink" />
-          </div>
+      <div className="relative h-3">
+        <div className="absolute top-0 -translate-x-1/2" style={{ left: "80%" }}>
+          <div className="h-0 w-0 border-x-[7px] border-b-[10px] border-x-transparent border-b-teal" />
         </div>
+        <div className="absolute top-0 -translate-x-1/2" style={{ left: "100%" }}>
+          <div className="h-0 w-0 border-x-[7px] border-b-[10px] border-x-transparent border-b-ink" />
+        </div>
+      </div>
       {showLabels && (
         <div className="relative mt-1 h-12 text-sm font-semibold uppercase tracking-wider text-ink/80">
           <div className="absolute text-center leading-tight" style={{ left: "80%", transform: "translateX(-50%)" }}>
@@ -74,17 +91,33 @@ function ProgressBar({ value = 50, showLabels = false }: { value?: number; showL
   );
 }
 
+function FeasibilityBadge() {
+  return (
+    <div className="mt-1 inline-flex items-center gap-1.5 rounded-full bg-teal/10 px-2 py-0.5 text-xs font-semibold uppercase tracking-wider text-teal">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+        <circle cx="6" cy="6" r="6" fill="currentColor" />
+        <path d="M3.5 6.2L5.2 7.8L8.5 4.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+      Feasibility Analysis Complete
+    </div>
+  );
+}
+
 function ProjectItem({ project, showLabels }: { project: Project; showLabels?: boolean }) {
   return (
     <div className="py-1">
       <div className="text-base font-semibold leading-tight text-ink">{project.name}</div>
-      <ProgressBar value={50} showLabels={showLabels} />
+      {project.feasibility ? (
+        <FeasibilityBadge />
+      ) : (
+        <ProgressBar value={project.value ?? 50} showLabels={showLabels} />
+      )}
       {project.sub && (
         <div className="mt-2 space-y-2 border-l-2 border-ink/20 pl-4">
           {project.sub.map((s) => (
-            <div key={s}>
-              <div className="text-sm font-medium text-ink/90">{s}</div>
-              <ProgressBar value={50} />
+            <div key={s.name}>
+              <div className="text-sm font-medium text-ink/90">{s.name}</div>
+              {s.feasibility ? <FeasibilityBadge /> : <ProgressBar value={s.value ?? 50} />}
             </div>
           ))}
         </div>
@@ -131,9 +164,9 @@ export function ProgressSection() {
               </div>
               <div className="space-y-2">
                 {stream.projects.map((p) => {
-                  const showLabels = !firstShown;
-                  firstShown = true;
-                  return <ProjectItem key={p.name} project={p} showLabels={showLabels} />;
+                  const needsLabels = !firstShown && !p.feasibility;
+                  if (needsLabels) firstShown = true;
+                  return <ProjectItem key={p.name} project={p} showLabels={needsLabels} />;
                 })}
               </div>
             </div>
@@ -148,13 +181,11 @@ export function ProgressSection() {
           <div className="mb-2 text-center text-xl font-bold uppercase tracking-[0.12em] text-ink">
             Competitive Intelligence & Scientific Finding Tracking
           </div>
-          <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-x-6 gap-y-1 md:grid-cols-2">
             {ciItems.map((item) => (
-              <div
-                key={item}
-                className="text-base font-semibold text-ink"
-              >
-                {item}
+              <div key={item.name} className="py-1">
+                <div className="text-base font-semibold leading-tight text-ink">{item.name}</div>
+                <ProgressBar value={item.value} />
               </div>
             ))}
           </div>
