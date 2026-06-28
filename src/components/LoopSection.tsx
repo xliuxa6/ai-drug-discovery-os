@@ -19,35 +19,76 @@ export function LoopSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]"
+          className="grid h-full gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12"
         >
           <LoopDiagram />
 
-          <div className="space-y-6">
-            {[
-              {
-                k: "Inference → Action",
-                v: "The agent reasons over the task, drafts a plan, and executes — producing a trajectory of decisions and tool calls.",
-              },
-              {
-                k: "Outcome Evaluation",
-                v: "The task scores the result against ground truth, expert rubrics, or downstream metrics — yielding a dense reward.",
-              },
-              {
-                k: "Policy Update",
-                v: "The signal flows back through RL fine-tuning, updating the agent so the next inference is measurably better.",
-              },
-            ].map((row) => (
-              <div
-                key={row.k}
-                className="border-l-2 border-teal/40 pl-5 transition-colors hover:border-teal"
-              >
-                <div className="eyebrow text-base mb-2">{row.k}</div>
-                <p className="text-lg text-ink">{row.v}</p>
+          <div className="flex h-full flex-col justify-between">
+            <div className="space-y-4">
+              {[
+                {
+                  k: "Inference → Action",
+                  v: "The agent reasons over the task, drafts a plan, and executes — producing a trajectory of decisions and tool calls.",
+                },
+                {
+                  k: "Outcome Evaluation",
+                  v: "The task scores the result against ground truth, expert rubrics, or downstream metrics — yielding a dense reward.",
+                },
+                {
+                  k: "Policy Update",
+                  v: "The signal flows back through RL fine-tuning, updating the agent so the next inference is measurably better.",
+                },
+              ].map((row) => (
+                <div
+                  key={row.k}
+                  className="border-l-2 border-teal/40 pl-5 transition-colors hover:border-teal"
+                >
+                  <div className="eyebrow text-base mb-2">{row.k}</div>
+                  <p className="text-base text-ink md:text-lg">{row.v}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-4 rounded-lg border border-hairline bg-card p-4 md:p-5">
+              <div className="eyebrow text-sm mb-3 md:text-base">
+                Enhancing Agentic Capability
               </div>
-            ))}
+              <div className="space-y-3">
+                {[
+                  {
+                    title: "Prompt Engineering",
+                    desc: "Shape how the agent reasons through instructions, templates, and chain-of-thought triggers.",
+                  },
+                  {
+                    title: "Context Engineering",
+                    desc: "Curate the right evidence, memory, and retrieval context so the agent decides from the best inputs.",
+                  },
+                  {
+                    title: "Harness Engineering",
+                    desc: "Add tools, validators, guardrails, and feedback channels that keep the agent aligned and on-task.",
+                  },
+                  {
+                    title: "Loop Engineering",
+                    desc: "Close the execution-evaluation-update loop so every task outcome becomes a training signal for the agent.",
+                  },
+                ].map((item) => (
+                  <div key={item.title} className="flex gap-3">
+                    <div className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-teal" />
+                    <div>
+                      <div className="text-base font-semibold text-ink md:text-lg">
+                        {item.title}
+                      </div>
+                      <p className="text-sm text-ink-soft md:text-base">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </motion.div>
+
       </div>
     </section>
   );
