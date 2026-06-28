@@ -57,7 +57,7 @@ export function LoopSection() {
 function LoopDiagram() {
   return (
     <div className="relative aspect-square w-full max-w-xl">
-      <svg viewBox="0 0 500 500" className="h-full w-full">
+      <svg viewBox="0 0 500 500" className="h-full w-full text-ink">
         <defs>
           <marker
             id="arrow-loop"
@@ -99,17 +99,15 @@ function LoopDiagram() {
             cx="120"
             cy="250"
             r="80"
-            fill="oklch(0.97 0.02 210)"
-            stroke="oklch(0.58 0.09 210)"
+            className="fill-teal/15 stroke-teal"
             strokeWidth="1.5"
           />
           <text
             x="120"
             y="238"
             textAnchor="middle"
-            className="font-serif"
+            className="font-serif fill-ink"
             fontSize="28"
-            fill="oklch(0.22 0.04 250)"
           >
             AI Agent
           </text>
@@ -119,7 +117,7 @@ function LoopDiagram() {
             textAnchor="middle"
             fontSize="12"
             letterSpacing="2"
-            fill="oklch(0.45 0.03 250)"
+            className="fill-ink-soft"
           >
             POLICY · π
           </text>
@@ -133,17 +131,15 @@ function LoopDiagram() {
             width="160"
             height="160"
             rx="8"
-            fill="oklch(0.99 0 0)"
-            stroke="oklch(0.22 0.04 250)"
+            className="fill-card stroke-ink"
             strokeWidth="1.5"
           />
           <text
             x="380"
             y="238"
             textAnchor="middle"
-            className="font-serif"
+            className="font-serif fill-ink"
             fontSize="28"
-            fill="oklch(0.22 0.04 250)"
           >
             Task
           </text>
@@ -153,14 +149,14 @@ function LoopDiagram() {
             textAnchor="middle"
             fontSize="12"
             letterSpacing="2"
-            fill="oklch(0.45 0.03 250)"
+            className="fill-ink-soft"
           >
             ENVIRONMENT
           </text>
         </g>
 
         {/* Top arrow: inference */}
-        <g style={{ color: "oklch(0.58 0.09 210)" }}>
+        <g className="text-teal">
           <path
             d="M 180 200 Q 250 130 320 200"
             fill="none"
@@ -173,7 +169,7 @@ function LoopDiagram() {
             y="148"
             textAnchor="middle"
             fontSize="14"
-            fill="oklch(0.22 0.04 250)"
+            className="fill-ink"
           >
             Inference / Action
           </text>
@@ -183,14 +179,14 @@ function LoopDiagram() {
             textAnchor="middle"
             fontSize="11"
             letterSpacing="2"
-            fill="oklch(0.45 0.03 250)"
+            className="fill-ink-soft"
           >
             TRAJECTORY · τ
           </text>
         </g>
 
         {/* Bottom arrow: reward */}
-        <g style={{ color: "oklch(0.45 0.03 250)" }}>
+        <g className="text-ink-soft">
           <path
             d="M 320 300 Q 250 370 180 300"
             fill="none"
@@ -203,7 +199,7 @@ function LoopDiagram() {
             y="366"
             textAnchor="middle"
             fontSize="14"
-            fill="oklch(0.22 0.04 250)"
+            className="fill-ink"
           >
             Reward / Feedback
           </text>
@@ -213,17 +209,17 @@ function LoopDiagram() {
             textAnchor="middle"
             fontSize="11"
             letterSpacing="2"
-            fill="oklch(0.45 0.03 250)"
+            className="fill-ink-soft"
           >
             POLICY UPDATE
           </text>
         </g>
 
         {/* corner annotations */}
-        <text x="28" y="452" fontSize="11" letterSpacing="2" fill="oklch(0.45 0.03 250)">
+        <text x="28" y="452" fontSize="11" letterSpacing="2" className="fill-ink-soft">
           OUTCOME EVAL
         </text>
-        <text x="360" y="452" fontSize="11" letterSpacing="2" fill="oklch(0.45 0.03 250)">
+        <text x="360" y="452" fontSize="11" letterSpacing="2" className="fill-ink-soft">
           REWARD MODEL
         </text>
       </svg>

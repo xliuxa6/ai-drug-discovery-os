@@ -88,7 +88,7 @@ function OSDiagram() {
             markerHeight="6"
             orient="auto-start-reverse"
           >
-            <path d="M0,0 L10,5 L0,10 z" fill="oklch(0.58 0.09 210)" />
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor" />
           </marker>
         </defs>
 
@@ -100,15 +100,14 @@ function OSDiagram() {
             width="160"
             height="80"
             rx="6"
-            fill="oklch(0.22 0.04 250)"
+            className="fill-ink"
           />
           <text
             x="400"
             y="188"
             textAnchor="middle"
-            className="font-serif"
+            className="font-serif fill-paper"
             fontSize="26"
-            fill="oklch(0.97 0.01 240)"
           >
             Drug R&amp;D AI OS
           </text>
@@ -118,7 +117,7 @@ function OSDiagram() {
             textAnchor="middle"
             fontSize="12"
             letterSpacing="3"
-            fill="oklch(0.82 0.05 210)"
+            className="fill-teal-soft"
           >
             KERNEL
           </text>
@@ -140,8 +139,7 @@ function OSDiagram() {
                 y1={cy}
                 x2={cx < 400 ? 320 : 480}
                 y2={190}
-                stroke="oklch(0.58 0.09 210)"
-                strokeOpacity="0.5"
+                className="stroke-teal/50 text-teal"
                 strokeWidth="1"
                 markerEnd="url(#arrow-os)"
               />
@@ -151,8 +149,7 @@ function OSDiagram() {
                 width="160"
                 height="60"
                 rx="6"
-                fill="oklch(0.99 0 0)"
-                stroke="oklch(0.88 0.01 240)"
+                className="fill-card stroke-hairline"
               />
               <rect
                 x={s.x + 12}
@@ -161,14 +158,14 @@ function OSDiagram() {
                 height="28"
                 rx="4"
                 fill="none"
-                stroke="oklch(0.58 0.09 210)"
+                className="stroke-teal"
               />
               <text
                 x={s.x + 26}
                 y={s.y + 35}
                 textAnchor="middle"
                 fontSize="12"
-                fill="oklch(0.58 0.09 210)"
+                className="fill-teal"
                 fontFamily="monospace"
               >
                 {s.tag}
@@ -177,7 +174,7 @@ function OSDiagram() {
                 x={s.x + 50}
                 y={s.y + 38}
                 fontSize="15"
-                fill="oklch(0.22 0.04 250)"
+                className="fill-ink"
               >
                 {s.label}
               </text>
@@ -186,7 +183,7 @@ function OSDiagram() {
                 y={s.y + 55}
                 fontSize="11"
                 letterSpacing="2"
-                fill="oklch(0.45 0.03 250)"
+                className="fill-ink-soft"
               >
                 AGENT
               </text>
@@ -200,7 +197,7 @@ function OSDiagram() {
           textAnchor="middle"
           fontSize="12"
           letterSpacing="3"
-          fill="oklch(0.45 0.03 250)"
+          className="fill-ink-soft"
         >
           SHARED MEMORY · TOOL REGISTRY · TASK ROUTER
         </text>
