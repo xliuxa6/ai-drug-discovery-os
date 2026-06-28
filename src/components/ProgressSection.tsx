@@ -157,7 +157,7 @@ export function ProgressSection() {
               <div className="mb-3 text-center text-lg font-bold uppercase tracking-[0.12em] text-ink">
                 {stream.title}
               </div>
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {stream.projects.map((p) => {
                   const needsLabels = !firstShown && !p.feasibility;
                   if (needsLabels) firstShown = true;
