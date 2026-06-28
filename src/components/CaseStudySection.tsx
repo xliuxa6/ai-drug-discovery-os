@@ -26,7 +26,7 @@ export function CaseStudySection() {
     <section id="case-study" className="border-t border-hairline bg-paper py-3 md:py-4">
       <div className="mx-auto w-full max-w-7xl px-2 md:px-3">
         {/* Title */}
-        <div className="mb-2">
+        <div className="mb-6">
           <h2 className="text-4xl font-black leading-[1.05] text-ink md:text-5xl lg:text-6xl">
             Case Study <span className="text-ink/40">·</span>{" "}
             <span className="text-teal">AI-Assisted Protocol Deviation</span>

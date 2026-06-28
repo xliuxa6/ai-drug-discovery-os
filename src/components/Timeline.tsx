@@ -15,18 +15,13 @@ export function Timeline() {
     <section className="flex h-full flex-col bg-paper/60">
       {/* Hero title centered on the slide */}
       <div className="flex flex-1 flex-col items-center justify-center px-4">
-        <h1 className="text-center text-6xl font-black uppercase tracking-[0.08em] text-ink md:text-7xl lg:text-8xl">
-          MRL China AI Taskforce Update
+        <h1 className="text-center text-4xl font-black uppercase tracking-[0.08em] text-ink md:text-5xl lg:text-6xl">
+          AI Taskforce Update
         </h1>
       </div>
 
       {/* Timeline moved lower on the slide */}
       <div className="mx-auto w-full max-w-7xl px-4 pb-8 md:px-6 md:pb-12">
-        <div className="mb-4">
-          <h2 className="text-5xl font-black leading-[1.05] text-ink md:text-6xl">
-            TIMELINE · 2026
-          </h2>
-        </div>
         <div className="w-full">
           <div className="flex w-full items-start gap-1 md:gap-2">
             {milestones.map((m, i) => (
