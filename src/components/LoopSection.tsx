@@ -43,8 +43,8 @@ export function LoopSection() {
                 key={row.k}
                 className="border-l-2 border-teal/40 pl-5 transition-colors hover:border-teal"
               >
-                <div className="eyebrow mb-1">{row.k}</div>
-                <p className="text-ink-soft">{row.v}</p>
+                <div className="eyebrow text-base mb-2">{row.k}</div>
+                <p className="text-lg text-ink">{row.v}</p>
               </div>
             ))}
           </div>
