@@ -6,7 +6,7 @@ const milestones = [
   { date: "Mar 17", label: "Overall system design confirmed" },
   { date: "Mar 18", label: "8 project teams established" },
   { date: "Jul 27", label: "Deliver ≥ 2 project pilots", highlight: true },
-  { date: "Sep", label: "Deliver ≥ 5 project MVPs" },
+  { date: "Sep", label: "Deliver ≥ 5 project pilots" },
   { date: "Nov", label: "Launch ≥ 5 projects into production" },
 ];
 
