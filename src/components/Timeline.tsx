@@ -16,7 +16,7 @@ export function Timeline() {
       <div className="mx-auto w-full max-w-7xl px-4 py-8 md:px-6 md:py-10">
         <div className="mb-6 flex items-center gap-3">
           <span className="h-px w-8 bg-teal" />
-          <span className="eyebrow text-base">Program Timeline · 2026</span>
+          <span className="eyebrow text-base">TIMELINE · 2026</span>
         </div>
         <div className="w-full">
           <div className="flex w-full items-start gap-1 md:gap-2">
