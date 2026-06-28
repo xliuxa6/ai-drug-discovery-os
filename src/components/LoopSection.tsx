@@ -43,8 +43,8 @@ export function LoopSection() {
                 key={row.k}
                 className="border-l-2 border-teal/40 pl-5 transition-colors hover:border-teal"
               >
-                <div className="eyebrow mb-1">{row.k}</div>
-                <p className="text-ink-soft">{row.v}</p>
+                <div className="eyebrow text-base mb-2">{row.k}</div>
+                <p className="text-lg text-ink">{row.v}</p>
               </div>
             ))}
           </div>
@@ -84,9 +84,9 @@ function LoopDiagram() {
         />
         <text
           x="250"
-          y="40"
+          y="34"
           textAnchor="middle"
-          className="fill-current text-[10px] uppercase tracking-[0.3em]"
+          className="fill-current text-xs uppercase tracking-[0.3em]"
           fill="currentColor"
           opacity="0.5"
         >
@@ -105,19 +105,19 @@ function LoopDiagram() {
           />
           <text
             x="120"
-            y="240"
+            y="238"
             textAnchor="middle"
             className="font-serif"
-            fontSize="22"
+            fontSize="28"
             fill="oklch(0.22 0.04 250)"
           >
             AI Agent
           </text>
           <text
             x="120"
-            y="262"
+            y="268"
             textAnchor="middle"
-            fontSize="10"
+            fontSize="12"
             letterSpacing="2"
             fill="oklch(0.45 0.03 250)"
           >
@@ -139,19 +139,19 @@ function LoopDiagram() {
           />
           <text
             x="380"
-            y="240"
+            y="238"
             textAnchor="middle"
             className="font-serif"
-            fontSize="22"
+            fontSize="28"
             fill="oklch(0.22 0.04 250)"
           >
             Task
           </text>
           <text
             x="380"
-            y="262"
+            y="268"
             textAnchor="middle"
-            fontSize="10"
+            fontSize="12"
             letterSpacing="2"
             fill="oklch(0.45 0.03 250)"
           >
@@ -170,18 +170,18 @@ function LoopDiagram() {
           />
           <text
             x="250"
-            y="150"
+            y="148"
             textAnchor="middle"
-            fontSize="12"
+            fontSize="14"
             fill="oklch(0.22 0.04 250)"
           >
             Inference / Action
           </text>
           <text
             x="250"
-            y="168"
+            y="170"
             textAnchor="middle"
-            fontSize="9"
+            fontSize="11"
             letterSpacing="2"
             fill="oklch(0.45 0.03 250)"
           >
@@ -200,18 +200,18 @@ function LoopDiagram() {
           />
           <text
             x="250"
-            y="362"
+            y="366"
             textAnchor="middle"
-            fontSize="12"
+            fontSize="14"
             fill="oklch(0.22 0.04 250)"
           >
             Reward / Feedback
           </text>
           <text
             x="250"
-            y="380"
+            y="388"
             textAnchor="middle"
-            fontSize="9"
+            fontSize="11"
             letterSpacing="2"
             fill="oklch(0.45 0.03 250)"
           >
@@ -220,10 +220,10 @@ function LoopDiagram() {
         </g>
 
         {/* corner annotations */}
-        <text x="40" y="450" fontSize="9" letterSpacing="2" fill="oklch(0.45 0.03 250)">
+        <text x="28" y="452" fontSize="11" letterSpacing="2" fill="oklch(0.45 0.03 250)">
           OUTCOME EVAL
         </text>
-        <text x="380" y="450" fontSize="9" letterSpacing="2" fill="oklch(0.45 0.03 250)">
+        <text x="360" y="452" fontSize="11" letterSpacing="2" fill="oklch(0.45 0.03 250)">
           REWARD MODEL
         </text>
       </svg>

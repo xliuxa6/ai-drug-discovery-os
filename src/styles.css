@@ -105,8 +105,8 @@ html {
 
 @utility eyebrow {
   font-family: var(--font-sans);
-  font-size: 0.7rem;
-  letter-spacing: 0.22em;
+  font-size: 0.875rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--color-teal);
   font-weight: 500;

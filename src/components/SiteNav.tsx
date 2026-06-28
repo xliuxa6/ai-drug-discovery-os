@@ -29,20 +29,20 @@ export function SiteNav() {
     <header className="sticky top-0 z-50 border-b border-hairline bg-paper/85 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="#top" className="flex items-baseline gap-2">
-          <span className="font-serif text-xl text-ink">AI TF Update</span>
+          <span className="font-serif text-3xl text-ink">AI TF Update</span>
         </a>
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
             <li key={l.id}>
               <a
                 href={`#${l.id}`}
-                className={`text-sm transition-colors ${
+                className={`text-base font-medium transition-colors ${
                   active === l.id
                     ? "text-teal"
-                    : "text-ink-soft hover:text-ink"
+                    : "text-ink hover:text-teal"
                 }`}
               >
-                <span className="mr-2 font-mono text-xs text-ink-soft/60">
+                <span className="mr-2 font-mono text-base text-ink/50">
                   {String(links.indexOf(l) + 1).padStart(2, "0")}
                 </span>
                 {l.label}

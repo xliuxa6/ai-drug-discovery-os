@@ -48,17 +48,17 @@ export function OSSection() {
 
           <div className="mt-10 grid gap-px overflow-hidden rounded-lg border border-hairline bg-hairline md:grid-cols-4">
             {agents.map((a) => (
-              <div key={a.name} className="bg-card p-5">
-                <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-md border border-teal/40 font-mono text-xs text-teal">
+              <div key={a.name} className="bg-card p-6">
+                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-md border border-teal/40 font-mono text-sm text-teal">
                   {a.icon}
                 </div>
-                <div className="text-sm font-medium text-ink">{a.name}</div>
-                <div className="mt-1 text-sm text-ink-soft">{a.role}</div>
+                <div className="text-base font-semibold text-ink">{a.name}</div>
+                <div className="mt-1 text-base text-ink">{a.role}</div>
               </div>
             ))}
           </div>
 
-          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 rounded-md border border-dashed border-teal/40 bg-paper px-5 py-3 text-xs uppercase tracking-[0.2em] text-ink-soft">
+          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 rounded-md border border-dashed border-teal/40 bg-paper px-5 py-4 text-sm uppercase tracking-[0.2em] text-ink">
             <span className="text-teal">Kernel</span>
             <span>Shared memory</span>
             <span>·</span>
@@ -104,19 +104,19 @@ function OSDiagram() {
           />
           <text
             x="400"
-            y="185"
+            y="188"
             textAnchor="middle"
             className="font-serif"
-            fontSize="20"
+            fontSize="26"
             fill="oklch(0.97 0.01 240)"
           >
             Drug R&amp;D AI OS
           </text>
           <text
             x="400"
-            y="208"
+            y="215"
             textAnchor="middle"
-            fontSize="9"
+            fontSize="12"
             letterSpacing="3"
             fill="oklch(0.82 0.05 210)"
           >
@@ -165,9 +165,9 @@ function OSDiagram() {
               />
               <text
                 x={s.x + 26}
-                y={s.y + 33}
+                y={s.y + 35}
                 textAnchor="middle"
-                fontSize="10"
+                fontSize="12"
                 fill="oklch(0.58 0.09 210)"
                 fontFamily="monospace"
               >
@@ -175,16 +175,16 @@ function OSDiagram() {
               </text>
               <text
                 x={s.x + 50}
-                y={s.y + 36}
-                fontSize="12"
+                y={s.y + 38}
+                fontSize="15"
                 fill="oklch(0.22 0.04 250)"
               >
                 {s.label}
               </text>
               <text
                 x={s.x + 50}
-                y={s.y + 50}
-                fontSize="9"
+                y={s.y + 55}
+                fontSize="11"
                 letterSpacing="2"
                 fill="oklch(0.45 0.03 250)"
               >
@@ -196,9 +196,9 @@ function OSDiagram() {
 
         <text
           x="400"
-          y="350"
+          y="354"
           textAnchor="middle"
-          fontSize="9"
+          fontSize="12"
           letterSpacing="3"
           fill="oklch(0.45 0.03 250)"
         >
