@@ -106,7 +106,7 @@ export function SiteNav() {
                   <span
                     className="pointer-events-none absolute left-1/2 top-full z-50 mt-2 -translate-x-1/2 whitespace-nowrap rounded-md border border-hairline bg-ink px-2.5 py-1 text-xs font-semibold text-paper opacity-0 shadow-lg transition-opacity duration-150 group-hover:opacity-100"
                   >
-                    {String(idx + 1).padStart(2, "0")} · {l.label}
+                    {l.label}
                   </span>
                 </li>
               );
