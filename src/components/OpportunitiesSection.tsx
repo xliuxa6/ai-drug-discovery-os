@@ -121,6 +121,13 @@ const groups: Group[] = [
   },
 ];
 
+const order: Record<Ownership, number> = {
+  "China": 0,
+  "China & HQ": 1,
+  "HQ": 2,
+  "Unexplored": 3,
+};
+
 const chipClass: Record<Ownership, string> = {
   "China": "bg-emerald-500/15 border-emerald-600/50 text-emerald-900 dark:text-emerald-200",
   "China & HQ": "bg-sky-500/15 border-sky-600/50 text-sky-900 dark:text-sky-200",
