@@ -65,7 +65,7 @@ function ProgressBar({ value = 50, showLabels = false }: { value?: number; showL
             <div className="font-normal text-ink/60">Sep</div>
           </div>
           <div className="absolute text-center leading-tight" style={{ left: "100%", transform: "translateX(-50%)" }}>
-            <div>Massive Reuse</div>
+            <div>MASSIVE USE</div>
             <div className="font-normal text-ink/60">Nov</div>
           </div>
         </div>
