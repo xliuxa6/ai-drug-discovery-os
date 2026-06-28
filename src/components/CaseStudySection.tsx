@@ -23,11 +23,11 @@ const metrics = [
 
 export function CaseStudySection() {
   return (
-    <section id="case-study" className="border-t border-hairline bg-paper py-6 md:py-8">
-      <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
+    <section id="case-study" className="border-t border-hairline bg-paper py-4 md:py-5">
+      <div className="mx-auto w-full max-w-7xl px-3 md:px-4">
         {/* Wide title */}
-        <div className="mb-4 max-w-4xl">
-          <div className="mb-2 flex items-center gap-3">
+        <div className="mb-3 max-w-4xl">
+          <div className="mb-1 flex items-center gap-3">
             <span className="h-px w-12 bg-teal/60" />
             <span className="eyebrow text-base">Case Study</span>
           </div>
@@ -40,8 +40,8 @@ export function CaseStudySection() {
         </div>
 
         {/* Timeline */}
-        <div className="rounded-2xl border border-hairline bg-card p-4 md:p-5">
-          <div className="mb-3 flex items-center gap-3">
+        <div className="rounded-2xl border border-hairline bg-card p-3 md:p-4">
+          <div className="mb-2 flex items-center gap-3">
             <span className="h-px w-8 bg-teal" />
             <span className="eyebrow text-base">Project Timeline</span>
           </div>
@@ -68,94 +68,95 @@ export function CaseStudySection() {
           </div>
         </div>
 
-        {/* What is PD Analysis */}
-        <div className="mt-4 rounded-2xl border border-hairline bg-card p-4 md:p-5">
-          <div className="mb-3 flex items-center gap-3">
+        {/* Before AI vs With AI */}
+        <div className="mt-3 rounded-2xl border border-hairline bg-card p-3 md:p-4">
+          <div className="mb-2 flex items-center gap-3">
             <span className="h-px w-8 bg-teal" />
-            <span className="eyebrow text-base">What is PD Analysis?</span>
+            <span className="eyebrow text-base">PD Analysis Workflow</span>
           </div>
-          <div className="flex flex-col items-stretch gap-3 md:flex-row">
-            <div className="flex flex-1 items-center gap-2">
-              <div className="flex-1 rounded-xl border border-hairline bg-paper p-3 text-center shadow-sm">
-                <div className="text-base font-bold uppercase tracking-wider text-ink md:text-lg">
-                  CRA Input
-                </div>
+          <div className="grid gap-3 md:grid-cols-2">
+            {/* Before AI */}
+            <div className="rounded-xl border border-hairline bg-paper p-3 shadow-sm">
+              <div className="mb-2 text-center text-base font-bold uppercase tracking-wider text-ink md:text-lg">
+                Before AI
               </div>
-              <ArrowRight className="hidden h-5 w-5 shrink-0 text-teal md:block" />
-            </div>
-            <div className="flex flex-1 items-center gap-2">
-              <div className="flex-1 rounded-xl border border-hairline bg-paper p-3 text-center shadow-sm">
-                <div className="text-base font-bold uppercase tracking-wider text-ink md:text-lg">
-                  Physician Review
-                </div>
-              </div>
-              <ArrowRight className="hidden h-5 w-5 shrink-0 text-teal md:block" />
-            </div>
-            <div className="flex flex-1 flex-col gap-2">
-              <div className="flex flex-1 items-center gap-2">
-                <div className="flex-1 rounded-xl border border-hairline bg-paper p-3 text-center shadow-sm">
-                  <div className="text-base font-bold uppercase tracking-wider text-ink md:text-lg">
-                    PD Classification
+              <div className="flex flex-col items-stretch gap-2">
+                <div className="rounded-lg border border-hairline bg-card p-2 text-center">
+                  <div className="text-sm font-bold uppercase tracking-wider text-ink md:text-base">
+                    CRA Input
                   </div>
                 </div>
-                <div className="text-sm font-bold text-ink/60">+</div>
-                <div className="flex-1 rounded-xl border border-hairline bg-paper p-3 text-center shadow-sm">
-                  <div className="text-base font-bold uppercase tracking-wider text-ink md:text-lg">
-                    IPD Determination
+                <div className="flex items-center justify-center">
+                  <ArrowRight className="h-4 w-4 rotate-90 text-ink/40" />
+                </div>
+                <div className="rounded-lg border border-hairline bg-card p-2 text-center">
+                  <div className="text-sm font-bold uppercase tracking-wider text-ink md:text-base">
+                    Physician Review
+                  </div>
+                </div>
+                <div className="flex items-center justify-center">
+                  <ArrowRight className="h-4 w-4 rotate-90 text-ink/40" />
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="rounded-lg border border-hairline bg-card p-2 text-center">
+                    <div className="text-sm font-bold uppercase tracking-wider text-ink md:text-base">
+                      PD Classification
+                    </div>
+                  </div>
+                  <div className="rounded-lg border border-hairline bg-card p-2 text-center">
+                    <div className="text-sm font-bold uppercase tracking-wider text-ink md:text-base">
+                      IPD Determination
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center justify-center">
+                  <ArrowRight className="h-4 w-4 rotate-90 text-ink/40" />
+                </div>
+                <div className="rounded-lg border border-hairline bg-card p-2 text-center">
+                  <div className="text-sm font-bold uppercase tracking-wider text-ink md:text-base">
+                    Trend Analysis
                   </div>
                 </div>
               </div>
-              <div className="text-center text-xs font-semibold uppercase tracking-wider text-ink/60">
-                Parallel classification
-              </div>
             </div>
-            <div className="flex flex-1 items-center gap-2">
-              <ArrowRight className="hidden h-5 w-5 shrink-0 text-teal md:block" />
-              <div className="flex-1 rounded-xl border border-hairline bg-paper p-3 text-center shadow-sm">
-                <div className="text-base font-bold uppercase tracking-wider text-ink md:text-lg">
-                  Trend Analysis
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        {/* AI-assisted PD analysis workflow */}
-        <div className="mt-4 rounded-2xl border border-hairline bg-card p-4 md:p-5">
-          <div className="mb-3 flex items-center gap-3">
-            <span className="h-px w-8 bg-teal" />
-            <span className="eyebrow text-base">AI-assisted PD Analysis Workflow</span>
-          </div>
-          <div className="flex flex-col items-stretch gap-3 md:flex-row">
-            <div className="flex flex-1 items-center gap-2">
-              <div className="flex-1 rounded-xl border border-hairline bg-paper p-3 text-center shadow-sm">
-                <div className="text-base font-bold uppercase tracking-wider text-ink md:text-lg">
-                  CRA Input
+            {/* With AI */}
+            <div className="rounded-xl border border-hairline bg-paper p-3 shadow-sm">
+              <div className="mb-2 text-center text-base font-bold uppercase tracking-wider text-teal md:text-lg">
+                With AI
+              </div>
+              <div className="flex flex-col items-stretch gap-2">
+                <div className="rounded-lg border border-hairline bg-card p-2 text-center">
+                  <div className="text-sm font-bold uppercase tracking-wider text-ink md:text-base">
+                    CRA Input
+                  </div>
                 </div>
-              </div>
-              <ArrowRight className="hidden h-5 w-5 shrink-0 text-teal md:block" />
-            </div>
-            <div className="flex-[2] rounded-xl border border-hairline bg-paper p-3 text-center shadow-sm">
-              <div className="text-base font-bold uppercase tracking-wider text-ink md:text-lg">
-                AI Agent
-              </div>
-              <div className="mt-2 flex flex-wrap items-center justify-center gap-2">
-                <span className="rounded-full bg-teal/10 px-3 py-1 text-sm font-semibold uppercase tracking-wider text-teal">
-                  PD Category
-                </span>
-                <span className="rounded-full bg-teal/10 px-3 py-1 text-sm font-semibold uppercase tracking-wider text-teal">
-                  IPD Determination
-                </span>
-                <span className="rounded-full bg-teal/10 px-3 py-1 text-sm font-semibold uppercase tracking-wider text-teal">
-                  Trend Analysis
-                </span>
-              </div>
-            </div>
-            <div className="flex flex-1 items-center gap-2">
-              <ArrowRight className="hidden h-5 w-5 shrink-0 text-teal md:block" />
-              <div className="flex-1 rounded-xl border border-hairline bg-paper p-3 text-center shadow-sm">
-                <div className="text-base font-bold uppercase tracking-wider text-ink md:text-lg">
-                  Physician Review
+                <div className="flex items-center justify-center">
+                  <ArrowRight className="h-4 w-4 rotate-90 text-teal" />
+                </div>
+                <div className="rounded-lg border border-teal/30 bg-teal/5 p-2 text-center">
+                  <div className="text-sm font-bold uppercase tracking-wider text-teal md:text-base">
+                    AI Agent
+                  </div>
+                  <div className="mt-1 flex flex-wrap items-center justify-center gap-1">
+                    <span className="rounded-full bg-teal/10 px-2 py-0.5 text-xs font-semibold uppercase tracking-wider text-teal">
+                      PD Category
+                    </span>
+                    <span className="rounded-full bg-teal/10 px-2 py-0.5 text-xs font-semibold uppercase tracking-wider text-teal">
+                      IPD
+                    </span>
+                    <span className="rounded-full bg-teal/10 px-2 py-0.5 text-xs font-semibold uppercase tracking-wider text-teal">
+                      Trend
+                    </span>
+                  </div>
+                </div>
+                <div className="flex items-center justify-center">
+                  <ArrowRight className="h-4 w-4 rotate-90 text-teal" />
+                </div>
+                <div className="rounded-lg border border-hairline bg-card p-2 text-center">
+                  <div className="text-sm font-bold uppercase tracking-wider text-ink md:text-base">
+                    Physician Review
+                  </div>
                 </div>
               </div>
             </div>
@@ -163,41 +164,41 @@ export function CaseStudySection() {
         </div>
 
         {/* Accuracy improvement */}
-        <div className="mt-4 rounded-2xl border border-hairline bg-card p-4 md:p-5">
-          <div className="mb-3 flex items-center gap-3">
+        <div className="mt-3 rounded-2xl border border-hairline bg-card p-3 md:p-4">
+          <div className="mb-2 flex items-center gap-3">
             <span className="h-px w-8 bg-teal" />
             <span className="eyebrow text-base">After One Round of Optimization</span>
           </div>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-3 md:grid-cols-2">
             {metrics.map((m) => (
               <div
                 key={m.label}
-                className="rounded-xl border border-hairline bg-paper p-4 shadow-sm"
+                className="rounded-xl border border-hairline bg-paper p-3 shadow-sm"
               >
-                <div className="text-base font-semibold leading-tight text-ink md:text-lg">
+                <div className="text-sm font-semibold leading-tight text-ink md:text-base">
                   {m.label}
                 </div>
-                <div className="mt-3 flex items-center justify-between gap-4">
+                <div className="mt-2 flex items-center justify-between gap-3">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-ink/60 md:text-4xl">
+                    <div className="text-2xl font-bold text-ink/60 md:text-3xl">
                       {m.before.toFixed(1)}%
                     </div>
-                    <div className="mt-1 text-xs uppercase tracking-wider text-ink/50 md:text-sm">
+                    <div className="mt-0.5 text-xs uppercase tracking-wider text-ink/50">
                       Before
                     </div>
                   </div>
                   <div className="flex flex-col items-center">
-                    <ArrowRight className="h-6 w-6 text-teal" />
-                    <span className="text-xs font-bold text-teal md:text-sm">
+                    <ArrowRight className="h-5 w-5 text-teal" />
+                    <span className="text-xs font-bold text-teal">
                       +{(m.after - m.before).toFixed(1)}pp
                     </span>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-teal md:text-4xl">
+                    <div className="text-2xl font-bold text-teal md:text-3xl">
                       {m.after.toFixed(1)}%
                     </div>
-                    <div className="mt-1 flex items-center justify-center gap-1 text-xs uppercase tracking-wider text-teal md:text-sm">
-                      <CheckCircle2 className="h-3.5 w-3.5" />
+                    <div className="mt-0.5 flex items-center justify-center gap-1 text-xs uppercase tracking-wider text-teal">
+                      <CheckCircle2 className="h-3 w-3" />
                       After
                     </div>
                   </div>
@@ -208,12 +209,12 @@ export function CaseStudySection() {
         </div>
 
         {/* Bottom highlight */}
-        <div className="mt-4 rounded-2xl border-2 border-dashed border-teal bg-card p-4 text-center md:p-5">
-          <div className="text-lg font-black uppercase tracking-wider text-ink md:text-2xl">
+        <div className="mt-3 rounded-2xl border-2 border-dashed border-teal bg-card p-3 text-center md:p-4">
+          <div className="text-base font-black uppercase tracking-wider text-ink md:text-xl">
             Human review-based feedback and manual AI tool tuning
             <span className="mx-2 text-teal">·</span>
             <span className="text-teal">87%</span>
-            <span className="ml-2 text-sm font-semibold normal-case tracking-normal text-ink/70 md:text-base">
+            <span className="ml-2 text-xs font-semibold normal-case tracking-normal text-ink/70 md:text-sm">
               of total time spent
             </span>
           </div>
@@ -222,4 +223,3 @@ export function CaseStudySection() {
     </section>
   );
 }
-
