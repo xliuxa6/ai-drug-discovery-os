@@ -29,8 +29,7 @@ export function SiteNav() {
     <header className="sticky top-0 z-50 border-b border-hairline bg-paper/85 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="#top" className="flex items-baseline gap-2">
-          <span className="font-serif text-xl text-ink">Drug R&amp;D</span>
-          <span className="eyebrow">Super Intelligence</span>
+          <span className="font-serif text-xl text-ink">AI TF Update</span>
         </a>
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
