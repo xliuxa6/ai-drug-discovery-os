@@ -192,10 +192,10 @@ export function ProgressSection() {
           </h2>
           <button
             onClick={handlePlay}
-            className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-paper shadow-sm transition-colors hover:bg-teal focus:outline-none focus:ring-2 focus:ring-teal focus:ring-offset-2"
+            aria-label={hasPlayed ? "Replay progress" : "Play progress"}
+            className="inline-flex items-center justify-center rounded-full bg-ink p-3 text-paper shadow-sm transition-colors hover:bg-teal focus:outline-none focus:ring-2 focus:ring-teal focus:ring-offset-2"
           >
-            {hasPlayed ? <RotateCcw className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-            {hasPlayed ? "Replay" : "Play Progress"}
+            {hasPlayed ? <RotateCcw className="h-6 w-6" /> : <Play className="h-6 w-6" />}
           </button>
         </div>
 
