@@ -13,7 +13,7 @@ export function SectionHeader({ eyebrow, title, lede }: Props) {
           {eyebrow}
         </span>
       </div>
-      <h2 className="text-5xl font-black leading-[1.05] text-ink md:text-6xl lg:text-7xl">
+      <h2 className="text-4xl font-black leading-[1.05] text-ink md:text-5xl lg:text-6xl">
         {title}
       </h2>
       <p className="mt-4 max-w-3xl text-xl leading-relaxed text-ink md:text-2xl">

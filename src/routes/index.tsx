@@ -14,17 +14,17 @@ import { SlideDeck, Slide } from "@/components/SlideDeck";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "AI TF Update" },
+      { title: "MRL China AI Taskforce Update" },
       {
         name: "description",
         content:
-          "AI TF Update — Program timeline, current progress, case studies, self-evolving agents, multi-agent OS, two-way scaling, and R&D opportunities.",
+          "MRL China AI Taskforce Update — Program timeline, current progress, case studies, self-evolving agents, multi-agent OS, two-way scaling, and R&D opportunities.",
       },
-      { property: "og:title", content: "AI TF Update" },
+      { property: "og:title", content: "MRL China AI Taskforce Update" },
       {
         property: "og:description",
         content:
-          "AI TF Update — Program timeline and agentic drug R&D thesis.",
+          "MRL China AI Taskforce Update — Program timeline and agentic drug R&D thesis.",
       },
     ],
   }),
