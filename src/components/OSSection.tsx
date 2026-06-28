@@ -4,10 +4,10 @@ const appClusters = [
   {
     id: "search",
     label: "Search & Evaluation",
-    x: 80,
+    x: 60,
     y: 30,
-    width: 250,
-    height: 140,
+    width: 300,
+    height: 160,
     items: [
       "Target Research",
       "ADMET Prediction",
@@ -19,10 +19,10 @@ const appClusters = [
   {
     id: "clinical",
     label: "Clinical Development",
-    x: 680,
+    x: 640,
     y: 30,
-    width: 250,
-    height: 180,
+    width: 300,
+    height: 200,
     items: [
       "Clinical Study QC & QA",
       "Protocol Deviation Analysis",
@@ -36,19 +36,19 @@ const appClusters = [
   {
     id: "frontier",
     label: "Frontier Technology",
-    x: 80,
+    x: 60,
     y: 310,
-    width: 250,
-    height: 120,
+    width: 300,
+    height: 140,
     items: ["Virtual Cell", "Digital Pathology", "Genomics Platform", "PBPK Prediction"],
   },
   {
     id: "ci",
     label: "Competitive Intelligence & Scientific Finding Tracking",
-    x: 680,
+    x: 640,
     y: 310,
-    width: 250,
-    height: 140,
+    width: 300,
+    height: 160,
     items: [
       "Scientific Finding Tracking",
       "PV Literature Search",
@@ -175,11 +175,11 @@ function OSDiagram() {
                 width={c.width}
                 height={c.height}
               >
-                <div className="flex h-full flex-col p-2.5">
+                <div className="flex h-full flex-col p-2">
                   <div className="mb-1 text-xs font-bold uppercase tracking-wider leading-tight text-teal md:text-sm">
                     {c.label}
                   </div>
-                  <ul className="flex-1 space-y-0.5 overflow-hidden text-xs leading-tight text-ink md:text-sm">
+                  <ul className="flex-1 space-y-0.5 text-xs leading-tight text-ink md:text-sm">
                     {c.items.map((item) => (
                       <li key={item} className="flex items-start gap-2">
                         <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-ink/40" />
@@ -195,7 +195,7 @@ function OSDiagram() {
 
         <text
           x="500"
-          y="462"
+          y="472"
           textAnchor="middle"
           fontSize="12"
           letterSpacing="3"
