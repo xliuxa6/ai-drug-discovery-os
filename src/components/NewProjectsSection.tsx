@@ -137,14 +137,11 @@ export function NewProjectsSection() {
           <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
             {ciItems.map((item) => (
               <div key={item.name} className="py-1">
-                <div className="text-base font-semibold leading-tight text-ink">{item.name}</div>
-                <ProgressBar value={item.value} />
+                <NameOnlyItem name={item.name} />
                 {item.candidates && item.candidates.length > 0 && (
-                  <div className="mt-2 space-y-1 border-l-2 border-ink/20 pl-4">
+                  <div className="mt-2 space-y-2 border-l-2 border-ink/20 pl-4">
                     {item.candidates.map((c) => (
-                      <div key={c} className="text-base font-medium leading-tight text-ink/60">
-                        {c}
-                      </div>
+                      <NameOnlyItem key={c} name={c} gray />
                     ))}
                   </div>
                 )}
