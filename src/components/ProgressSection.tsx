@@ -181,7 +181,7 @@ export function ProgressSection() {
           <div className="mb-2 text-center text-xl font-bold uppercase tracking-[0.12em] text-ink">
             Competitive Intelligence & Scientific Finding Tracking
           </div>
-          <div className="grid grid-cols-1 gap-x-6 gap-y-1 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-x-3 gap-y-1 md:grid-cols-3">
             {ciItems.map((item) => (
               <div key={item.name} className="py-1">
                 <div className="text-base font-semibold leading-tight text-ink">{item.name}</div>
