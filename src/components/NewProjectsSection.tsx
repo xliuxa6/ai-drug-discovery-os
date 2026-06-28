@@ -114,6 +114,54 @@ function CandidateItem({ item }: { item: Item }) {
   );
 }
 
+function ColumnCard({
+  col,
+  children,
+  ciCentered,
+}: {
+  col: { id: string; title: string; color: string; existing: Item[]; candidates: Item[] };
+  children?: React.ReactNode;
+  ciCentered?: boolean;
+}) {
+  return (
+    <div
+      className={`rounded-2xl border border-hairline p-3 shadow-sm ${col.color}`}
+    >
+      <div className="mb-2 text-center text-xl font-bold uppercase tracking-[0.12em] text-ink">
+        {col.title}
+      </div>
+      {children ? (
+        children
+      ) : (
+        <>
+          <div className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-ink/50">
+            In Progress
+          </div>
+          <div className={ciCentered ? "grid grid-cols-1 gap-1 md:grid-cols-2 md:pl-6 md:pr-3" : "space-y-1"}>
+            {col.existing.map((p) => (
+              <ExistingItem key={p.name} item={p} />
+            ))}
+          </div>
+
+          {col.candidates.length > 0 && (
+            <>
+              <div className="my-3 border-t border-dashed border-ink/20" />
+              <div className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-teal">
+                Candidates
+              </div>
+              <div className="space-y-1.5">
+                {col.candidates.map((p) => (
+                  <CandidateItem key={p.name} item={p} />
+                ))}
+              </div>
+            </>
+          )}
+        </>
+      )}
+    </div>
+  );
+}
+
 export function NewProjectsSection() {
   return (
     <section id="new-projects" className="border-t border-hairline bg-paper pt-6 pb-6">
@@ -124,36 +172,24 @@ export function NewProjectsSection() {
         </div>
 
         <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
-          {columns.map((col) => (
-            <div
-              key={col.id}
-              className={`rounded-2xl border border-hairline p-3 shadow-sm ${col.color}`}
-            >
-              <div className="mb-2 text-center text-xl font-bold uppercase tracking-[0.12em] text-ink">
-                {col.title}
-              </div>
+          {topColumns.map((col) => (
+            <ColumnCard key={col.id} col={col} />
+          ))}
+        </div>
 
-              <div className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-ink/50">
-                In Progress
-              </div>
-              <div className="space-y-1">
-                {col.existing.map((p) => (
+        <div className="mt-3 grid grid-cols-1 gap-3 md:grid-cols-3">
+          <div className="md:col-span-2">
+            <ColumnCard col={ciColumn} ciCentered>
+              <div className="grid grid-cols-1 gap-1 md:grid-cols-2 md:place-items-center md:pl-8 md:pr-4">
+                {ciColumn.existing.map((p) => (
                   <ExistingItem key={p.name} item={p} />
                 ))}
               </div>
-
-              <div className="my-3 border-t border-dashed border-ink/20" />
-
-              <div className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-teal">
-                Candidates
-              </div>
-              <div className="space-y-1.5">
-                {col.candidates.map((p) => (
-                  <CandidateItem key={p.name} item={p} />
-                ))}
-              </div>
-            </div>
-          ))}
+            </ColumnCard>
+          </div>
+          <div className="md:col-span-1">
+            <ColumnCard col={itColumn} />
+          </div>
         </div>
       </div>
     </section>
