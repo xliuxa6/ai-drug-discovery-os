@@ -35,7 +35,7 @@ const yItems = [
 
 const COLS = xItems.length; // 17 application columns
 const ROWS = yItems.length; // 6
-const STEP1_END = COLS - 3; // 14 — fill right to the 4th-from-last column
+const STEP1_END = COLS; // fill all the way across on step 1
 
 // X-axis labels: each application gets its own column
 const xLabels: string[] = [...xItems];
@@ -43,14 +43,13 @@ const xLabels: string[] = [...xItems];
 // Gradient height when going up: leftmost 2 columns reach the top,
 // then next 2 reach the second-to-last row, gradually decreasing.
 function upHeight(c: number) {
-  if (c >= STEP1_END) return 1; // only bottom row filled from step 1
   return Math.max(1, ROWS - Math.floor(c / 2));
 }
 
 function tileState(r: number, c: number, step: number) {
   if (step === 0) return { filled: false, delay: 0 };
 
-  // Step 1: bottom row fills right to STEP1_END
+  // Step 1: bottom row fills all the way across
   if (step === 1) {
     if (r === 0 && c < STEP1_END) return { filled: true, delay: c * 0.12 };
     return { filled: false, delay: 0 };
@@ -64,21 +63,13 @@ function tileState(r: number, c: number, step: number) {
     return { filled: false, delay: 0 };
   }
 
-  // Step 3: fill the rightmost 3 columns bottom-to-top first, then the rest
-  // from bottom-left to top-right.
-  const isRightmost = c >= STEP1_END;
-  if (isRightmost) {
-    return { filled: true, delay: r * 0.08 };
-  }
-
+  // Step 3: fill any remaining tiles from bottom-left to top-right
   if (r < height) return { filled: true, delay: 0 };
   return { filled: true, delay: 0.025 * (r + c) + 0.5 };
 }
 
 function colRevealed(c: number, step: number) {
-  if (step >= 3) return true;
-  if (step >= 1) return c < STEP1_END;
-  return false;
+  return step >= 1;
 }
 function rowRevealed(r: number, step: number) {
   if (step >= 3) return true;
