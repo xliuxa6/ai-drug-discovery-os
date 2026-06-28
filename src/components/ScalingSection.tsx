@@ -97,38 +97,17 @@ function tileOpacity(r: number) {
 
 export function ScalingSection() {
   const [step, setStep] = useState(0);
-  const next = () => setStep((s) => (s + 1) % STEPS.length);
+  const next = () => setStep((s) => (s + 1) % 4);
 
   return (
     <section id="scaling" className="bg-paper py-4">
       <div className="mx-auto w-full max-w-7xl px-2 md:px-4">
         <SectionHeader
-          eyebrow="Two-way Scaling"
           title="Drug R&D AI OS"
           lede="Scaling Through Applications × Agentic Capabilities"
         />
 
-        <div className="mt-4 flex items-center justify-between gap-4">
-          <div className="text-xl font-medium text-ink md:text-2xl">{STEPS[step]}</div>
-          <div className="flex items-center gap-3">
-            <div className="flex gap-1.5">
-              {STEPS.map((_, i) => (
-                <span
-                  key={i}
-                  className={`h-2.5 w-8 rounded-full ${i <= step ? "bg-teal" : "bg-hairline"}`}
-                />
-              ))}
-            </div>
-            <button
-              onClick={next}
-              className="rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-paper hover:opacity-90 md:text-base"
-            >
-              {step === STEPS.length - 1 ? "Restart" : "Next →"}
-            </button>
-          </div>
-        </div>
-
-        <ul className="mt-4 list-disc space-y-1 pl-6 text-base text-ink md:text-lg">
+        <ul className="mt-2 list-disc space-y-1 pl-6 text-base text-ink md:text-lg">
           <li>Expand the Application Layer by building specialized tools and scaling trusted data assets</li>
           <li>Upgrade Agentic Intelligence by embedding advanced reasoning and planning capabilities</li>
           <li>Accelerate Organizational AI Maturity by developing talent while shipping solutions faster</li>
