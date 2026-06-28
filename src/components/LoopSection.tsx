@@ -200,18 +200,18 @@ function LoopDiagram() {
           />
           <text
             x="250"
-            y="362"
+            y="366"
             textAnchor="middle"
-            fontSize="12"
+            fontSize="14"
             fill="oklch(0.22 0.04 250)"
           >
             Reward / Feedback
           </text>
           <text
             x="250"
-            y="380"
+            y="388"
             textAnchor="middle"
-            fontSize="9"
+            fontSize="11"
             letterSpacing="2"
             fill="oklch(0.45 0.03 250)"
           >
@@ -220,10 +220,10 @@ function LoopDiagram() {
         </g>
 
         {/* corner annotations */}
-        <text x="40" y="450" fontSize="9" letterSpacing="2" fill="oklch(0.45 0.03 250)">
+        <text x="28" y="452" fontSize="11" letterSpacing="2" fill="oklch(0.45 0.03 250)">
           OUTCOME EVAL
         </text>
-        <text x="380" y="450" fontSize="9" letterSpacing="2" fill="oklch(0.45 0.03 250)">
+        <text x="360" y="452" fontSize="11" letterSpacing="2" fill="oklch(0.45 0.03 250)">
           REWARD MODEL
         </text>
       </svg>
