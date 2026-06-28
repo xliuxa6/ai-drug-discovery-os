@@ -51,7 +51,7 @@ export function LoopSection() {
         >
           <LoopDiagram />
 
-          <div className="flex h-full flex-col justify-center">
+          <div className="flex h-full flex-col justify-start pt-2">
             <div className="rounded-lg border border-hairline bg-card p-3 md:p-4">
               <div className="eyebrow text-sm mb-2 md:text-base">
                 Enhancing Agentic Capability
