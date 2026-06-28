@@ -1,6 +1,6 @@
 type Item = { name: string; sub?: string[] };
 
-const columns: {
+const topColumns: {
   id: string;
   title: string;
   color: string;
@@ -42,6 +42,39 @@ const columns: {
     candidates: [{ name: "Genomics Platform" }, { name: "PBPK Prediction" }],
   },
 ];
+
+const ciColumn: {
+  id: string;
+  title: string;
+  color: string;
+  existing: Item[];
+  candidates: Item[];
+} = {
+  id: "ci",
+  title: "Competitive Intelligence & Scientific Finding Tracking",
+  color: "bg-bg-ci",
+  existing: [
+    { name: "Scientific Finding Tracking" },
+    { name: "Disease Deep Dive" },
+    { name: "Clinical Data Benchmarking" },
+    { name: "Competitive Intelligence Monitoring" },
+  ],
+  candidates: [],
+};
+
+const itColumn: {
+  id: string;
+  title: string;
+  color: string;
+  existing: Item[];
+  candidates: Item[];
+} = {
+  id: "it",
+  title: "IT Infrastructure Excellence Enablement",
+  color: "bg-bg-infra",
+  existing: [{ name: "IT Infrastructure Excellence Enablement" }],
+  candidates: [],
+};
 
 function ExistingItem({ item }: { item: Item }) {
   return (
