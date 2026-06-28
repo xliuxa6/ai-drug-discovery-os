@@ -9,10 +9,37 @@ export function LoopSection() {
     >
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
         <SectionHeader
-          eyebrow="Self-Evolving Agent · Loop Engineering + RL"
-          title="An agent that gets better by living inside its task."
-          lede="The AI Agent uses inference to attempt a task. The task evaluates the outcome and returns a reward signal. That signal updates the agent — closing the loop. Loop Engineering + RL turns each attempt into training data."
+          title="Loop Engineering for Self-Evolving Agents"
         />
+
+        <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:mb-8">
+          {[
+            {
+              title: "Learn",
+              desc: "Capture outcomes from every execution to build experiential knowledge",
+            },
+            {
+              title: "Reflect",
+              desc: "Enable agents to analyze their own decisions and identify improvement opportunities",
+            },
+            {
+              title: "Adapt",
+              desc: "Close the feedback loop so agents automatically refine strategies and expand capabilities",
+            },
+            {
+              title: "Scale",
+              desc: "Turn each iteration into a compounding intelligence upgrade across the organization",
+            },
+          ].map((item) => (
+            <div key={item.title} className="flex items-start gap-3">
+              <span className="mt-2.5 h-2.5 w-2.5 shrink-0 rounded-full bg-teal" />
+              <div className="text-lg text-ink md:text-xl lg:text-2xl">
+                <span className="font-semibold text-ink">{item.title}</span>
+                <span className="text-ink-soft"> — {item.desc}</span>
+              </div>
+            </div>
+          ))}
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 24 }}
