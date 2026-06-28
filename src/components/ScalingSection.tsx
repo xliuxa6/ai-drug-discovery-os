@@ -78,21 +78,23 @@ export function ScalingSection() {
   const next = () => setStep((s) => (s + 1) % STEPS.length);
 
   return (
-    <section id="scaling" className="bg-paper py-8">
-      <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
+    <section id="scaling" className="bg-paper py-4">
+      <div className="mx-auto w-full max-w-7xl px-2 md:px-4">
         <SectionHeader
           eyebrow="Two-way Scaling"
           title="Tile the matrix toward Drug R&D Super Intelligence."
         />
 
         <div className="mt-4 flex items-center justify-between gap-4">
-          <div className="text-lg font-medium text-ink">{STEPS[step]}</div>
+          <div className="text-xl font-medium text-ink md:text-2xl">
+            {STEPS[step]}
+          </div>
           <div className="flex items-center gap-3">
             <div className="flex gap-1.5">
               {STEPS.map((_, i) => (
                 <span
                   key={i}
-                  className={`h-2 w-6 rounded-full ${
+                  className={`h-2.5 w-8 rounded-full ${
                     i <= step ? "bg-teal" : "bg-hairline"
                   }`}
                 />
@@ -100,7 +102,7 @@ export function ScalingSection() {
             </div>
             <button
               onClick={next}
-              className="rounded-full bg-ink px-5 py-2 text-sm font-semibold text-paper hover:opacity-90"
+              className="rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-paper hover:opacity-90 md:text-base"
             >
               {step === STEPS.length - 1 ? "Restart" : "Next →"}
             </button>
@@ -109,25 +111,27 @@ export function ScalingSection() {
 
         <div
           onClick={next}
-          className="mt-4 cursor-pointer overflow-hidden rounded-lg border border-hairline bg-card p-6"
+          className="mt-3 cursor-pointer overflow-hidden rounded-lg border border-hairline bg-card p-3 md:p-4"
         >
           <div className="relative">
             {/* Target badge — top right */}
-            <div className="absolute right-2 top-0 z-10 rounded-lg bg-ink px-6 py-3 text-center shadow-md">
-              <div className="font-serif text-xl text-paper">Drug R&amp;D</div>
-              <div className="text-[11px] tracking-[0.25em] text-teal-soft">
+            <div className="absolute right-2 top-2 z-10 rounded-lg bg-ink px-5 py-2 text-center shadow-md md:px-6 md:py-3">
+              <div className="font-serif text-2xl text-paper md:text-3xl">
+                Drug R&amp;D
+              </div>
+              <div className="text-xs font-semibold tracking-[0.25em] text-teal-soft md:text-sm">
                 SUPER INTELLIGENCE
               </div>
             </div>
 
             {/* Y-axis label (vertical) + grid */}
-            <div className="flex gap-3">
+            <div className="flex gap-4">
               <div className="flex items-center">
                 <div
-                  className="whitespace-nowrap text-[11px] font-bold tracking-[0.25em] text-ink"
+                  className="whitespace-nowrap text-sm font-bold tracking-[0.2em] text-ink md:text-base"
                   style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
                 >
-                  AI AGENTIC CAPABILITY SCALING-UP ↑
+                  AI AGENTIC CAPABILITY SCALING-UP
                 </div>
               </div>
 
@@ -135,7 +139,7 @@ export function ScalingSection() {
                 <div
                   className="grid gap-1"
                   style={{
-                    gridTemplateColumns: `160px repeat(${COLS}, minmax(0, 1fr))`,
+                    gridTemplateColumns: `minmax(200px, 220px) repeat(${COLS}, minmax(0, 1fr))`,
                   }}
                 >
                   {Array.from({ length: ROWS }).map((_, idxFromTop) => {
@@ -152,21 +156,17 @@ export function ScalingSection() {
                     );
                   })}
 
-                  {/* Diagonal x-axis labels row */}
+                  {/* X-axis labels row */}
                   <div />
                   {xLabels.map((label, c) => (
-                    <div
-                      key={c}
-                      className="relative h-20"
-                    >
+                    <div key={c} className="relative min-h-28">
                       {label && (
                         <div
-                          className={`absolute left-1/2 top-1 origin-top-left whitespace-nowrap text-[10px] font-medium transition-opacity duration-500 ${
+                          className={`flex h-full items-start justify-center px-1 py-1 text-center text-xs font-medium leading-tight transition-opacity duration-500 break-words md:text-sm ${
                             colRevealed(c, step)
                               ? "text-teal opacity-100"
                               : "text-ink-soft opacity-30"
                           }`}
-                          style={{ transform: "rotate(45deg)" }}
                         >
                           {label}
                         </div>
@@ -176,8 +176,8 @@ export function ScalingSection() {
                 </div>
 
                 {/* X-axis label */}
-                <div className="mt-2 text-center text-[11px] font-bold tracking-[0.25em] text-ink">
-                  APPLICATION SCALING-UP (TOOL &amp; DATA) →
+                <div className="mt-2 text-center text-sm font-bold tracking-[0.2em] text-ink md:text-base">
+                  APPLICATION SCALING-UP (TOOL &amp; DATA)
                 </div>
               </div>
             </div>
@@ -202,7 +202,7 @@ function RowFragment({
   return (
     <>
       <div
-        className={`flex items-center justify-end pr-3 text-right text-[11px] font-medium leading-tight transition-opacity duration-500 ${
+        className={`flex items-center justify-end pr-3 text-right text-sm font-medium leading-tight whitespace-normal transition-opacity duration-500 md:text-base ${
           labelOn ? "text-teal opacity-100" : "opacity-30 text-ink-soft"
         }`}
       >
