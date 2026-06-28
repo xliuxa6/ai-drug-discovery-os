@@ -100,30 +100,30 @@ export function ScalingSection() {
           <li>Accelerate Organizational AI Maturity by developing talent while shipping solutions faster</li>
         </ul>
 
+        {/* Target badge + Next — above the matrix */}
+        <div className="mt-4 flex items-start justify-end gap-3">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              next();
+            }}
+            className="rounded-full bg-ink px-5 py-1.5 text-sm font-semibold text-paper shadow-sm transition-transform hover:scale-105 active:scale-95 md:text-base"
+          >
+            Next
+          </button>
+          <div className="rounded-lg bg-ink px-5 py-2 text-center shadow-md md:px-6 md:py-3">
+            <div className="font-serif text-2xl text-paper md:text-3xl">Drug R&amp;D</div>
+            <div className="text-xs font-semibold tracking-[0.25em] text-teal-soft md:text-sm">
+              SUPER INTELLIGENCE
+            </div>
+          </div>
+        </div>
+
         <div
           onClick={next}
           className="mt-3 cursor-pointer overflow-hidden p-3 md:p-4"
         >
           <div className="relative">
-            {/* Target badge + Next button — top right */}
-            <div className="absolute right-2 top-2 z-10 flex flex-col items-end gap-2">
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  next();
-                }}
-                className="rounded-full bg-ink px-5 py-1.5 text-sm font-semibold text-paper shadow-sm transition-transform hover:scale-105 active:scale-95 md:text-base"
-              >
-                Next
-              </button>
-              <div className="rounded-lg bg-ink px-5 py-2 text-center shadow-md md:px-6 md:py-3">
-                <div className="font-serif text-2xl text-paper md:text-3xl">Drug R&amp;D</div>
-                <div className="text-xs font-semibold tracking-[0.25em] text-teal-soft md:text-sm">
-                  SUPER INTELLIGENCE
-                </div>
-              </div>
-            </div>
-
             {/* Y-axis label (vertical) + grid */}
             <div className="flex gap-4">
               <div className="flex items-center">
