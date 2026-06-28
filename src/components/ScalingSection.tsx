@@ -5,12 +5,24 @@ import { SectionHeader } from "./SectionHeader";
 // Action Space — applications, tools & data (left → right)
 const xItems = [
   "Target Research",
-  "Competitive Intelligence",
-  "Clinical Data Benchmarking",
+  "ADMET Prediction",
+  "Molecule Differentiation",
+  "Animal Model Translatability",
+  "Unmet Medical Needs",
   "Protocol Deviation Analysis",
   "Medical Monitoring",
-  "ADMET Prediction",
+  "Protocol Review",
+  "GCTO Operation Platform",
+  "Guidance QA",
+  "Virtual Cell",
+  "Digital Pathology",
+  "Genomics Platform",
+  "PBPK Prediction",
+  "Clinical Data Benchmarking",
+  "Competitive Intelligence",
+  "Disease Deep Dive",
 ];
+
 
 // AI Agentic Capability scaling (bottom → top)
 const yItems = [
@@ -144,13 +156,13 @@ export function ScalingSection() {
                     );
                   })}
 
-                  {/* X-axis labels row */}
+                  {/* X-axis labels row — diagonal so they don't overlap */}
                   <div />
                   {xLabels.map((label, c) => (
-                    <div key={c} className="relative min-h-28">
+                    <div key={c} className="relative h-32">
                       {label && (
                         <div
-                          className={`flex h-full items-start justify-center px-1 py-1 text-center text-xs font-medium leading-tight transition-opacity duration-500 break-words md:text-sm ${
+                          className={`absolute left-1/2 top-1 origin-top-left -rotate-45 whitespace-nowrap text-xs font-medium leading-tight transition-opacity duration-500 md:text-sm ${
                             colRevealed(c, step)
                               ? "text-teal opacity-100"
                               : "text-ink-soft opacity-30"
@@ -161,6 +173,7 @@ export function ScalingSection() {
                       )}
                     </div>
                   ))}
+
                 </div>
 
                 {/* X-axis label */}
