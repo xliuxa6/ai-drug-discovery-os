@@ -10,17 +10,17 @@ import { ScalingSection } from "@/components/ScalingSection";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Drug R&D Super Intelligence — A thesis in three movements" },
+      { title: "AI TF Update" },
       {
         name: "description",
         content:
-          "Loop Engineering with RL, a Drug R&D AI Operating System, and the two axes of scaling that lead to drug discovery super intelligence.",
+          "AI TF Update — Loop Engineering with RL, a Drug R&D AI Operating System, and the two axes of scaling.",
       },
-      { property: "og:title", content: "Drug R&D Super Intelligence" },
+      { property: "og:title", content: "AI TF Update" },
       {
         property: "og:description",
         content:
-          "Loop engineering, an R&D AI OS, and two axes of scaling — a thesis on super-intelligent drug discovery.",
+          "AI TF Update — Loop engineering, an R&D AI OS, and two axes of scaling.",
       },
     ],
   }),
