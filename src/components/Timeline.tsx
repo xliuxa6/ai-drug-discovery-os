@@ -34,7 +34,7 @@ export function Timeline() {
                   </div>
                 )}
                 <div className="flex min-w-[110px] flex-1 shrink-0 flex-col items-center text-center">
-                  <div className="font-mono text-sm uppercase tracking-wider text-ink-soft">
+                  <div className="font-mono text-base uppercase tracking-wider text-ink-soft">
                     {m.date}
                   </div>
                   <div className="relative mt-2 flex h-4 items-center justify-center">
@@ -48,7 +48,7 @@ export function Timeline() {
                     )}
                   </div>
                   <div
-                    className={`mt-3 text-sm leading-snug ${
+                    className={`mt-3 text-base leading-snug ${
                       m.highlight ? "font-medium text-teal" : "text-ink-soft"
                     }`}
                   >
