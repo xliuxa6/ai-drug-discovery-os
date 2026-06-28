@@ -95,13 +95,13 @@ function ProgressBar({ value = 50, showLabels = false }: { value?: number; showL
 
 function FeasibilityBadge() {
   return (
-    <div className="mt-1 inline-flex items-center gap-1 rounded-full bg-teal/10 px-2 py-0.5 text-xs font-semibold uppercase tracking-wider text-teal">
-      <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+    <span className="inline-flex items-center gap-1 align-middle rounded-full bg-teal/10 px-2 py-0.5 text-xs font-semibold uppercase tracking-wider text-teal">
+      <svg width="10" height="10" viewBox="0 0 12 12" fill="none" className="shrink-0">
         <circle cx="6" cy="6" r="6" fill="currentColor" />
         <path d="M3.5 6.2L5.2 7.8L8.5 4.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
       Feasibility
-    </div>
+    </span>
   );
 }
 
