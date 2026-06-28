@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { SectionHeader } from "./SectionHeader";
 
-// Columns (left → right): Action Space — applications, tools & data
+// Action Space — applications, tools & data (left → right)
 const xItems = [
   "Target Research",
   "Competitive Intelligence",
@@ -12,7 +12,7 @@ const xItems = [
   "ADMET Prediction",
 ];
 
-// Rows (bottom → top): AI Agentic Capability scaling
+// AI Agentic Capability scaling (bottom → top)
 const yItems = [
   "Prompt Engineering",
   "Chain of Thoughts",
@@ -29,26 +29,30 @@ const STEPS = [
   "Step 3 · Fill the matrix — converge on Drug R&D Super Intelligence.",
 ];
 
-const COLS = xItems.length; // 6
+const COLS = 20;
 const ROWS = yItems.length; // 6
-const HALF_C = Math.ceil(COLS / 2); // 3
+const HALF_C = Math.ceil(COLS / 2); // 10
 const HALF_R = Math.ceil(ROWS / 2); // 3
 
-// r = 0 bottom, c = 0 left
+// X-axis labels: first N are the real applications, last 3 are ellipses
+const xLabels: string[] = Array.from({ length: COLS }, (_, i) => {
+  if (i < xItems.length) return xItems[i];
+  if (i >= COLS - 3) return "…";
+  return "";
+});
+
 function tileState(r: number, c: number, step: number) {
-  // Returns { filled: boolean, delay: number }
   if (step >= 3) {
-    // skip tiles already covered in earlier steps (they stay filled, no delay)
     const fromStep1 = r === 0 && c < HALF_C;
     const fromStep2 = c === 0 && r < HALF_R;
     if (fromStep1 || fromStep2) return { filled: true, delay: 0 };
-    return { filled: true, delay: 0.04 * (r + c) };
+    return { filled: true, delay: 0.025 * (r + c) };
   }
   if (step >= 2 && c === 0 && r < HALF_R) {
-    return { filled: true, delay: r * 0.45 };
+    return { filled: true, delay: r * 0.35 };
   }
   if (step >= 1 && r === 0 && c < HALF_C) {
-    return { filled: true, delay: c * 0.45 };
+    return { filled: true, delay: c * 0.18 };
   }
   return { filled: false, delay: 0 };
 }
@@ -62,6 +66,11 @@ function rowRevealed(r: number, step: number) {
   if (step >= 3) return true;
   if (step >= 2 && r < HALF_R) return true;
   return false;
+}
+
+// Lighter at bottom, darker at top
+function tileOpacity(r: number) {
+  return 0.35 + (r / (ROWS - 1)) * 0.65;
 }
 
 export function ScalingSection() {
@@ -111,53 +120,66 @@ export function ScalingSection() {
               </div>
             </div>
 
-            {/* Grid: y-labels column + tile grid; bottom row = x-labels */}
-            <div
-              className="grid gap-2"
-              style={{
-                gridTemplateColumns: `170px repeat(${COLS}, minmax(0, 1fr))`,
-              }}
-            >
-              {/* For each row from top (ROWS-1) down to 0 */}
-              {Array.from({ length: ROWS }).map((_, idxFromTop) => {
-                const r = ROWS - 1 - idxFromTop; // actual row index (0 = bottom)
-                const labelOn = rowRevealed(r, step);
-                return (
-                  <RowFragment
-                    key={r}
-                    r={r}
-                    step={step}
-                    labelOn={labelOn}
-                    label={yItems[r]}
-                  />
-                );
-              })}
-
-              {/* Bottom strip: empty cell under y-labels, then x-axis labels */}
-              <div className="flex items-start justify-end pr-2 pt-2">
-                <div className="text-center">
-                  <div className="inline-block h-3 w-3 rounded-full bg-ink" />
-                  <div className="mt-1 text-xs font-bold tracking-wider text-ink">
-                    NOW
-                  </div>
+            {/* Y-axis label (vertical) + grid */}
+            <div className="flex gap-3">
+              <div className="flex items-center">
+                <div
+                  className="whitespace-nowrap text-[11px] font-bold tracking-[0.25em] text-ink"
+                  style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+                >
+                  AI AGENTIC CAPABILITY SCALING-UP ↑
                 </div>
               </div>
-              {xItems.map((label, c) => (
-                <div
-                  key={label}
-                  className={`pt-2 text-center text-[11px] font-medium leading-tight transition-opacity duration-500 ${
-                    colRevealed(c, step) ? "text-teal opacity-100" : "opacity-30 text-ink-soft"
-                  }`}
-                >
-                  {label}
-                </div>
-              ))}
-            </div>
 
-            {/* Axis captions */}
-            <div className="mt-4 flex items-center justify-between text-[11px] tracking-[0.25em] text-ink-soft">
-              <span>↑ AI AGENTIC CAPABILITY</span>
-              <span>ACTION SPACE — APPLICATIONS →</span>
+              <div className="flex-1">
+                <div
+                  className="grid gap-1"
+                  style={{
+                    gridTemplateColumns: `160px repeat(${COLS}, minmax(0, 1fr))`,
+                  }}
+                >
+                  {Array.from({ length: ROWS }).map((_, idxFromTop) => {
+                    const r = ROWS - 1 - idxFromTop;
+                    const labelOn = rowRevealed(r, step);
+                    return (
+                      <RowFragment
+                        key={r}
+                        r={r}
+                        step={step}
+                        labelOn={labelOn}
+                        label={yItems[r]}
+                      />
+                    );
+                  })}
+
+                  {/* Diagonal x-axis labels row */}
+                  <div />
+                  {xLabels.map((label, c) => (
+                    <div
+                      key={c}
+                      className="relative h-20"
+                    >
+                      {label && (
+                        <div
+                          className={`absolute left-1/2 top-1 origin-top-left whitespace-nowrap text-[10px] font-medium transition-opacity duration-500 ${
+                            colRevealed(c, step)
+                              ? "text-teal opacity-100"
+                              : "text-ink-soft opacity-30"
+                          }`}
+                          style={{ transform: "rotate(45deg)" }}
+                        >
+                          {label}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                {/* X-axis label */}
+                <div className="mt-2 text-center text-[11px] font-bold tracking-[0.25em] text-ink">
+                  APPLICATION SCALING-UP (TOOL &amp; DATA) →
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -191,16 +213,16 @@ function RowFragment({
         return (
           <div
             key={c}
-            className="relative aspect-[5/3] rounded-md border border-hairline bg-paper"
+            className="relative aspect-square rounded-sm border border-hairline bg-paper"
           >
             <motion.div
               initial={false}
               animate={{
-                opacity: filled ? 1 : 0,
+                opacity: filled ? tileOpacity(r) : 0,
                 scale: filled ? 1 : 0.6,
               }}
-              transition={{ duration: 0.35, delay: filled ? delay : 0 }}
-              className="absolute inset-0 rounded-md bg-teal shadow-sm"
+              transition={{ duration: 0.3, delay: filled ? delay : 0 }}
+              className="absolute inset-0 rounded-sm bg-teal"
             />
           </div>
         );
