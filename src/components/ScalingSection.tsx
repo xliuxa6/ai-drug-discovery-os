@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { SectionHeader } from "./SectionHeader";
 
+// Columns (left → right): Action Space — applications, tools & data
 const xItems = [
   "Target Research",
   "Competitive Intelligence",
@@ -11,6 +12,7 @@ const xItems = [
   "ADMET Prediction",
 ];
 
+// Rows (bottom → top): AI Agentic Capability scaling
 const yItems = [
   "Prompt Engineering",
   "Chain of Thoughts",
@@ -20,50 +22,62 @@ const yItems = [
   "Multi-Agent Framework",
 ];
 
-const zItems = [
-  "Individual AI Capability Uplift",
-  "Organizational AI Capability Uplift",
-];
-
 const STEPS = [
   "Start: anchor the destination.",
-  "Step 1 · Scale the Action Space (tools & data).",
-  "Step 2 · Scale Agentic Capability (reasoning & planning).",
-  "Step 3 · Lift the whole system: people + organization.",
-  "All three axes must scale together to reach Super Intelligence.",
+  "Step 1 · Scale the Action Space — tiles spread across applications.",
+  "Step 2 · Scale Agentic Capability — tiles climb the reasoning ladder.",
+  "Step 3 · Fill the matrix — converge on Drug R&D Super Intelligence.",
 ];
+
+const COLS = xItems.length; // 6
+const ROWS = yItems.length; // 6
+const HALF_C = Math.ceil(COLS / 2); // 3
+const HALF_R = Math.ceil(ROWS / 2); // 3
+
+// r = 0 bottom, c = 0 left
+function tileState(r: number, c: number, step: number) {
+  // Returns { filled: boolean, delay: number }
+  if (step >= 3) {
+    // skip tiles already covered in earlier steps (they stay filled, no delay)
+    const fromStep1 = r === 0 && c < HALF_C;
+    const fromStep2 = c === 0 && r < HALF_R;
+    if (fromStep1 || fromStep2) return { filled: true, delay: 0 };
+    return { filled: true, delay: 0.04 * (r + c) };
+  }
+  if (step >= 2 && c === 0 && r < HALF_R) {
+    return { filled: true, delay: r * 0.45 };
+  }
+  if (step >= 1 && r === 0 && c < HALF_C) {
+    return { filled: true, delay: c * 0.45 };
+  }
+  return { filled: false, delay: 0 };
+}
+
+function colRevealed(c: number, step: number) {
+  if (step >= 3) return true;
+  if (step >= 1 && c < HALF_C) return true;
+  return false;
+}
+function rowRevealed(r: number, step: number) {
+  if (step >= 3) return true;
+  if (step >= 2 && r < HALF_R) return true;
+  return false;
+}
 
 export function ScalingSection() {
   const [step, setStep] = useState(0);
   const next = () => setStep((s) => (s + 1) % STEPS.length);
-
-  // SVG geometry
-  const W = 1100;
-  const H = 620;
-  const ox = 180; // origin x
-  const oy = 500; // origin y
-  const xEnd = { x: 980, y: 500 };
-  const yEnd = { x: 180, y: 70 };
-  const zEnd = { x: 380, y: 320 }; // diagonal (depth) axis
-  const target = { x: 880, y: 130 };
-
-  const showX = step >= 1;
-  const showY = step >= 2;
-  const showZ = step >= 3;
-  const showAll = step >= 4;
 
   return (
     <section id="scaling" className="bg-paper py-8">
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
         <SectionHeader
           eyebrow="Two-way Scaling"
-          title="Three axes of scaling toward Drug R&D Super Intelligence."
+          title="Tile the matrix toward Drug R&D Super Intelligence."
         />
 
         <div className="mt-4 flex items-center justify-between gap-4">
-          <div className="text-lg font-medium text-ink">
-            {STEPS[step]}
-          </div>
+          <div className="text-lg font-medium text-ink">{STEPS[step]}</div>
           <div className="flex items-center gap-3">
             <div className="flex gap-1.5">
               {STEPS.map((_, i) => (
@@ -86,294 +100,111 @@ export function ScalingSection() {
 
         <div
           onClick={next}
-          className="mt-4 cursor-pointer overflow-hidden rounded-lg border border-hairline bg-card"
+          className="mt-4 cursor-pointer overflow-hidden rounded-lg border border-hairline bg-card p-6"
         >
-          <svg viewBox={`0 0 ${W} ${H}`} className="h-auto w-full">
-            <defs>
-              <marker
-                id="ar"
-                viewBox="0 0 10 10"
-                refX="8"
-                refY="5"
-                markerWidth="10"
-                markerHeight="10"
-                orient="auto-start-reverse"
-              >
-                <path d="M0,0 L10,5 L0,10 z" fill="currentColor" />
-              </marker>
-              <linearGradient id="diag" x1="0" y1="1" x2="1" y2="0">
-                <stop offset="0%" stopColor="var(--color-teal-soft)" />
-                <stop offset="100%" stopColor="var(--color-teal)" />
-              </linearGradient>
-            </defs>
-
-            {/* NOW */}
-            <g>
-              <circle cx={ox} cy={oy} r="10" className="fill-ink" />
-              <text x={ox - 16} y={oy + 32} className="fill-ink" fontSize="18" fontWeight="700">
-                NOW
-              </text>
-            </g>
-
-            {/* TARGET */}
-            <g>
-              <rect
-                x={target.x - 130}
-                y={target.y - 36}
-                width="260"
-                height="72"
-                rx="10"
-                className="fill-ink"
-              />
-              <text
-                x={target.x}
-                y={target.y - 10}
-                textAnchor="middle"
-                className="font-serif fill-paper"
-                fontSize="20"
-              >
-                Drug R&amp;D
-              </text>
-              <text
-                x={target.x}
-                y={target.y + 18}
-                textAnchor="middle"
-                fontSize="12"
-                letterSpacing="3"
-                className="fill-teal-soft"
-              >
+          <div className="relative">
+            {/* Target badge — top right */}
+            <div className="absolute right-2 top-0 z-10 rounded-lg bg-ink px-6 py-3 text-center shadow-md">
+              <div className="font-serif text-xl text-paper">Drug R&amp;D</div>
+              <div className="text-[11px] tracking-[0.25em] text-teal-soft">
                 SUPER INTELLIGENCE
-              </text>
-            </g>
+              </div>
+            </div>
 
-            {/* X axis — Action Space */}
-            <AnimatePresence>
-              {showX && (
-                <motion.g
-                  key="x"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="text-teal"
-                >
-                  <motion.line
-                    x1={ox}
-                    y1={oy}
-                    x2={xEnd.x}
-                    y2={xEnd.y}
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    markerEnd="url(#ar)"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{ duration: 0.7 }}
+            {/* Grid: y-labels column + tile grid; bottom row = x-labels */}
+            <div
+              className="grid gap-2"
+              style={{
+                gridTemplateColumns: `170px repeat(${COLS}, minmax(0, 1fr))`,
+              }}
+            >
+              {/* For each row from top (ROWS-1) down to 0 */}
+              {Array.from({ length: ROWS }).map((_, idxFromTop) => {
+                const r = ROWS - 1 - idxFromTop; // actual row index (0 = bottom)
+                const labelOn = rowRevealed(r, step);
+                return (
+                  <RowFragment
+                    key={r}
+                    r={r}
+                    step={step}
+                    labelOn={labelOn}
+                    label={yItems[r]}
                   />
-                  <text
-                    x={xEnd.x}
-                    y={xEnd.y + 48}
-                    textAnchor="end"
-                    fontSize="13"
-                    letterSpacing="3"
-                    className="fill-teal"
-                  >
-                    ACTION SPACE — TOOLS &amp; DATA →
-                  </text>
-                  {xItems.map((t, i) => {
-                    const x = ox + ((i + 1) / (xItems.length + 1)) * (xEnd.x - ox);
-                    return (
-                      <motion.g
-                        key={t}
-                        initial={{ opacity: 0, y: 6 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 + i * 0.15 }}
-                      >
-                        <line
-                          x1={x}
-                          y1={oy - 6}
-                          x2={x}
-                          y2={oy + 6}
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                        />
-                        <text
-                          x={x}
-                          y={oy + 24}
-                          textAnchor="middle"
-                          fontSize="12"
-                          className="fill-ink"
-                        >
-                          {t}
-                        </text>
-                      </motion.g>
-                    );
-                  })}
-                </motion.g>
-              )}
-            </AnimatePresence>
+                );
+              })}
 
-            {/* Y axis — Agentic Capability */}
-            <AnimatePresence>
-              {showY && (
-                <motion.g
-                  key="y"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="text-teal"
+              {/* Bottom strip: empty cell under y-labels, then x-axis labels */}
+              <div className="flex items-start justify-end pr-2 pt-2">
+                <div className="text-center">
+                  <div className="inline-block h-3 w-3 rounded-full bg-ink" />
+                  <div className="mt-1 text-xs font-bold tracking-wider text-ink">
+                    NOW
+                  </div>
+                </div>
+              </div>
+              {xItems.map((label, c) => (
+                <div
+                  key={label}
+                  className={`pt-2 text-center text-[11px] font-medium leading-tight transition-opacity duration-500 ${
+                    colRevealed(c, step) ? "text-teal opacity-100" : "opacity-30 text-ink-soft"
+                  }`}
                 >
-                  <motion.line
-                    x1={ox}
-                    y1={oy}
-                    x2={yEnd.x}
-                    y2={yEnd.y}
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    markerEnd="url(#ar)"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{ duration: 0.7 }}
-                  />
-                  <text
-                    x={ox - 16}
-                    y={yEnd.y - 16}
-                    textAnchor="start"
-                    fontSize="13"
-                    letterSpacing="3"
-                    className="fill-teal"
-                  >
-                    ↑ AGENTIC CAPABILITY — REASONING &amp; PLANNING
-                  </text>
-                  {yItems.map((t, i) => {
-                    const y = oy - ((i + 1) / (yItems.length + 1)) * (oy - yEnd.y);
-                    return (
-                      <motion.g
-                        key={t}
-                        initial={{ opacity: 0, x: -6 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.4 + i * 0.15 }}
-                      >
-                        <line
-                          x1={ox - 6}
-                          y1={y}
-                          x2={ox + 6}
-                          y2={y}
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                        />
-                        <text
-                          x={ox - 14}
-                          y={y + 4}
-                          textAnchor="end"
-                          fontSize="12"
-                          className="fill-ink"
-                        >
-                          {t}
-                        </text>
-                      </motion.g>
-                    );
-                  })}
-                </motion.g>
-              )}
-            </AnimatePresence>
+                  {label}
+                </div>
+              ))}
+            </div>
 
-            {/* Z axis — depth: human + org uplift */}
-            <AnimatePresence>
-              {showZ && (
-                <motion.g
-                  key="z"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="text-ink-soft"
-                >
-                  <motion.line
-                    x1={ox}
-                    y1={oy}
-                    x2={zEnd.x}
-                    y2={zEnd.y}
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeDasharray="6 5"
-                    markerEnd="url(#ar)"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{ duration: 0.7 }}
-                  />
-                  <text
-                    x={zEnd.x + 8}
-                    y={zEnd.y - 8}
-                    fontSize="13"
-                    letterSpacing="2"
-                    className="fill-ink"
-                  >
-                    ↗ HUMAN + ORG AI UPLIFT
-                  </text>
-                  {zItems.map((t, i) => {
-                    const f = (i + 1) / (zItems.length + 1);
-                    const x = ox + f * (zEnd.x - ox);
-                    const y = oy + f * (zEnd.y - oy);
-                    return (
-                      <motion.g
-                        key={t}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.4 + i * 0.2 }}
-                      >
-                        <circle cx={x} cy={y} r="4" className="fill-ink" />
-                        <text
-                          x={x + 10}
-                          y={y + 4}
-                          fontSize="12"
-                          className="fill-ink"
-                        >
-                          {t}
-                        </text>
-                      </motion.g>
-                    );
-                  })}
-                </motion.g>
-              )}
-            </AnimatePresence>
-
-            {/* Final convergent arrow */}
-            <AnimatePresence>
-              {showAll && (
-                <motion.g
-                  key="conv"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                >
-                  <motion.line
-                    x1={ox + 20}
-                    y1={oy - 20}
-                    x2={target.x - 60}
-                    y2={target.y + 40}
-                    stroke="url(#diag)"
-                    strokeWidth="6"
-                    markerEnd="url(#ar)"
-                    className="text-teal"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{ duration: 1.1 }}
-                  />
-                  <motion.text
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.0 }}
-                    x={(ox + target.x) / 2}
-                    y={(oy + target.y) / 2 - 16}
-                    textAnchor="middle"
-                    fontSize="14"
-                    letterSpacing="2"
-                    className="fill-teal"
-                    fontWeight="700"
-                  >
-                    SCALE ALL THREE — TOGETHER
-                  </motion.text>
-                </motion.g>
-              )}
-            </AnimatePresence>
-          </svg>
+            {/* Axis captions */}
+            <div className="mt-4 flex items-center justify-between text-[11px] tracking-[0.25em] text-ink-soft">
+              <span>↑ AI AGENTIC CAPABILITY</span>
+              <span>ACTION SPACE — APPLICATIONS →</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function RowFragment({
+  r,
+  step,
+  labelOn,
+  label,
+}: {
+  r: number;
+  step: number;
+  labelOn: boolean;
+  label: string;
+}) {
+  return (
+    <>
+      <div
+        className={`flex items-center justify-end pr-3 text-right text-[11px] font-medium leading-tight transition-opacity duration-500 ${
+          labelOn ? "text-teal opacity-100" : "opacity-30 text-ink-soft"
+        }`}
+      >
+        {label}
+      </div>
+      {Array.from({ length: COLS }).map((_, c) => {
+        const { filled, delay } = tileState(r, c, step);
+        return (
+          <div
+            key={c}
+            className="relative aspect-[5/3] rounded-md border border-hairline bg-paper"
+          >
+            <motion.div
+              initial={false}
+              animate={{
+                opacity: filled ? 1 : 0,
+                scale: filled ? 1 : 0.6,
+              }}
+              transition={{ duration: 0.35, delay: filled ? delay : 0 }}
+              className="absolute inset-0 rounded-md bg-teal shadow-sm"
+            />
+          </div>
+        );
+      })}
+    </>
   );
 }
