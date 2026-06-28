@@ -78,14 +78,14 @@ function ProgressBar({ value = 50, showLabels = false }: { value?: number; showL
         />
       </div>
       {showLabels && (
-        <div className="relative mt-1 h-12 text-sm font-semibold uppercase tracking-wider text-ink/80">
-          <div className="absolute text-right leading-tight whitespace-nowrap" style={{ left: "80%", transform: "translateX(-100%)" }}>
+        <div className="relative mt-1 h-12 text-base font-semibold uppercase tracking-wider text-ink/80">
+          <div className="absolute text-right leading-none whitespace-nowrap" style={{ left: "80%", transform: "translateX(-100%)" }}>
             <div>Pilot</div>
-            <div className="font-normal text-ink/60">Sep</div>
+            <div className="font-normal leading-none text-ink/60">Sep</div>
           </div>
-          <div className="absolute text-left leading-tight whitespace-nowrap" style={{ left: "100%" }}>
+          <div className="absolute text-left leading-none whitespace-nowrap" style={{ left: "100%" }}>
             <div>MASSIVE USE</div>
-            <div className="font-normal text-ink/60">Nov</div>
+            <div className="font-normal leading-none text-ink/60">Nov</div>
           </div>
         </div>
       )}
@@ -95,8 +95,8 @@ function ProgressBar({ value = 50, showLabels = false }: { value?: number; showL
 
 function FeasibilityBadge() {
   return (
-    <div className="mt-1 inline-flex items-center gap-1.5 rounded-full bg-teal/10 px-2 py-0.5 text-xs font-semibold uppercase tracking-wider text-teal">
-      <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+    <div className="mt-1 inline-flex items-center gap-1.5 rounded-full bg-teal/10 px-2 py-0.5 text-sm font-semibold uppercase tracking-wider text-teal">
+      <svg width="14" height="14" viewBox="0 0 12 12" fill="none">
         <circle cx="6" cy="6" r="6" fill="currentColor" />
         <path d="M3.5 6.2L5.2 7.8L8.5 4.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
@@ -108,7 +108,7 @@ function FeasibilityBadge() {
 function ProjectItem({ project, showLabels }: { project: Project; showLabels?: boolean }) {
   return (
     <div className="py-1">
-      <div className="text-base font-semibold leading-tight text-ink">{project.name}</div>
+      <div className="text-lg font-semibold leading-none text-ink">{project.name}</div>
       {project.feasibility ? (
         <FeasibilityBadge />
       ) : (
@@ -118,7 +118,7 @@ function ProjectItem({ project, showLabels }: { project: Project; showLabels?: b
         <div className="mt-2 space-y-2 border-l-2 border-ink/20 pl-4">
           {project.sub.map((s) => (
             <div key={s.name}>
-              <div className="text-sm font-medium text-ink/90">{s.name}</div>
+              <div className="text-base font-medium leading-none text-ink/90">{s.name}</div>
               {s.feasibility ? <FeasibilityBadge /> : <ProgressBar value={s.value ?? 50} />}
             </div>
           ))}
@@ -135,7 +135,7 @@ export function ProgressSection() {
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
         <div className="mb-4 flex items-center gap-3">
           <span className="h-px w-12 bg-teal/60" />
-          <span className="eyebrow text-base">Current Project Progress · Five Streams</span>
+          <span className="eyebrow text-lg">Current Project Progress · Five Streams</span>
         </div>
 
         {/* Tier 3: Applications */}
@@ -145,7 +145,7 @@ export function ProgressSection() {
               key={stream.id}
               className={`rounded-2xl border border-hairline p-4 shadow-sm ${stream.color}`}
             >
-              <div className="mb-3 text-center text-xl font-bold uppercase tracking-[0.12em] text-ink">
+              <div className="mb-3 text-center text-2xl font-bold uppercase tracking-[0.12em] text-ink">
                 {stream.title}
               </div>
               <div className="space-y-3">
@@ -161,13 +161,13 @@ export function ProgressSection() {
 
         {/* Tier 2: CI & Scientific Finding Tracking — flat, warm tint */}
         <div className="mt-5 rounded-2xl border border-hairline bg-bg-panel p-4 shadow-sm">
-          <div className="mb-3 text-center text-xl font-bold uppercase tracking-[0.12em] text-ink">
+          <div className="mb-3 text-center text-2xl font-bold uppercase tracking-[0.12em] text-ink">
             Competitive Intelligence & Scientific Finding Tracking
           </div>
           <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
             {ciItems.map((item) => (
               <div key={item.name} className="py-1">
-                <div className="text-base font-semibold leading-tight text-ink">{item.name}</div>
+                <div className="text-lg font-semibold leading-none text-ink">{item.name}</div>
                 <ProgressBar value={item.value} />
               </div>
             ))}
@@ -176,7 +176,7 @@ export function ProgressSection() {
 
         {/* Tier 1: IT Infrastructure — flat, cool tint */}
         <div className="mt-5 rounded-2xl border border-hairline bg-bg-panel px-4 py-3 text-center shadow-sm">
-          <div className="text-xl font-bold uppercase tracking-[0.12em] text-ink">
+          <div className="text-2xl font-bold uppercase tracking-[0.12em] text-ink">
             IT Infrastructure Excellence Enablement
           </div>
         </div>

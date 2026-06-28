@@ -67,7 +67,7 @@ const ciItems: { name: string; value: number; candidates?: string[] }[] = [
 function NameOnlyItem({ name, gray, sub }: { name: string; gray?: boolean; sub?: Project["sub"] }) {
   return (
     <div className="py-1">
-      <div className={`text-base leading-tight ${gray ? "font-medium text-ink/60" : "font-semibold text-ink"}`}>
+      <div className={`text-lg leading-none ${gray ? "font-medium text-ink/60" : "font-semibold text-ink"}`}>
         {name}
       </div>
       {sub && sub.length > 0 && (
@@ -84,7 +84,7 @@ function NameOnlyItem({ name, gray, sub }: { name: string; gray?: boolean; sub?:
 function CandidateItem({ name }: { name: string }) {
   return (
     <div className="py-1">
-      <div className="text-base font-medium leading-tight text-ink/60">{name}</div>
+      <div className="text-lg font-medium leading-none text-ink/60">{name}</div>
     </div>
   );
 }
@@ -96,7 +96,7 @@ export function NewProjectsSection() {
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
         <div className="mb-4 flex items-center gap-3">
           <span className="h-px w-12 bg-teal/60" />
-          <span className="eyebrow text-base">Potential New Projects · Future Candidates</span>
+          <span className="eyebrow text-lg">Potential New Projects · Future Candidates</span>
         </div>
 
         {/* Tier 3: Applications */}
@@ -106,7 +106,7 @@ export function NewProjectsSection() {
               key={stream.id}
               className={`rounded-2xl border border-hairline p-4 shadow-sm ${stream.color}`}
             >
-              <div className="mb-3 text-center text-xl font-bold uppercase tracking-[0.12em] text-ink">
+              <div className="mb-3 text-center text-2xl font-bold uppercase tracking-[0.12em] text-ink">
                 {stream.title}
               </div>
               <div className="space-y-3">
@@ -130,7 +130,7 @@ export function NewProjectsSection() {
 
         {/* Tier 2: CI & Scientific Finding Tracking */}
         <div className="mt-5 rounded-2xl border border-hairline bg-bg-panel p-4 shadow-sm">
-          <div className="mb-3 text-center text-xl font-bold uppercase tracking-[0.12em] text-ink">
+          <div className="mb-3 text-center text-2xl font-bold uppercase tracking-[0.12em] text-ink">
             Competitive Intelligence & Scientific Finding Tracking
           </div>
           <div className="grid grid-cols-1 gap-x-5 gap-y-2 md:grid-cols-2">
@@ -151,7 +151,7 @@ export function NewProjectsSection() {
 
         {/* Tier 1: IT Infrastructure */}
         <div className="mt-5 rounded-2xl border border-hairline bg-bg-panel p-4 shadow-sm">
-          <div className="mb-3 text-center text-xl font-bold uppercase tracking-[0.12em] text-ink">
+          <div className="mb-3 text-center text-2xl font-bold uppercase tracking-[0.12em] text-ink">
             IT Infrastructure Excellence Enablement
           </div>
           <div className="grid grid-cols-1 gap-x-5 gap-y-1 md:grid-cols-2">
