@@ -37,9 +37,9 @@ function Index() {
           <Timeline />
         </section>
 
-        <ProgressSection />
-
         <NewProjectsSection />
+
+        <ProgressSection />
 
 
         <PlaceholderSection

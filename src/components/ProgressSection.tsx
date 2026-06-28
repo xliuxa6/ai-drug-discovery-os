@@ -144,7 +144,7 @@ export function ProgressSection() {
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
         <div className="mb-4 flex items-center gap-3">
           <span className="h-px w-12 bg-teal/60" />
-          <span className="eyebrow text-lg">Current Project Progress · Five Streams</span>
+          <span className="eyebrow text-lg">Current Project Progress</span>
         </div>
 
         {/* Tier 3: Applications */}
