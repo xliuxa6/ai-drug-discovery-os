@@ -100,7 +100,7 @@ export function NewProjectsSection() {
   return (
     <section id="new-projects" className="border-t border-hairline bg-paper pt-6 pb-6">
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
-        <div className="mb-4">
+        <div className="mb-8">
           <h2 className="text-4xl font-black leading-[1.05] text-ink md:text-5xl lg:text-6xl">
             Project Overview
           </h2>

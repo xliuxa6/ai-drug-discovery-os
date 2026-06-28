@@ -63,7 +63,7 @@ export function SiteNav() {
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-6">
         <a href="#top" className="flex shrink-0 items-baseline gap-2">
           <span className="font-serif text-xl uppercase text-ink md:text-2xl">
-            {"\n"}
+            AI TF Update
           </span>
         </a>
         <div className="flex items-center gap-2 md:gap-3">
