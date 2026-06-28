@@ -155,10 +155,10 @@ function ScalingChart() {
                 strokeDasharray="2 4"
               />
               <text
-                x={padL - 12}
-                y={y + 4}
+                x={padL - 16}
+                y={y + 5}
                 textAnchor="end"
-                fontSize="11"
+                fontSize="14"
                 fill="oklch(0.22 0.04 250)"
               >
                 {t}
@@ -183,9 +183,9 @@ function ScalingChart() {
               />
               <text
                 x={x}
-                y={H - padB + 22}
+                y={H - padB + 26}
                 textAnchor="middle"
-                fontSize="11"
+                fontSize="14"
                 fill="oklch(0.22 0.04 250)"
               >
                 {t}
@@ -196,10 +196,10 @@ function ScalingChart() {
 
         {/* axis labels */}
         <text
-          x={padL - 12}
-          y={padT - 12}
+          x={padL - 16}
+          y={padT - 16}
           textAnchor="end"
-          fontSize="9"
+          fontSize="12"
           letterSpacing="3"
           fill="oklch(0.58 0.09 210)"
         >
@@ -207,9 +207,9 @@ function ScalingChart() {
         </text>
         <text
           x={W - padR}
-          y={H - padB + 50}
+          y={H - padB + 58}
           textAnchor="end"
-          fontSize="9"
+          fontSize="12"
           letterSpacing="3"
           fill="oklch(0.58 0.09 210)"
         >
@@ -239,19 +239,19 @@ function ScalingChart() {
           />
           <text
             x={W - padR - 140}
-            y={padT + 32}
+            y={padT + 36}
             textAnchor="middle"
             className="font-serif"
-            fontSize="14"
+            fontSize="18"
             fill="oklch(0.97 0.01 240)"
           >
             Drug R&amp;D
           </text>
           <text
             x={W - padR - 140}
-            y={padT + 49}
+            y={padT + 56}
             textAnchor="middle"
-            fontSize="9"
+            fontSize="12"
             letterSpacing="3"
             fill="oklch(0.82 0.05 210)"
           >
@@ -262,8 +262,8 @@ function ScalingChart() {
         {/* origin label */}
         <text
           x={padL + 8}
-          y={H - padB - 8}
-          fontSize="10"
+          y={H - padB - 10}
+          fontSize="12"
           fill="oklch(0.45 0.03 250)"
         >
           today
