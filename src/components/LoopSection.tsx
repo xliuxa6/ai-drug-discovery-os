@@ -53,7 +53,7 @@ export function LoopSection() {
 
           <div className="flex h-full flex-col justify-start pt-2">
             <div className="rounded-lg border border-hairline bg-card p-3 md:p-4">
-              <div className="eyebrow text-sm mb-2 md:text-base">
+              <div className="eyebrow text-base mb-2 md:text-lg">
                 Enhancing Agentic Capability
               </div>
               <div className="space-y-2">
@@ -78,10 +78,10 @@ export function LoopSection() {
                   <div key={item.title} className="flex gap-2">
                     <div className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-teal" />
                     <div>
-                      <div className="text-sm font-semibold text-ink md:text-base">
+                      <div className="text-base font-semibold text-ink md:text-lg">
                         {item.title}
                       </div>
-                      <p className="text-xs text-ink-soft md:text-sm">
+                      <p className="text-sm text-ink-soft md:text-base">
                         {item.desc}
                       </p>
                     </div>
