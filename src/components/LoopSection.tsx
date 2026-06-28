@@ -219,7 +219,7 @@ function LoopDiagram() {
           </text>
           <text
             x="235"
-            y="132"
+            y="125"
             textAnchor="middle"
             fontSize="11"
             letterSpacing="2"
