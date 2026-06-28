@@ -255,6 +255,16 @@ export function OpportunitiesSection() {
             ))
           )}
         </div>
+
+        {/* Bottom questions */}
+        <div className="mt-3 flex flex-col items-center justify-center gap-3 rounded-xl border-2 border-ink bg-paper py-3 shadow-lg">
+          <p className="text-center text-lg font-black text-ink md:text-xl lg:text-2xl">
+            Where are the valuable AI applications in different functions or project process?
+          </p>
+          <p className="text-center text-lg font-black text-ink md:text-xl lg:text-2xl">
+            Where are the opportunities we believe we are more advanced so that we can talk broadly with HQ?
+          </p>
+        </div>
       </div>
     </section>
   );
