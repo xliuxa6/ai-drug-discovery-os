@@ -7,7 +7,9 @@ import { ScalingSection } from "@/components/ScalingSection";
 import { PlaceholderSection } from "@/components/PlaceholderSection";
 import { ProgressSection } from "@/components/ProgressSection";
 import { NewProjectsSection } from "@/components/NewProjectsSection";
+import { CaseStudySection } from "@/components/CaseStudySection";
 import { SlideDeck, Slide } from "@/components/SlideDeck";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,12 +46,7 @@ function Index() {
           <ProgressSection />
         </Slide>
         <Slide id="case-study">
-          <PlaceholderSection
-            id="case-study-inner"
-            eyebrow="Case Study"
-            title="AI-assisted Protocol Deviation."
-            lede="A worked example of how an agentic workflow detects, classifies, and triages protocol deviations end-to-end."
-          />
+          <CaseStudySection />
         </Slide>
         <Slide id="loop">
           <LoopSection />
