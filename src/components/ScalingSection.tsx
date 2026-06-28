@@ -127,7 +127,7 @@ export function ScalingSection() {
 
         <div
           onClick={next}
-          className="mt-3 cursor-pointer overflow-hidden p-3 md:p-4"
+          className="mt-1 cursor-pointer overflow-hidden p-1 md:p-2"
         >
           <div className="relative">
             {/* Y-axis label (vertical) + grid */}
