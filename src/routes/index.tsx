@@ -39,12 +39,8 @@ function Index() {
 
         <ProgressSection />
 
-        <PlaceholderSection
-          id="new-projects"
-          eyebrow="Potential New Projects"
-          title="Candidate projects under evaluation."
-          lede="A shortlist of new opportunities being scoped for the next wave — problem statements, hypotheses, and expected value."
-        />
+        <NewProjectsSection />
+
 
         <PlaceholderSection
           id="case-study"
