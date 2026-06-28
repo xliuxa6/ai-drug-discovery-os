@@ -67,6 +67,17 @@ const ciItems: { name: string; value: number; candidates?: string[] }[] = [
 function ProgressBar({ value = 50, showLabels = false }: { value?: number; showLabels?: boolean }) {
   return (
     <div className="mt-1 w-[65%]">
+      {/* Markers above the bar, pointing down */}
+      <div className="relative h-3 w-full">
+        <div className="absolute -translate-x-1/2" style={{ left: "80%" }}>
+          <div className="h-0 w-0 border-x-[5px] border-t-[7px] border-x-transparent border-t-teal drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]" />
+        </div>
+        <div className="absolute -translate-x-1/2" style={{ left: "100%" }}>
+          <div className="h-0 w-0 border-x-[5px] border-t-[7px] border-x-transparent border-t-ink drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]" />
+        </div>
+      </div>
+
+      {/* Progress track */}
       <div className="relative h-3 w-full overflow-hidden rounded-full bg-progress-track">
         <div
           className="h-full rounded-full"
@@ -76,15 +87,6 @@ function ProgressBar({ value = 50, showLabels = false }: { value?: number; showL
               "repeating-linear-gradient(45deg, var(--success) 0 5px, var(--success-dim) 5px 10px)",
           }}
         />
-        {/* Markers centered inside the bar, pointing up */}
-        <div className="absolute inset-y-0 w-full">
-          <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2" style={{ left: "80%" }}>
-            <div className="h-0 w-0 border-x-[5px] border-b-[7px] border-x-transparent border-b-teal drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]" />
-          </div>
-          <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2" style={{ left: "100%" }}>
-            <div className="h-0 w-0 border-x-[5px] border-b-[7px] border-x-transparent border-b-ink drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]" />
-          </div>
-        </div>
       </div>
       {showLabels && (
         <div className="relative mt-1 h-12 text-sm font-semibold uppercase tracking-wider text-ink/80">
