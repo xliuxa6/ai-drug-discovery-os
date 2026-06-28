@@ -145,22 +145,6 @@ function CandidateItem({ name }: { name: string }) {
   );
 }
 
-function Arrows({ count }: { count: number }) {
-  return (
-    <div
-      className="grid items-center justify-items-center py-0.5"
-      style={{ gridTemplateColumns: `repeat(${count}, minmax(0, 1fr))` }}
-    >
-      {Array.from({ length: count }).map((_, i) => (
-        <svg key={i} width="18" height="16" viewBox="0 0 18 16" className="text-ink/60">
-          <line x1="9" y1="16" x2="9" y2="5" stroke="currentColor" strokeWidth="2.5" />
-          <polygon points="9,0 2,8 16,8" fill="currentColor" />
-        </svg>
-      ))}
-    </div>
-  );
-}
-
 export function NewProjectsSection() {
   let firstShown = false;
   return (
@@ -202,11 +186,8 @@ export function NewProjectsSection() {
           ))}
         </div>
 
-        {/* Arrows up from CI to applications */}
-        <Arrows count={3} />
-
         {/* Tier 2: CI & Scientific Finding Tracking */}
-        <div className="rounded-2xl border border-hairline bg-bg-panel p-3 shadow-sm">
+        <div className="mt-3 rounded-2xl border border-hairline bg-bg-panel p-3 shadow-sm">
           <div className="mb-2 text-center text-xl font-bold uppercase tracking-[0.12em] text-ink">
             Competitive Intelligence & Scientific Finding Tracking
           </div>
@@ -229,11 +210,8 @@ export function NewProjectsSection() {
           </div>
         </div>
 
-        {/* Arrows up from infra to CI */}
-        <Arrows count={3} />
-
         {/* Tier 1: IT Infrastructure */}
-        <div className="rounded-2xl border border-hairline bg-bg-panel px-3 py-2.5 text-center shadow-sm">
+        <div className="mt-3 rounded-2xl border border-hairline bg-bg-panel px-3 py-2.5 text-center shadow-sm">
           <div className="text-xl font-bold uppercase tracking-[0.12em] text-ink">
             IT Infrastructure Excellence Enablement
           </div>
