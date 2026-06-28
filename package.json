@@ -12,6 +12,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@fontsource/archivo-black": "^5.2.8",
     "@fontsource/instrument-serif": "^5.2.8",
     "@fontsource/work-sans": "^5.2.8",
     "@hookform/resolvers": "^5.2.2",
