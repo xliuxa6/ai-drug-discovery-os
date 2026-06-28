@@ -58,7 +58,6 @@ export function ScalingSection() {
         <SectionHeader
           eyebrow="Two-way Scaling"
           title="Three axes of scaling toward Drug R&D Super Intelligence."
-          lede="Click the canvas to reveal each axis. Reaching the upper-right requires all three to scale together."
         />
 
         <div className="mt-4 flex items-center justify-between gap-4">
