@@ -208,51 +208,50 @@ export function CaseStudySection() {
 
         {/* Accuracy improvement — separate bar chart cards */}
         <div className="mt-1.5 grid gap-2 md:grid-cols-2">
-          {metrics.map((m) => {
-            return (
-              <div
-                key={m.label}
-                className="rounded-2xl border border-hairline bg-card p-2 shadow-sm"
-              >
-                <div className="text-center text-base font-semibold leading-tight text-ink md:text-lg">
-                  {m.label}
-                </div>
-                <div className="relative mx-auto mt-2 flex h-44 items-end justify-center gap-6 px-4">
-                  {/* Baseline */}
-                  <div className="absolute bottom-0 left-4 right-4 h-px bg-ink/30" />
+          {metrics.map((m) => (
+            <div
+              key={m.label}
+              className="rounded-2xl border border-hairline bg-card p-2 shadow-sm"
+            >
+              <div className="text-center text-base font-semibold leading-tight text-ink md:text-lg">
+                {m.label}
+              </div>
+              <div className="relative mx-auto mt-2 h-44 w-full max-w-xs">
+                {/* Baseline */}
+                <div className="absolute bottom-0 left-4 right-4 h-px bg-ink/30" />
 
+                {/* Bars */}
+                <div className="absolute inset-x-0 bottom-0 h-full flex items-end justify-center gap-6 px-4">
                   {/* Before bar */}
-                  <div className="relative z-10 flex flex-col items-center gap-1">
-                    <span className="text-lg font-black text-ink/80 md:text-xl">
+                  <div className="flex flex-col items-center">
+                    <span className="mb-1 text-lg font-black text-ink/80 md:text-xl">
                       {m.before.toFixed(1)}%
                     </span>
                     <div
                       className="w-16 rounded-t-lg bg-ink/60 md:w-20"
-                      style={{ height: `${m.before * 0.85}%` }}
+                      style={{ height: `${m.before * 0.8}%` }}
                     />
-                    <div className="h-0 w-16 md:w-20" />
                   </div>
 
                   {/* Diagonal arrow */}
-                  <div className="absolute left-1/2 top-4 -translate-x-1/2">
+                  <div className="mb-16">
                     <ArrowUpRight className="h-8 w-8 text-teal md:h-9 md:w-9" />
                   </div>
 
                   {/* After bar */}
-                  <div className="relative z-10 flex flex-col items-center gap-1">
-                    <span className="text-lg font-black text-teal md:text-xl">
+                  <div className="flex flex-col items-center">
+                    <span className="mb-1 text-lg font-black text-teal md:text-xl">
                       {m.after.toFixed(1)}%
                     </span>
                     <div
                       className="w-16 rounded-t-lg bg-teal shadow-md shadow-teal/20 md:w-20"
-                      style={{ height: `${m.after * 0.85}%` }}
+                      style={{ height: `${m.after * 0.8}%` }}
                     />
-                    <div className="h-0 w-16 md:w-20" />
                   </div>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
 
       </div>
