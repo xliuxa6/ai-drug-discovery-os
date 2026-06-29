@@ -150,17 +150,9 @@ export function CaseStudySection() {
               </div>
             </div>
 
-            {/* Center divider + transformation icon */}
+            {/* Center divider */}
             <div className="hidden md:flex flex-col items-center justify-center py-2">
               <div className="h-full w-px bg-gradient-to-b from-transparent via-teal to-transparent" />
-              <div className="absolute flex flex-col items-center gap-1">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-teal bg-card shadow-lg shadow-teal/20">
-                  <Sparkles className="h-5 w-5 text-teal" />
-                </div>
-                <span className="rounded-full border border-teal/30 bg-paper px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-teal">
-                  AI Transform
-                </span>
-              </div>
             </div>
 
             {/* AI-assisted lane */}
@@ -199,7 +191,7 @@ export function CaseStudySection() {
                     {["PD Category", "IPD Determination", "Trend Analysis"].map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-md border border-teal/20 bg-paper px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-teal"
+                        className="rounded-md border border-teal/20 bg-paper px-1.5 py-0.5 text-xs font-bold uppercase tracking-wider text-teal md:text-sm"
                       >
                         {tag}
                       </span>
