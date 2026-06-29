@@ -12,7 +12,7 @@ export function LoopSection() {
           title="Loop Engineering for Self-Evolving Agents"
         />
 
-        <p className="mx-auto max-w-4xl text-center text-base font-medium text-ink md:text-lg lg:text-xl">
+        <p className="max-w-4xl text-left text-base font-medium text-ink md:text-lg lg:text-xl">
           Systematic design of closed feedback loops that enable AI agents to continuously learn, self-correct, and evolve through autonomous iteration.
         </p>
 
