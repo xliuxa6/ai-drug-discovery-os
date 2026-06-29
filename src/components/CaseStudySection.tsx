@@ -199,8 +199,8 @@ export function CaseStudySection() {
                   </div>
                 </div>
 
-                <div className="flex justify-center py-0.5">
-                  <ArrowRight className="h-4 w-4 rotate-90 text-teal" />
+                <div className="flex justify-center py-0">
+                  <ArrowRight className="h-3.5 w-3.5 rotate-90 text-teal" />
                 </div>
 
                 {/* Step 3 */}
