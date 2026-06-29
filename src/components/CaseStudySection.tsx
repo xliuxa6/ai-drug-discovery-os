@@ -60,8 +60,8 @@ export function CaseStudySection() {
               </div>
             ))}
           </div>
-          <div className="mt-1.5 rounded-xl border-2 border-dashed border-teal bg-paper p-1.5 text-center">
-            <div className="text-sm font-black uppercase tracking-wider text-ink md:text-base">
+          <div className="mt-1.5 text-center">
+            <div className="text-sm font-black tracking-wider text-ink md:text-base">
               Human review-based feedback and manual AI tool tuning
               <span className="mx-2 text-teal">·</span>
               <span className="text-teal">87%</span>
