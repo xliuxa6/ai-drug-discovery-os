@@ -51,6 +51,8 @@ const streams: {
       {
         name: "Project Risk & Issue Identification & Management",
         feasibility: true,
+        greenLabel: "NOV",
+        blackLabel: "Q1 2027",
       },
     ],
   },
@@ -65,7 +67,12 @@ const streams: {
         greenLabel: "Q1 2027",
         blackLabel: "Q2 2027",
       },
-      { name: "Digital Pathology", feasibility: true },
+      {
+        name: "Digital Pathology",
+        feasibility: true,
+        greenLabel: "Q1 2027",
+        blackLabel: "TBD",
+      },
     ],
   },
 ];
@@ -197,10 +204,10 @@ function ProjectItem({
           )}
         </div>
       </div>
-      {!project.feasibility && (
+      {(!project.feasibility || project.greenLabel || project.blackLabel) && (
         <div className="ml-[14px]">
           <ProgressBar
-            value={project.value ?? 50}
+            value={project.feasibility ? 0 : project.value ?? 50}
             animate={animate}
             resetting={resetting}
             greenLabel={project.greenLabel}
@@ -221,9 +228,9 @@ function ProjectItem({
                   </>
                 )}
               </div>
-              {!s.feasibility && (
+              {(!s.feasibility || s.greenLabel || s.blackLabel) && (
                 <ProgressBar
-                  value={s.value ?? 50}
+                  value={s.feasibility ? 0 : s.value ?? 50}
                   animate={animate}
                   resetting={resetting}
                   greenLabel={s.greenLabel}
