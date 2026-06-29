@@ -98,7 +98,7 @@ function CandidateItem({ name }: { name: string }) {
 
 export function NewProjectsSection() {
   return (
-    <section id="new-projects" className="border-t border-hairline bg-paper pt-6 pb-6">
+    <section id="new-projects" className="bg-paper pb-6">
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
         <div className="mb-8">
           <h2 className="font-sans text-2xl font-black leading-[1.05] text-ink md:text-3xl lg:text-4xl">

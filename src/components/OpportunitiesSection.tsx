@@ -153,9 +153,9 @@ const totalPhases = groups.reduce((n, g) => n + g.phases.length, 0); // 7
 export function OpportunitiesSection() {
   return (
     <section id="opportunities" className="h-full bg-paper">
-      <div className="mx-auto flex h-full w-full max-w-[1600px] flex-col px-4 py-4 md:px-6">
+      <div className="mx-auto flex h-full w-full max-w-[1600px] flex-col px-4 pt-0 pb-4 md:px-6">
         {/* Title + legend */}
-        <div className="mb-3 flex items-end justify-between gap-4">
+        <div className="mb-8 flex items-end justify-between gap-4">
           <div>
             <h2 className="font-sans text-2xl font-black leading-[1.05] text-ink md:text-3xl lg:text-4xl">
               Opportunities Across R&amp;D Value Chain

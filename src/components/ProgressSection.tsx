@@ -266,9 +266,9 @@ export function ProgressSection() {
   };
 
   return (
-    <section id="progress" className="border-t border-hairline bg-paper pt-4 pb-4">
+    <section id="progress" className="bg-paper pb-4">
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
-        <div className="mb-5 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+        <div className="mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <h2 className="font-sans text-2xl font-black leading-[1.05] text-ink md:text-3xl lg:text-4xl">
             Current Project Progress
           </h2>

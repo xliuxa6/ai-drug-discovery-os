@@ -5,11 +5,10 @@ export function LoopSection() {
   return (
     <section
       id="loop"
-      className="border-t border-hairline bg-paper pt-6 pb-0"
+      className="bg-paper pb-0"
     >
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
         <SectionHeader
-          className="mb-2"
           title="Loop Engineering for Self-Evolving Agents"
         />
 
@@ -51,7 +50,7 @@ export function LoopSection() {
         >
           <LoopDiagram />
 
-          <div className="flex h-full flex-col justify-start pt-6">
+          <div className="flex h-full flex-col justify-start pt-0">
             <div className="rounded-lg border border-hairline bg-card p-3 md:p-4 ml-3.5">
 
               <div className="eyebrow text-base mb-2 md:text-lg">

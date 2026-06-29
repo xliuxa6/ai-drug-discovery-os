@@ -7,20 +7,17 @@ type Props = {
 
 export function SectionHeader({ eyebrow, title, lede, className = "" }: Props) {
   return (
-    <div className={`mb-10 max-w-5xl ${className}`}>
+    <div className={`mb-8 max-w-5xl ${className}`}>
       {eyebrow && (
-        <div className="mb-3 flex items-center gap-3">
-          <span className="h-px w-12 bg-teal/60" />
-          <span className="text-lg font-semibold uppercase tracking-[0.18em] text-teal md:text-xl">
-            {eyebrow}
-          </span>
+        <div className="text-sm font-semibold uppercase tracking-[0.18em] text-teal md:text-base">
+          {eyebrow}
         </div>
       )}
       <h2 className="font-sans text-2xl font-black leading-[1.05] text-ink md:text-3xl lg:text-4xl">
         {title}
       </h2>
       {lede && (
-        <p className="mt-4 max-w-3xl text-xl leading-relaxed text-ink md:text-2xl">
+        <p className="mt-2 max-w-3xl text-lg leading-snug text-ink md:text-xl">
           {lede}
         </p>
       )}

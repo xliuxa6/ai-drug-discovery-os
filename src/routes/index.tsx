@@ -51,7 +51,7 @@ function Index() {
         <Slide id="loop">
           <LoopSection />
         </Slide>
-        <Slide id="os" contentClassName="pt-8 md:pt-12">
+        <Slide id="os">
           <OSSection />
         </Slide>
         <Slide id="scaling">
