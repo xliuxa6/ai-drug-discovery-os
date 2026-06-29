@@ -209,8 +209,6 @@ export function CaseStudySection() {
         {/* Accuracy improvement — separate bar chart cards */}
         <div className="mt-1.5 grid gap-2 md:grid-cols-2">
           {metrics.map((m) => {
-            const beforeH = Math.round((m.before / 100) * 100);
-            const afterH = Math.round((m.after / 100) * 100);
             return (
               <div
                 key={m.label}
@@ -219,37 +217,37 @@ export function CaseStudySection() {
                 <div className="text-center text-base font-semibold leading-tight text-ink md:text-lg">
                   {m.label}
                 </div>
-                <div className="relative mx-auto mt-2 flex h-40 items-end justify-center gap-8 px-6">
+                <div className="relative mx-auto mt-2 flex h-44 items-end justify-center gap-6 px-4">
                   {/* Baseline */}
-                  <div className="absolute bottom-6 left-4 right-4 h-px bg-ink/20" />
+                  <div className="absolute bottom-0 left-4 right-4 h-px bg-ink/30" />
 
                   {/* Before bar */}
                   <div className="relative z-10 flex flex-col items-center gap-1">
-                    <span className="text-base font-black text-ink/70 md:text-lg">
+                    <span className="text-lg font-black text-ink/80 md:text-xl">
                       {m.before.toFixed(1)}%
                     </span>
                     <div
-                      className="w-12 rounded-t-lg border border-ink/10 bg-ink/40 md:w-16"
-                      style={{ height: `${beforeH * 0.75}%` }}
+                      className="w-16 rounded-t-lg bg-ink/60 md:w-20"
+                      style={{ height: `${m.before * 0.85}%` }}
                     />
-                    <div className="h-1 w-full" />
+                    <div className="h-0 w-16 md:w-20" />
                   </div>
 
                   {/* Diagonal arrow */}
-                  <div className="absolute left-1/2 top-6 -translate-x-1/2">
-                    <ArrowUpRight className="h-8 w-8 -rotate-12 text-teal md:h-9 md:w-9" />
+                  <div className="absolute left-1/2 top-4 -translate-x-1/2">
+                    <ArrowUpRight className="h-8 w-8 text-teal md:h-9 md:w-9" />
                   </div>
 
                   {/* After bar */}
                   <div className="relative z-10 flex flex-col items-center gap-1">
-                    <span className="text-base font-black text-teal md:text-lg">
+                    <span className="text-lg font-black text-teal md:text-xl">
                       {m.after.toFixed(1)}%
                     </span>
                     <div
-                      className="w-12 rounded-t-lg border border-teal/20 bg-teal shadow-md shadow-teal/20 md:w-16"
-                      style={{ height: `${afterH * 0.75}%` }}
+                      className="w-16 rounded-t-lg bg-teal shadow-md shadow-teal/20 md:w-20"
+                      style={{ height: `${m.after * 0.85}%` }}
                     />
-                    <div className="h-1 w-full" />
+                    <div className="h-0 w-16 md:w-20" />
                   </div>
                 </div>
               </div>
