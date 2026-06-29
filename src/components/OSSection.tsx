@@ -104,8 +104,129 @@ export function OSSection() {
 
 function OSDiagram() {
   return (
-    <div className="relative w-full max-h-[72vh] overflow-hidden rounded-lg border border-hairline bg-paper p-1">
+    <div className="relative w-full max-h-[72vh] overflow-hidden">
       <svg viewBox="0 0 1000 480" className="h-auto w-full">
+        <defs>
+          <marker
+            id="arrow-os"
+            viewBox="0 0 10 10"
+            refX="8"
+            refY="5"
+            markerWidth="5"
+            markerHeight="5"
+            orient="auto-start-reverse"
+          >
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor" />
+          </marker>
+        </defs>
+
+        {/* connection polylines */}
+        {topItems.map((_, i) => {
+          const x = topXs[i] + TOP_W / 2;
+          const y = TOP_Y + TOP_H;
+          return (
+            <polyline
+              key={`top-line-${i}`}
+              points={`${x},${y} ${x},${TOP_TRUNK_Y} ${OS.x + OS.w / 2},${TOP_TRUNK_Y} ${OS.x + OS.w / 2},${OS.y}`}
+              fill="none"
+              className="stroke-teal/50 text-teal"
+              strokeWidth="1.5"
+              markerEnd="url(#arrow-os)"
+            />
+          );
+        })}
+        {bottomItems.map((_, i) => {
+          const x = bottomXs[i] + TOP_W / 2;
+          const y = BOTTOM_Y;
+          return (
+            <polyline
+              key={`bottom-line-${i}`}
+              points={`${x},${y} ${x},${BOTTOM_TRUNK_Y} ${OS.x + OS.w / 2},${BOTTOM_TRUNK_Y} ${OS.x + OS.w / 2},${OS.y + OS.h}`}
+              fill="none"
+              className="stroke-teal/50 text-teal"
+              strokeWidth="1.5"
+              markerEnd="url(#arrow-os)"
+            />
+          );
+        })}
+        {leftItems.map((_, i) => {
+          const x = LEFT_X + SIDE_W;
+          const y = leftYs[i] + SIDE_H / 2;
+          return (
+            <polyline
+              key={`left-line-${i}`}
+              points={`${x},${y} ${LEFT_TRUNK_X},${y} ${LEFT_TRUNK_X},${OS.y + OS.h / 2} ${OS.x},${OS.y + OS.h / 2}`}
+              fill="none"
+              className="stroke-teal/50 text-teal"
+              strokeWidth="1.5"
+              markerEnd="url(#arrow-os)"
+            />
+          );
+        })}
+        {rightItems.map((_, i) => {
+          const x = RIGHT_X;
+          const y = rightYs[i] + RIGHT_H / 2;
+          return (
+            <polyline
+              key={`right-line-${i}`}
+              points={`${x},${y} ${RIGHT_TRUNK_X},${y} ${RIGHT_TRUNK_X},${OS.y + OS.h / 2} ${OS.x + OS.w},${OS.y + OS.h / 2}`}
+              fill="none"
+              className="stroke-teal/50 text-teal"
+              strokeWidth="1.5"
+              markerEnd="url(#arrow-os)"
+            />
+          );
+        })}
+
+        {/* application labels */}
+        {topItems.map((name, i) =>
+          renderLabel(name, topXs[i], TOP_Y, TOP_W, TOP_H, "center")
+        )}
+        {bottomItems.map((name, i) =>
+          renderLabel(name, bottomXs[i], BOTTOM_Y, TOP_W, TOP_H, "center")
+        )}
+        {leftItems.map((name, i) =>
+          renderLabel(name, LEFT_X, leftYs[i], SIDE_W, SIDE_H, "right")
+        )}
+        {rightItems.map((name, i) =>
+          renderLabel(name, RIGHT_X, rightYs[i], SIDE_W, RIGHT_H, "left")
+        )}
+
+        {/* central OS kernel */}
+        <g>
+          <rect
+            x={OS.x}
+            y={OS.y}
+            width={OS.w}
+            height={OS.h}
+            rx="8"
+            className="fill-ink"
+          />
+          <text
+            x={OS.x + OS.w / 2}
+            y={OS.y + OS.h / 2 - 2}
+            textAnchor="middle"
+            dominantBaseline="middle"
+            className="font-serif fill-paper"
+            fontSize="22"
+          >
+            Drug R&amp;D AI OS
+          </text>
+          <text
+            x={OS.x + OS.w / 2}
+            y={OS.y + OS.h - 10}
+            textAnchor="middle"
+            fontSize="11"
+            letterSpacing="3"
+            className="fill-teal-soft"
+          >
+            KERNEL
+          </text>
+        </g>
+      </svg>
+    </div>
+  );
+}
         <defs>
           <marker
             id="arrow-os"
