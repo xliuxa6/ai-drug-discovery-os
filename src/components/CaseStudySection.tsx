@@ -1,4 +1,4 @@
-import { ArrowRight, FileInput, Stethoscope, BrainCircuit, TrendingUp, AlertCircle, Users } from "lucide-react";
+import { ArrowRight, ArrowUpRight, FileInput, Stethoscope, BrainCircuit, TrendingUp, AlertCircle, Users } from "lucide-react";
 
 const timeline = [
   { date: "May 8", label: "Brainstorm" },
@@ -205,36 +205,57 @@ export function CaseStudySection() {
             </div>
           </div>
 
-          {/* Accuracy improvement — placed directly under the workflow arrows */}
+          {/* Accuracy improvement — bar chart under the workflow */}
           <div className="mt-1.5 grid gap-2 md:grid-cols-2">
-            {metrics.map((m) => (
-              <div
-                key={m.label}
-                className="rounded-xl border border-hairline bg-paper p-2 shadow-sm"
-              >
-                <div className="text-base font-semibold leading-tight text-ink md:text-lg">
-                  {m.label}
-                </div>
-                <div className="mt-1.5 flex items-center justify-between gap-3">
-                  <div className="text-center">
-                    <div className="text-xl font-bold text-ink/60 md:text-2xl">
-                      {m.before.toFixed(1)}%
+            {metrics.map((m) => {
+              const max = Math.max(m.before, m.after, 100);
+              const beforeH = (m.before / max) * 100;
+              const afterH = (m.after / max) * 100;
+              return (
+                <div
+                  key={m.label}
+                  className="rounded-xl border border-hairline bg-paper p-2 shadow-sm"
+                >
+                  <div className="text-center text-base font-semibold leading-tight text-ink md:text-lg">
+                    {m.label}
+                  </div>
+                  <div className="relative mx-auto mt-2 flex h-28 items-end justify-center gap-6 px-4">
+                    {/* Before bar */}
+                    <div className="flex flex-col items-center gap-1">
+                      <span className="text-sm font-bold text-ink/60">
+                        {m.before.toFixed(1)}%
+                      </span>
+                      <div
+                        className="w-10 rounded-t-md bg-ink/20 md:w-12"
+                        style={{ height: `${beforeH * 0.9}%` }}
+                      />
+                      <span className="text-xs font-semibold uppercase tracking-wider text-ink/50">
+                        Before
+                      </span>
+                    </div>
+
+                    {/* Diagonal arrow */}
+                    <div className="absolute left-1/2 top-4 -translate-x-1/2">
+                      <ArrowUpRight className="h-6 w-6 -rotate-12 text-teal md:h-7 md:w-7" />
+                    </div>
+
+                    {/* After bar */}
+                    <div className="flex flex-col items-center gap-1">
+                      <span className="text-sm font-bold text-teal">
+                        {m.after.toFixed(1)}%
+                      </span>
+                      <div
+                        className="w-10 rounded-t-md bg-teal md:w-12"
+                        style={{ height: `${afterH * 0.9}%` }}
+                      />
+                      <span className="text-xs font-semibold uppercase tracking-wider text-teal/80">
+                        After
+                      </span>
                     </div>
                   </div>
-                  <div className="flex flex-col items-center">
-                    <ArrowRight className="h-5 w-5 text-teal" />
-                    <span className="text-sm font-bold text-teal">
-                      1st round optimization
-                    </span>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-xl font-bold text-teal md:text-2xl">
-                      {m.after.toFixed(1)}%
-                    </div>
-                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
