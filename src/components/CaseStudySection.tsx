@@ -151,12 +151,12 @@ export function CaseStudySection() {
             </div>
 
             {/* Center divider */}
-            <div className="hidden md:flex flex-col items-center justify-center py-2">
+            <div className="hidden md:flex flex-col items-center justify-center py-0">
               <div className="h-full w-px bg-gradient-to-b from-transparent via-teal to-transparent" />
             </div>
 
             {/* AI-assisted lane */}
-            <div className="flex flex-col gap-1.5">
+            <div className="flex flex-col gap-1">
               <div className="mb-1 flex items-center justify-center gap-2">
                 <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-teal text-primary-foreground shadow-md shadow-teal/20">
                   <BrainCircuit className="h-4 w-4" />
