@@ -3,9 +3,17 @@ import { Play, RotateCcw } from "lucide-react";
 
 type Project = {
   name: string;
-  sub?: { name: string; value?: number; feasibility?: boolean }[];
+  sub?: {
+    name: string;
+    value?: number;
+    feasibility?: boolean;
+    greenLabel?: string;
+    blackLabel?: string;
+  }[];
   value?: number;
   feasibility?: boolean;
+  greenLabel?: string;
+  blackLabel?: string;
 };
 
 const streams: {
@@ -22,7 +30,12 @@ const streams: {
       { name: "Target Research", value: 80 },
       { name: "ADMET Prediction", value: 70 },
       { name: "Molecule Differentiation Analysis", value: 50 },
-      { name: "Animal Model Translatability Evaluation", value: 20 },
+      {
+        name: "Animal Model Translatability Evaluation",
+        value: 20,
+        greenLabel: "Q1 2027",
+        blackLabel: "Q2 2027",
+      },
     ],
   },
   {
@@ -35,7 +48,10 @@ const streams: {
         feasibility: true,
         sub: [{ name: "Protocol Deviation Analysis", value: 70 }],
       },
-      { name: "Project Risk & Issue Identification & Management", feasibility: true },
+      {
+        name: "Project Risk & Issue Identification & Management",
+        feasibility: true,
+      },
     ],
   },
   {
@@ -43,7 +59,12 @@ const streams: {
     title: "Frontier Technology",
     color: "bg-bg-panel",
     projects: [
-      { name: "Virtual Cell", value: 20 },
+      {
+        name: "Virtual Cell",
+        value: 20,
+        greenLabel: "Q1 2027",
+        blackLabel: "Q2 2027",
+      },
       { name: "Digital Pathology", feasibility: true },
     ],
   },
@@ -56,16 +77,33 @@ const ciItems: { name: string; value: number }[] = [
   { name: "Competitive Intelligence Monitoring", value: 50 },
 ];
 
+function ProgressLegend() {
+  return (
+    <div className="flex items-center gap-5 text-base font-semibold uppercase tracking-wider text-ink">
+      <div className="flex items-center gap-1.5">
+        <div className="h-0 w-0 border-x-[5px] border-t-[7px] border-x-transparent border-t-teal drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]" />
+        <span>PILOT</span>
+      </div>
+      <div className="flex items-center gap-1.5">
+        <div className="h-0 w-0 border-x-[5px] border-t-[7px] border-x-transparent border-t-ink drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]" />
+        <span>MASSIVE USE</span>
+      </div>
+    </div>
+  );
+}
+
 function ProgressBar({
   value = 50,
-  showLabels = false,
   animate = false,
   resetting = false,
+  greenLabel = "SEP",
+  blackLabel = "NOV",
 }: {
   value?: number;
-  showLabels?: boolean;
   animate?: boolean;
   resetting?: boolean;
+  greenLabel?: string;
+  blackLabel?: string;
 }) {
   return (
     <div className="mt-1 w-[65%]">
@@ -92,18 +130,22 @@ function ProgressBar({
           }}
         />
       </div>
-      {showLabels && (
-        <div className="relative mt-1 h-12 text-base font-semibold uppercase tracking-wider text-ink/80">
-          <div className="absolute text-right leading-none whitespace-nowrap" style={{ left: "80%", transform: "translateX(-100%)" }}>
-            <div>Pilot</div>
-            <div className="font-normal leading-none text-ink/60">Sep</div>
-          </div>
-          <div className="absolute text-left leading-none whitespace-nowrap" style={{ left: "100%" }}>
-            <div>MASSIVE USE</div>
-            <div className="font-normal leading-none text-ink/60">Nov</div>
-          </div>
+
+      {/* Month / quarter labels below the markers */}
+      <div className="relative mt-1 h-6 text-base font-semibold uppercase tracking-wider text-ink/80">
+        <div
+          className="absolute text-right leading-none whitespace-nowrap"
+          style={{ left: "80%", transform: "translateX(-100%)" }}
+        >
+          {greenLabel}
         </div>
-      )}
+        <div
+          className="absolute text-left leading-none whitespace-nowrap"
+          style={{ left: "100%" }}
+        >
+          {blackLabel}
+        </div>
+      </div>
     </div>
   );
 }
@@ -111,9 +153,21 @@ function ProgressBar({
 function FeasibilityBadge() {
   return (
     <span className="inline-flex items-center gap-1 align-middle rounded-full bg-teal/10 px-2 py-0.5 text-xs font-semibold uppercase tracking-wider text-teal">
-      <svg width="10" height="10" viewBox="0 0 12 12" fill="none" className="shrink-0">
+      <svg
+        width="10"
+        height="10"
+        viewBox="0 0 12 12"
+        fill="none"
+        className="shrink-0"
+      >
         <circle cx="6" cy="6" r="6" fill="currentColor" />
-        <path d="M3.5 6.2L5.2 7.8L8.5 4.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path
+          d="M3.5 6.2L5.2 7.8L8.5 4.5"
+          stroke="white"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
       </svg>
       Feasibility
     </span>
@@ -122,12 +176,10 @@ function FeasibilityBadge() {
 
 function ProjectItem({
   project,
-  showLabels,
   animate,
   resetting,
 }: {
   project: Project;
-  showLabels?: boolean;
   animate?: boolean;
   resetting?: boolean;
 }) {
@@ -137,12 +189,23 @@ function ProjectItem({
         <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-ink" />
         <div className="text-lg leading-none text-ink">
           <span className="font-semibold">{project.name}</span>
-          {project.feasibility && <> <FeasibilityBadge /></>}
+          {project.feasibility && (
+            <>
+              {" "}
+              <FeasibilityBadge />
+            </>
+          )}
         </div>
       </div>
       {!project.feasibility && (
         <div className="ml-[14px]">
-          <ProgressBar value={project.value ?? 50} showLabels={showLabels} animate={animate} resetting={resetting} />
+          <ProgressBar
+            value={project.value ?? 50}
+            animate={animate}
+            resetting={resetting}
+            greenLabel={project.greenLabel}
+            blackLabel={project.blackLabel}
+          />
         </div>
       )}
       {project.sub && (
@@ -151,9 +214,22 @@ function ProjectItem({
             <div key={s.name}>
               <div className="text-base leading-none text-ink/90">
                 <span className="font-medium">{s.name}</span>
-                {s.feasibility && <> <FeasibilityBadge /></>}
+                {s.feasibility && (
+                  <>
+                    {" "}
+                    <FeasibilityBadge />
+                  </>
+                )}
               </div>
-              {!s.feasibility && <ProgressBar value={s.value ?? 50} animate={animate} resetting={resetting} />}
+              {!s.feasibility && (
+                <ProgressBar
+                  value={s.value ?? 50}
+                  animate={animate}
+                  resetting={resetting}
+                  greenLabel={s.greenLabel}
+                  blackLabel={s.blackLabel}
+                />
+              )}
             </div>
           ))}
         </div>
@@ -166,7 +242,6 @@ export function ProgressSection() {
   const [animate, setAnimate] = useState(false);
   const [resetting, setResetting] = useState(false);
   const [hasPlayed, setHasPlayed] = useState(false);
-  let firstShown = false;
 
   const handlePlay = () => {
     if (hasPlayed) {
@@ -190,13 +265,20 @@ export function ProgressSection() {
           <h2 className="font-sans text-2xl font-black leading-[1.05] text-ink md:text-3xl lg:text-4xl">
             Current Project Progress
           </h2>
-          <button
-            onClick={handlePlay}
-            aria-label={hasPlayed ? "Replay progress" : "Play progress"}
-            className="inline-flex items-center justify-center rounded-full bg-ink p-3 text-paper shadow-sm transition-colors hover:bg-teal focus:outline-none focus:ring-2 focus:ring-teal focus:ring-offset-2"
-          >
-            {hasPlayed ? <RotateCcw className="h-6 w-6" /> : <Play className="h-6 w-6" />}
-          </button>
+          <div className="flex items-center gap-5">
+            <ProgressLegend />
+            <button
+              onClick={handlePlay}
+              aria-label={hasPlayed ? "Replay progress" : "Play progress"}
+              className="inline-flex items-center justify-center rounded-full bg-ink p-3 text-paper shadow-sm transition-colors hover:bg-teal focus:outline-none focus:ring-2 focus:ring-teal focus:ring-offset-2"
+            >
+              {hasPlayed ? (
+                <RotateCcw className="h-6 w-6" />
+              ) : (
+                <Play className="h-6 w-6" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Tier 3: Applications */}
@@ -210,11 +292,14 @@ export function ProgressSection() {
                 {stream.title}
               </div>
               <div className="space-y-2">
-                {stream.projects.map((p) => {
-                  const needsLabels = !firstShown && !p.feasibility;
-                  if (needsLabels) firstShown = true;
-                  return <ProjectItem key={p.name} project={p} showLabels={needsLabels} animate={animate} resetting={resetting} />;
-                })}
+                {stream.projects.map((p) => (
+                  <ProjectItem
+                    key={p.name}
+                    project={p}
+                    animate={animate}
+                    resetting={resetting}
+                  />
+                ))}
               </div>
             </div>
           ))}
@@ -230,10 +315,16 @@ export function ProgressSection() {
               <div key={item.name} className="py-1">
                 <div className="flex items-start gap-2">
                   <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-ink" />
-                  <div className="text-lg font-semibold leading-none text-ink">{item.name}</div>
+                  <div className="text-lg font-semibold leading-none text-ink">
+                    {item.name}
+                  </div>
                 </div>
                 <div className="ml-[14px]">
-                  <ProgressBar value={item.value} animate={animate} resetting={resetting} />
+                  <ProgressBar
+                    value={item.value}
+                    animate={animate}
+                    resetting={resetting}
+                  />
                 </div>
               </div>
             ))}
