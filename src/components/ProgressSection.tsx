@@ -50,7 +50,7 @@ const streams: {
       },
       {
         name: "Project Risk & Issue Identification & Management",
-        feasibility: true,
+        value: 15,
         greenLabel: "NOV",
         blackLabel: "Q1 2027",
       },
@@ -69,7 +69,7 @@ const streams: {
       },
       {
         name: "Digital Pathology",
-        feasibility: true,
+        value: 15,
         greenLabel: "Q1 2027",
         blackLabel: "TBD",
       },
@@ -194,7 +194,7 @@ function ProjectItem({
     <div className="py-1">
       <div className="flex items-start gap-2">
         <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-ink" />
-        <div className="text-lg leading-none text-ink">
+        <div className="text-lg leading-snug text-ink">
           <span className="font-semibold">{project.name}</span>
           {project.feasibility && (
             <>
