@@ -12,7 +12,7 @@ const milestones = [
 
 export function Timeline() {
   return (
-  <section className="relative flex h-full flex-col items-center bg-paper/60">
+    <section className="relative flex h-full flex-col items-center bg-paper/60">
       {/* Hero title at 2/5 page height */}
       <div className="absolute top-[40%] left-0 right-0 -translate-y-1/2 px-4">
         <h1 className="font-sans text-center text-4xl font-black uppercase tracking-[0.08em] text-ink md:text-5xl lg:text-6xl">
