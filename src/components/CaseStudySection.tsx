@@ -1,4 +1,4 @@
-import { ArrowRight, FileInput, Stethoscope, BrainCircuit, TrendingUp, AlertCircle, Users } from "lucide-react";
+import { ArrowRight, ArrowUpRight, FileInput, Stethoscope, BrainCircuit, TrendingUp, AlertCircle, Users } from "lucide-react";
 
 const timeline = [
   { date: "May 8", label: "Brainstorm" },
