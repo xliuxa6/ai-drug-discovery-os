@@ -250,6 +250,9 @@ export function CaseStudySection() {
                   </div>
                 </div>
               </div>
+              <div className="mt-1 text-center text-sm font-medium text-ink/70">
+                After 1st round optimization
+              </div>
             </div>
           ))}
         </div>
