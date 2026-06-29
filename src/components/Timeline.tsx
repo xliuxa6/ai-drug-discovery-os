@@ -20,8 +20,8 @@ export function Timeline() {
         </h1>
       </div>
 
-      {/* Timeline centered and moved slightly upward */}
-      <div className="absolute top-[75%] left-1/2 w-full max-w-7xl -translate-x-1/2 px-4 md:px-6">
+      {/* Timeline centered at 70% page height */}
+      <div className="absolute top-[70%] left-1/2 w-full max-w-7xl -translate-x-1/2 px-4 md:px-6">
         <div className="w-full">
           <div className="flex w-full items-start gap-1 md:gap-2">
 
