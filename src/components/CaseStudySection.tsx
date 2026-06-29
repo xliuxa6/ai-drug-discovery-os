@@ -73,15 +73,15 @@ export function CaseStudySection() {
         </div>
 
         {/* Before AI vs With AI — split comparison */}
-        <div className="mt-2 rounded-2xl border border-hairline bg-card p-3 md:p-4">
-          <div className="mb-3 flex items-center gap-3">
+        <div className="mt-1.5 rounded-2xl border border-hairline bg-card p-2 md:p-3">
+          <div className="mb-2 flex items-center gap-3">
             <span className="h-px w-8 bg-teal" />
             <span className="eyebrow text-base">PD Analysis Workflow</span>
           </div>
 
-          <div className="relative mx-auto grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-[1fr_auto_1fr]">
+          <div className="relative mx-auto grid max-w-5xl grid-cols-1 gap-3 md:grid-cols-[1fr_auto_1fr]">
             {/* Status Quo lane */}
-            <div className="flex flex-col gap-1.5">
+            <div className="flex flex-col gap-1">
               <div className="mb-1 flex items-center justify-center gap-2">
                 <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-hairline bg-paper text-ink/60">
                   <AlertCircle className="h-4 w-4" />
@@ -100,8 +100,8 @@ export function CaseStudySection() {
                   <h4 className="text-sm font-bold text-ink md:text-base">CRA Input</h4>
                 </div>
 
-                <div className="flex justify-center py-0.5">
-                  <ArrowRight className="h-4 w-4 rotate-90 text-ink/30" />
+                <div className="flex justify-center py-0">
+                  <ArrowRight className="h-3.5 w-3.5 rotate-90 text-ink/30" />
                 </div>
 
                 {/* Step 2 */}
@@ -112,8 +112,8 @@ export function CaseStudySection() {
                   <h4 className="text-sm font-bold text-ink md:text-base">Physician Review</h4>
                 </div>
 
-                <div className="flex justify-center py-0.5">
-                  <ArrowRight className="h-4 w-4 rotate-90 text-ink/30" />
+                <div className="flex justify-center py-0">
+                  <ArrowRight className="h-3.5 w-3.5 rotate-90 text-ink/30" />
                 </div>
 
                 {/* Step 3 - split branch */}
