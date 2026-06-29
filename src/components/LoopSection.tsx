@@ -12,7 +12,7 @@ export function LoopSection() {
           title="Loop Engineering for Self-Evolving Agents"
         />
 
-        <div className="mb-2 grid gap-2 sm:grid-cols-2">
+        <div className="mb-1 grid gap-2 sm:grid-cols-2">
           {[
             "Learn",
             "Reflect",
@@ -34,12 +34,13 @@ export function LoopSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="grid h-full gap-2 lg:grid-cols-[1fr_1fr] lg:gap-4"
+          className="grid h-full items-center gap-2 lg:grid-cols-[1fr_1fr] lg:gap-4"
         >
           <LoopDiagram />
 
-          <div className="flex h-full flex-col justify-start pt-0">
+          <div className="flex h-full items-center justify-center">
             <div className="rounded-lg border border-hairline bg-card p-3 md:p-4 ml-3.5">
+
 
               <div className="eyebrow text-base mb-2 md:text-lg">
                 Enhancing Agentic Capability
