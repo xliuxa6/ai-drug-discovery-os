@@ -157,7 +157,7 @@ export function OpportunitiesSection() {
         {/* Title + legend */}
         <div className="mb-3 flex items-end justify-between gap-4">
           <div>
-            <h2 className="font-sans text-3xl font-black leading-[1.05] text-ink md:text-4xl lg:text-5xl">
+            <h2 className="font-sans text-2xl font-black leading-[1.05] text-ink md:text-3xl lg:text-4xl">
               Opportunities Across R&amp;D Value Chain
             </h2>
             <p className="mt-1 text-base text-ink/70 md:text-lg">
