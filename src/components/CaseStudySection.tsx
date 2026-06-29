@@ -234,11 +234,8 @@ export function CaseStudySection() {
                 </div>
                 <div className="mt-1.5 flex items-center justify-between gap-3">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-ink/60 md:text-4xl">
+                    <div className="text-xl font-bold text-ink/60 md:text-2xl">
                       {m.before.toFixed(1)}%
-                    </div>
-                    <div className="mt-0.5 text-sm uppercase tracking-wider text-ink/50">
-                      Before
                     </div>
                   </div>
                   <div className="flex flex-col items-center">
@@ -248,12 +245,8 @@ export function CaseStudySection() {
                     </span>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-teal md:text-4xl">
+                    <div className="text-xl font-bold text-teal md:text-2xl">
                       {m.after.toFixed(1)}%
-                    </div>
-                    <div className="mt-0.5 flex items-center justify-center gap-1 text-sm uppercase tracking-wider text-teal">
-                      <CheckCircle2 className="h-3.5 w-3.5" />
-                      After
                     </div>
                   </div>
                 </div>
