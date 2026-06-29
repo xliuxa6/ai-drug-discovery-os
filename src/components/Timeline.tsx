@@ -67,6 +67,10 @@ export function Timeline() {
           </div>
         </div>
       </div>
+
+      {/* Reserve the bottom one-third of the original empty space */}
+      <div className="flex-1" />
     </section>
+
   );
 }
