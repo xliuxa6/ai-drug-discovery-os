@@ -132,14 +132,14 @@ export function SlideDeck({ children }: SlideDeckProps) {
       <button
         onClick={prev}
         aria-label="Previous slide"
-        className="fixed bottom-6 right-24 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-hairline bg-card text-ink shadow-lg transition-colors hover:border-teal hover:text-teal"
+        className="fixed bottom-12 right-24 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-hairline bg-card text-ink shadow-lg transition-colors hover:border-teal hover:text-teal"
       >
         <ChevronLeft className="h-6 w-6" />
       </button>
       <button
         onClick={next}
         aria-label="Next slide"
-        className="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-hairline bg-card text-ink shadow-lg transition-colors hover:border-teal hover:text-teal"
+        className="fixed bottom-12 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-hairline bg-card text-ink shadow-lg transition-colors hover:border-teal hover:text-teal"
       >
         <ChevronRight className="h-6 w-6" />
       </button>

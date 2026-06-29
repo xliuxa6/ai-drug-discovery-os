@@ -77,14 +77,14 @@ export function OSSection() {
   return (
     <section
       id="os"
-      className="border-t border-hairline bg-card py-3 md:py-4"
+      className="border-t border-hairline bg-card py-1 md:py-2"
     >
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
-        <div className="mb-2 max-w-6xl">
+        <div className="mb-1 max-w-6xl">
           <h2 className="font-sans text-2xl font-black leading-[1.05] text-ink md:text-3xl lg:text-4xl">
             Multi-agent Platform for Drug R&D AI OS
           </h2>
-          <p className="mt-1 max-w-5xl text-lg leading-snug text-ink md:text-xl">
+          <p className="mt-0.5 max-w-5xl text-lg leading-snug text-ink md:text-xl">
             Complex problems are rarely solved by a single agent—they require coordinated multi-agent orchestration - turning fragmented into one coherent workflow.
           </p>
         </div>
@@ -104,7 +104,7 @@ export function OSSection() {
 
 function OSDiagram() {
   return (
-    <div className="relative w-full max-h-[70vh] overflow-hidden rounded-lg border border-hairline bg-paper p-2">
+    <div className="relative w-full max-h-[72vh] overflow-hidden rounded-lg border border-hairline bg-paper p-1">
       <svg viewBox="0 0 1000 480" className="h-auto w-full">
         <defs>
           <marker
