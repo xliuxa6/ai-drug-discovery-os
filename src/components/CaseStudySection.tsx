@@ -72,85 +72,232 @@ export function CaseStudySection() {
           </div>
         </div>
 
-        {/* Before AI vs With AI */}
+        {/* Before AI vs With AI — split comparison */}
         <div className="mt-2 rounded-2xl border border-hairline bg-card p-3 md:p-4">
           <div className="mb-3 flex items-center gap-3">
             <span className="h-px w-8 bg-teal" />
             <span className="eyebrow text-base">PD Analysis Workflow</span>
           </div>
-          <div className="flex flex-col items-stretch gap-3 md:flex-row">
-            {/* Before AI workflow */}
-            <div className="flex flex-1 flex-col justify-center gap-1.5">
-              <div className="rounded-lg border border-hairline bg-paper p-1.5 text-center">
-                <div className="text-sm font-bold uppercase tracking-wider text-ink md:text-base">
-                  CRA Input
+
+          <div className="relative grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+            {/* Center divider + transformation icon */}
+            <div className="hidden md:flex absolute inset-y-0 left-1/2 -translate-x-1/2 flex-col items-center justify-center">
+              <div className="h-full w-px bg-hairline" />
+              <div className="absolute flex h-12 w-12 items-center justify-center rounded-full border border-hairline bg-card shadow-md">
+                <Sparkles className="h-6 w-6 text-teal" />
+              </div>
+            </div>
+
+            {/* Status Quo lane */}
+            <div className="flex flex-col gap-2">
+              <div className="mb-1 flex items-center gap-3">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-hairline bg-paper text-ink/60">
+                  <AlertCircle className="h-4 w-4" />
+                </div>
+                <div>
+                  <h3 className="font-sans text-base font-bold leading-none text-ink md:text-lg">
+                    Status Quo
+                  </h3>
+                  <p className="mt-0.5 text-xs font-semibold uppercase tracking-wider text-ink/50">
+                    Manual & Fragmented
+                  </p>
                 </div>
               </div>
-              <div className="flex items-center justify-center">
-                <ArrowRight className="h-4 w-4 rotate-90 text-ink/40" />
-              </div>
-              <div className="rounded-lg border border-hairline bg-paper p-1.5 text-center">
-                <div className="text-sm font-bold uppercase tracking-wider text-ink md:text-base">
-                  Physician Review
-                </div>
-              </div>
-              <div className="flex items-center justify-center">
-                <ArrowRight className="h-4 w-4 rotate-90 text-ink/40" />
-              </div>
-              <div className="grid grid-cols-2 gap-1.5">
-                <div className="rounded-lg border border-hairline bg-paper p-1.5 text-center">
-                  <div className="text-xs font-bold uppercase tracking-wider text-ink md:text-sm">
-                    PD Classification
+
+              <div className="relative flex flex-col gap-1.5">
+                {/* Step 1 */}
+                <div className="rounded-xl border-2 border-dashed border-hairline bg-paper p-2.5">
+                  <div className="flex items-start gap-2.5">
+                    <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-ink/5 text-ink/60">
+                      <FileInput className="h-3.5 w-3.5" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-ink/40">
+                        Step 01
+                      </span>
+                      <h4 className="text-sm font-bold text-ink md:text-base">CRA Input</h4>
+                      <p className="text-xs leading-tight text-ink/60 md:text-sm">
+                        Site staff submit protocol deviation reports manually.
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <div className="rounded-lg border border-hairline bg-paper p-1.5 text-center">
-                  <div className="text-xs font-bold uppercase tracking-wider text-ink md:text-sm">
-                    IPD Determination
+
+                <div className="flex justify-center py-0.5">
+                  <ArrowRight className="h-4 w-4 rotate-90 text-ink/30" />
+                </div>
+
+                {/* Step 2 */}
+                <div className="rounded-xl border-2 border-dashed border-hairline bg-paper p-2.5">
+                  <div className="flex items-start gap-2.5">
+                    <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-ink/5 text-ink/60">
+                      <Users className="h-3.5 w-3.5" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-ink/40">
+                        Step 02
+                      </span>
+                      <h4 className="text-sm font-bold text-ink md:text-base">Physician Review</h4>
+                      <p className="text-xs leading-tight text-ink/60 md:text-sm">
+                        Clinician reads every report before any analysis.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="flex items-center justify-center">
-                <ArrowRight className="h-4 w-4 rotate-90 text-ink/40" />
-              </div>
-              <div className="rounded-lg border border-hairline bg-paper p-1.5 text-center">
-                <div className="text-sm font-bold uppercase tracking-wider text-ink md:text-base">
-                  Trend Analysis
+
+                <div className="flex justify-center py-0.5">
+                  <ArrowRight className="h-4 w-4 rotate-90 text-ink/30" />
+                </div>
+
+                {/* Step 3 - split branch */}
+                <div className="grid grid-cols-2 gap-1.5">
+                  <div className="rounded-xl border-2 border-dashed border-hairline bg-paper p-2 text-center">
+                    <div className="mx-auto mb-1 flex h-6 w-6 items-center justify-center rounded-md bg-ink/5 text-ink/60">
+                      <span className="text-[10px] font-bold">PD</span>
+                    </div>
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-ink md:text-sm">
+                      PD Classification
+                    </h4>
+                    <p className="mt-0.5 text-[10px] leading-tight text-ink/50">
+                      Manual category assignment
+                    </p>
+                  </div>
+                  <div className="rounded-xl border-2 border-dashed border-hairline bg-paper p-2 text-center">
+                    <div className="mx-auto mb-1 flex h-6 w-6 items-center justify-center rounded-md bg-ink/5 text-ink/60">
+                      <span className="text-[10px] font-bold">IPD</span>
+                    </div>
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-ink md:text-sm">
+                      IPD Determination
+                    </h4>
+                    <p className="mt-0.5 text-[10px] leading-tight text-ink/50">
+                      Subjective judgment call
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex justify-center py-0.5">
+                  <ArrowRight className="h-4 w-4 rotate-90 text-ink/30" />
+                </div>
+
+                {/* Step 4 */}
+                <div className="rounded-xl border-2 border-dashed border-hairline bg-paper p-2.5 opacity-80">
+                  <div className="flex items-start gap-2.5">
+                    <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-ink/5 text-ink/60">
+                      <TrendingUp className="h-3.5 w-3.5" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-ink/40">
+                        Step 03
+                      </span>
+                      <h4 className="text-sm font-bold text-ink md:text-base">Trend Analysis</h4>
+                      <p className="text-xs leading-tight text-ink/60 md:text-sm">
+                        Aggregate and cross-reference by hand.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* AI Transformation arrow */}
-            <div className="flex flex-col items-center justify-center gap-1 px-2">
-              <ArrowRight className="h-6 w-6 rotate-90 text-teal md:rotate-0" />
-              <span className="text-center text-xs font-black uppercase tracking-wider text-teal md:text-sm">
-                AI Transformation
-              </span>
-            </div>
+            {/* AI-assisted lane */}
+            <div className="flex flex-col gap-2">
+              <div className="mb-1 flex items-center gap-3">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-teal text-primary-foreground shadow-md shadow-teal/20">
+                  <BrainCircuit className="h-4 w-4" />
+                </div>
+                <div>
+                  <h3 className="font-sans text-base font-bold leading-none text-ink md:text-lg">
+                    AI-Assisted
+                  </h3>
+                  <p className="mt-0.5 text-xs font-semibold uppercase tracking-wider text-teal">
+                    Unified & Automated
+                  </p>
+                </div>
+              </div>
 
-            {/* With AI workflow */}
-            <div className="flex flex-1 flex-col justify-center gap-1.5">
-              <div className="rounded-lg border border-hairline bg-paper p-1.5 text-center">
-                <div className="text-sm font-bold uppercase tracking-wider text-ink md:text-base">
-                  CRA Input
+              <div className="relative flex flex-col gap-1.5">
+                {/* Step 1 */}
+                <div className="rounded-xl border border-teal/30 bg-paper p-2.5 shadow-sm ring-1 ring-teal/10">
+                  <div className="flex items-start gap-2.5">
+                    <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-teal/10 text-teal">
+                      <FileInput className="h-3.5 w-3.5" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-[10px] font-bold uppercase tracking-widest text-teal">
+                          Step 01
+                        </span>
+                        <span className="rounded-full bg-teal/10 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-teal">
+                          Same input
+                        </span>
+                      </div>
+                      <h4 className="text-sm font-bold text-ink md:text-base">CRA Input</h4>
+                      <p className="text-xs leading-tight text-ink-soft md:text-sm">
+                        Reports flow into the system unchanged.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-center justify-center">
-                <ArrowRight className="h-4 w-4 rotate-90 text-teal" />
-              </div>
-              <div className="rounded-lg border border-teal/30 bg-teal/5 p-1.5 text-center">
-                <div className="text-sm font-bold uppercase tracking-wider text-teal md:text-base">
-                  AI Agent
+
+                <div className="flex justify-center py-0.5">
+                  <ArrowRight className="h-4 w-4 rotate-90 text-teal" />
                 </div>
-                <div className="mt-1 text-xs font-semibold uppercase tracking-wider text-teal/80 md:text-sm">
-                  PD CATEGORY · IPD DETERMINATION · TREND ANALYSIS
+
+                {/* Step 2 - AI Agent */}
+                <div className="rounded-xl border border-teal/30 bg-gradient-to-br from-teal/10 to-teal/5 p-2.5 shadow-md ring-1 ring-teal/20">
+                  <div className="flex items-start gap-2.5">
+                    <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-teal text-primary-foreground">
+                      <BrainCircuit className="h-3.5 w-3.5" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-[10px] font-bold uppercase tracking-widest text-teal">
+                          Step 02
+                        </span>
+                        <span className="rounded-full bg-teal px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
+                          AI Engine
+                        </span>
+                      </div>
+                      <h4 className="text-sm font-bold text-ink md:text-base">AI Agent</h4>
+                      <div className="mt-1 flex flex-wrap gap-1">
+                        {["PD Category", "IPD Determination", "Trend Analysis"].map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-md border border-teal/20 bg-paper px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-teal"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-center justify-center">
-                <ArrowRight className="h-4 w-4 rotate-90 text-teal" />
-              </div>
-              <div className="rounded-lg border border-hairline bg-paper p-1.5 text-center">
-                <div className="text-sm font-bold uppercase tracking-wider text-ink md:text-base">
-                  Physician Review
+
+                <div className="flex justify-center py-0.5">
+                  <ArrowRight className="h-4 w-4 rotate-90 text-teal" />
+                </div>
+
+                {/* Step 3 */}
+                <div className="rounded-xl border border-teal/30 bg-paper p-2.5 shadow-sm ring-1 ring-teal/10">
+                  <div className="flex items-start gap-2.5">
+                    <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-teal/10 text-teal">
+                      <Stethoscope className="h-3.5 w-3.5" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-[10px] font-bold uppercase tracking-widest text-teal">
+                          Step 03
+                        </span>
+                        <span className="rounded-full bg-success/10 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-success-dim">
+                          Review
+                        </span>
+                      </div>
+                      <h4 className="text-sm font-bold text-ink md:text-base">Physician Review</h4>
+                      <p className="text-xs leading-tight text-ink-soft md:text-sm">
+                        Focused validation of AI-generated outputs.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
