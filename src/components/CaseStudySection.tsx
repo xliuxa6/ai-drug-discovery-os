@@ -35,10 +35,6 @@ export function CaseStudySection() {
 
         {/* Timeline */}
         <div className="rounded-2xl bg-card p-2">
-          <div className="mb-1.5 flex items-center gap-3">
-            <span className="h-px w-8 bg-teal" />
-            <span className="eyebrow text-base">Project Timeline</span>
-          </div>
           <div className="flex w-full items-start">
             {timeline.map((m, i) => (
               <div key={i} className="flex flex-1 flex-col items-center text-center">
@@ -74,11 +70,6 @@ export function CaseStudySection() {
 
         {/* Before AI vs With AI — split comparison */}
         <div className="mt-1.5 rounded-2xl border border-hairline bg-card p-2 md:p-3">
-          <div className="mb-2 flex items-center gap-3">
-            <span className="h-px w-8 bg-teal" />
-            <span className="eyebrow text-base">PD Analysis Workflow</span>
-          </div>
-
           <div className="relative mx-auto grid max-w-5xl grid-cols-1 gap-3 md:grid-cols-[1fr_auto_1fr]">
             {/* Status Quo lane */}
             <div className="flex flex-col gap-1">
