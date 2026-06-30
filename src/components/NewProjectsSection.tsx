@@ -41,7 +41,7 @@ const streams: {
     candidates: [
       { name: "Medical Monitoring" },
       { name: "Protocol Review" },
-      { name: "GCTO Operation Platform" },
+      { name: "GCTO Operational Data Integration & Automation System" },
     ],
   },
   {
