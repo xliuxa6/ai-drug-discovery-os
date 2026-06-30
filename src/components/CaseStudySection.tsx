@@ -189,7 +189,6 @@ export function CaseStudySection() {
           <ul className="flex flex-col gap-2">
             {[
               "After one round of optimization, IPD determination accuracy increased from 67.5% to 80.5%, and PD category classification accuracy increased from 94.4% to 97.3%.",
-              
               "AI pre-screening not only improves physician review efficiency, but also enhances consistency across physicians and generates more comprehensive trend analysis and insights, further improving clinical study quality.",
               "Human review-based feedback and manual AI tool tuning during development consume significant time (87% of total time spent), becoming a bottleneck for AI application development. How can AI learn to improve accuracy by itself?",
             ].map((text, i) => (
