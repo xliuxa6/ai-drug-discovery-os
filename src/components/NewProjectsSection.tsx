@@ -155,6 +155,16 @@ export function NewProjectsSection() {
           </div>
         </div>
 
+        {/* Tier 1: IT Infrastructure */}
+        <div className="mt-5 rounded-2xl border border-hairline bg-bg-panel p-4 shadow-sm">
+          <div className="mb-3 text-center text-lg font-bold uppercase tracking-[0.12em] text-teal">
+            IT Infrastructure Excellence Enablement
+          </div>
+          <div className="grid grid-cols-1 gap-x-5 gap-y-1 md:grid-cols-2">
+            <NameOnlyItem name="GPU Resource for AI Model Training and Inference" gray />
+            <NameOnlyItem name="Data Lake" gray />
+          </div>
+        </div>
       </div>
     </section>
   );
