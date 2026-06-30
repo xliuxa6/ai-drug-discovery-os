@@ -49,7 +49,7 @@ const streams: {
         sub: [{ name: "Protocol Deviation Analysis", value: 70 }],
       },
       {
-        name: "Project Risk & Issue Identification & Management",
+        name: "Project R&I Identification and Management",
         value: 15,
         greenLabel: "NOV",
         blackLabel: "Q1 2027",
