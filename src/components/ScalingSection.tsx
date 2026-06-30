@@ -91,7 +91,7 @@ export function ScalingSection() {
     <section id="scaling" className="bg-paper pb-4">
       <div className="mx-auto w-full max-w-7xl px-2 md:px-4">
         <SectionHeader
-          title="Drug R&D AI OS"
+          title="Drug R&D AI Operating System"
           lede="Scaling Through Applications × Agentic Capabilities"
         />
 
