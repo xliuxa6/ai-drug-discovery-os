@@ -36,7 +36,7 @@ const streams: {
         feasibility: true,
         sub: [{ name: "Protocol Deviation Analysis", value: 70 }],
       },
-      { name: "Project R&I Identification and Management", feasibility: true },
+      { name: "Project Risk & Issue Identification and Management", feasibility: true },
     ],
     candidates: [
       { name: "Medical Monitoring" },
