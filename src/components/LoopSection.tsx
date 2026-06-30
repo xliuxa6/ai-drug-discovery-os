@@ -52,15 +52,15 @@ export function LoopSection() {
                     desc: "Close the execution-evaluation-update loop so every task outcome becomes a training signal for the agent.",
                   },
                 ].map((item) => (
-                  <div key={item.title} className="flex gap-2">
-                    <div className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-teal" />
-                    <div>
-                      <div className="text-base font-semibold text-ink md:text-lg">
-                        {item.title}
-                      </div>
-                      <p className="text-sm text-ink-soft md:text-base">
-                        {item.desc}
-                      </p>
+                  <div key={item.title} className="grid grid-cols-[auto_1fr] items-start gap-x-2 gap-y-0.5">
+                    <div className="flex h-6 items-center justify-center md:h-7">
+                      <div className="h-2 w-2 rounded-full bg-teal" />
+                    </div>
+                    <div className="text-base font-semibold text-ink md:text-lg">
+                      {item.title}
+                    </div>
+                    <div className="col-start-2 text-sm text-ink-soft md:text-base">
+                      {item.desc}
                     </div>
                   </div>
                 ))}
