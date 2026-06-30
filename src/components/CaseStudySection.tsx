@@ -160,7 +160,7 @@ export function CaseStudySection() {
         </div>
 
         {/* Timeline */}
-        <div className="mt-1.5 rounded-2xl bg-card p-2">
+        <div className="mt-4 rounded-2xl bg-card p-2">
           <div className="flex w-full items-start">
             {timeline.map((m, i) => (
               <div key={i} className="flex flex-1 flex-col items-center text-center">
@@ -185,7 +185,7 @@ export function CaseStudySection() {
         </div>
 
         {/* Key takeaways */}
-        <div className="mt-2 rounded-2xl border border-hairline bg-card p-3 md:p-4">
+        <div className="mt-4 rounded-2xl border border-hairline bg-card p-3 md:p-4">
           <ul className="flex flex-col gap-2">
             {[
               "After one round of optimization, IPD determination accuracy increased from 67.5% to 80.5%, and PD category classification accuracy increased from 94.4% to 97.3%.",
