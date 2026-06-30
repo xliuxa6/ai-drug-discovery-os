@@ -36,7 +36,7 @@ const ownership: Record<string, Ownership> = {
   "Operational Data Management": "China & HQ",
   "AI for RWE": "Unexplored",
   "AI-based Virtual Review": "Unexplored",
-  "AI for RWE": "Unexplored",
+};
 
 type Phase = { name: string; apps: string[] };
 type Group = { name: string; phases: Phase[] };
