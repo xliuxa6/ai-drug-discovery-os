@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, FileInput, Stethoscope, BrainCircuit, TrendingUp, AlertCircle, Users } from "lucide-react";
+import { ArrowRight, FileInput, Stethoscope, BrainCircuit, TrendingUp, AlertCircle, Users, CheckCircle2 } from "lucide-react";
 
 const timeline = [
   { date: "May 8", label: "Brainstorm" },
@@ -8,18 +8,6 @@ const timeline = [
   { date: "Jun 26", label: "First round optimization completed" },
 ];
 
-const metrics = [
-  {
-    label: "PD Category Classification Accuracy",
-    before: 94.4,
-    after: 97.3,
-  },
-  {
-    label: "IPD Determination Accuracy",
-    before: 67.5,
-    after: 80.5,
-  },
-];
 
 export function CaseStudySection() {
   return (
@@ -194,70 +182,26 @@ export function CaseStudySection() {
               </div>
             ))}
           </div>
-          <div className="mt-1.5 text-center">
-            <div className="text-sm font-black tracking-wider text-ink md:text-base">
-              Human review-based feedback and manual AI tool tuning
-              <span className="mx-2 text-teal">·</span>
-              <span className="text-teal">87%</span>
-              <span className="ml-2 text-xs font-semibold normal-case tracking-normal text-ink/70 md:text-sm">
-                of total time spent
-              </span>
-            </div>
-          </div>
         </div>
 
-
-        {/* Accuracy improvement — separate bar chart cards */}
-        <div className="mt-1.5 grid gap-2 md:grid-cols-2">
-          {metrics.map((m) => (
-            <div
-              key={m.label}
-              className="rounded-2xl border border-hairline bg-card p-2 shadow-sm"
-            >
-              <div className="text-center text-base font-semibold leading-tight text-ink md:text-lg">
-                {m.label}
-              </div>
-              <div className="relative mx-auto mt-2 h-44 w-full max-w-xs">
-                {/* Baseline */}
-                <div className="absolute bottom-0 left-4 right-4 h-px bg-ink/30" />
-
-                {/* Bars */}
-                <div className="absolute inset-x-0 bottom-0 h-full flex items-end justify-center gap-6 px-4">
-                  {/* Before bar */}
-                  <div className="flex h-full flex-col items-center justify-end">
-                    <span className="mb-1 text-lg font-black text-ink/80 md:text-xl">
-                      {m.before.toFixed(1)}%
-                    </span>
-                    <div
-                      className="w-16 rounded-t-lg bg-ink/60 md:w-20"
-                      style={{ height: `${m.before * 0.8}%` }}
-                    />
-                  </div>
-
-                  {/* Diagonal arrow */}
-                  <div className="mb-16">
-                    <ArrowUpRight className="h-8 w-8 text-teal md:h-9 md:w-9" />
-                  </div>
-
-                  {/* After bar */}
-                  <div className="flex h-full flex-col items-center justify-end">
-                    <span className="mb-1 text-lg font-black text-teal md:text-xl">
-                      {m.after.toFixed(1)}%
-                    </span>
-                    <div
-                      className="w-16 rounded-t-lg bg-teal shadow-md shadow-teal/20 md:w-20"
-                      style={{ height: `${m.after * 0.8}%` }}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="mt-1 text-center text-sm font-medium text-ink/70">
-                After 1st round optimization
-              </div>
-            </div>
-          ))}
+        {/* Key takeaways */}
+        <div className="mt-2 rounded-2xl border border-hairline bg-card p-3 md:p-4">
+          <ul className="flex flex-col gap-2">
+            {[
+              "After one round of optimization, IPD determination accuracy increased from 67.5% to 80.5%, and PD category classification accuracy increased from 94.4% to 97.3%.",
+              "AI enhances consistency across different Physicians.",
+              "AI pre-screening not only improves Physician review efficiency, but also generates more comprehensive trend analysis and insights, further improving clinical study quality.",
+              "Human review-based feedback and manual AI tool tuning during development still consume significant time (87% of total time spent), becoming a bottleneck for AI application development. How can AI learn to improve accuracy by itself?",
+            ].map((text, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-teal" />
+                <span className="text-sm font-medium leading-snug text-ink md:text-base">
+                  {text}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
-
       </div>
     </section>
   );
