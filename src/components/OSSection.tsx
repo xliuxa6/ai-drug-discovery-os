@@ -11,7 +11,7 @@ const appItems = [
   "Project Risk & Issue Mgmt",
   "Medical Monitoring",
   "Protocol Review",
-  "GCTO Operation Platform",
+  "Operational Data Management Platform",
   "Guidance QA",
   "Virtual Cell",
   "Digital Pathology",
