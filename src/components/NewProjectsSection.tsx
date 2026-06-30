@@ -42,7 +42,6 @@ const streams: {
       { name: "Medical Monitoring" },
       { name: "Protocol Review" },
       { name: "GCTO Operation Platform" },
-      { name: "Guidance QA" },
     ],
   },
   {
