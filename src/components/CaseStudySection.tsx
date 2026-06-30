@@ -8,18 +8,6 @@ const timeline = [
   { date: "Jun 26", label: "First round optimization completed" },
 ];
 
-const metrics = [
-  {
-    label: "PD Category Classification Accuracy",
-    before: 94.4,
-    after: 97.3,
-  },
-  {
-    label: "IPD Determination Accuracy",
-    before: 67.5,
-    after: 80.5,
-  },
-];
 
 export function CaseStudySection() {
   return (
