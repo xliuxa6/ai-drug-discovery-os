@@ -33,42 +33,7 @@ export function CaseStudySection() {
           </h2>
         </div>
 
-        {/* Timeline */}
-        <div className="rounded-2xl bg-card p-2">
-          <div className="flex w-full items-start">
-            {timeline.map((m, i) => (
-              <div key={i} className="flex flex-1 flex-col items-center text-center">
-                <div className="font-mono text-base font-semibold uppercase tracking-wider text-ink md:text-lg">
-                  {m.date}
-                </div>
-                <div className="relative my-1 flex h-4 w-full items-center justify-center">
-                  <span className="z-10 h-3 w-3 rounded-full bg-teal ring-4 ring-teal/20" />
-                  {i < timeline.length - 1 && (
-                    <div className="absolute left-1/2 right-0 top-1/2 h-0 -translate-y-1/2 border-t border-dashed border-ink/30" />
-                  )}
-                  {i > 0 && (
-                    <div className="absolute left-0 right-1/2 top-1/2 h-0 -translate-y-1/2 border-t border-dashed border-ink/30" />
-                  )}
-                </div>
-                <div className="w-full break-words px-1 text-sm font-medium leading-tight text-ink md:text-base">
-                  {m.label}
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-1.5 text-center">
-            <div className="text-sm font-black tracking-wider text-ink md:text-base">
-              Human review-based feedback and manual AI tool tuning
-              <span className="mx-2 text-teal">·</span>
-              <span className="text-teal">87%</span>
-              <span className="ml-2 text-xs font-semibold normal-case tracking-normal text-ink/70 md:text-sm">
-                of total time spent
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Before AI vs With AI — split comparison */}
+        {/* Before AI vs With AI — split comparison (PD Analysis Workflow) */}
         <div className="mt-1.5 rounded-2xl border border-hairline bg-card p-2 md:p-3">
           <div className="relative mx-auto grid max-w-5xl grid-cols-1 gap-3 md:grid-cols-[1fr_auto_1fr]">
             {/* Status Quo lane */}
@@ -205,6 +170,42 @@ export function CaseStudySection() {
             </div>
           </div>
         </div>
+
+        {/* Timeline */}
+        <div className="mt-1.5 rounded-2xl bg-card p-2">
+          <div className="flex w-full items-start">
+            {timeline.map((m, i) => (
+              <div key={i} className="flex flex-1 flex-col items-center text-center">
+                <div className="font-mono text-base font-semibold uppercase tracking-wider text-ink md:text-lg">
+                  {m.date}
+                </div>
+                <div className="relative my-1 flex h-4 w-full items-center justify-center">
+                  <span className="z-10 h-3 w-3 rounded-full bg-teal ring-4 ring-teal/20" />
+                  {i < timeline.length - 1 && (
+                    <div className="absolute left-1/2 right-0 top-1/2 h-0 -translate-y-1/2 border-t border-dashed border-ink/30" />
+                  )}
+                  {i > 0 && (
+                    <div className="absolute left-0 right-1/2 top-1/2 h-0 -translate-y-1/2 border-t border-dashed border-ink/30" />
+                  )}
+                </div>
+                <div className="w-full break-words px-1 text-sm font-medium leading-tight text-ink md:text-base">
+                  {m.label}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-1.5 text-center">
+            <div className="text-sm font-black tracking-wider text-ink md:text-base">
+              Human review-based feedback and manual AI tool tuning
+              <span className="mx-2 text-teal">·</span>
+              <span className="text-teal">87%</span>
+              <span className="ml-2 text-xs font-semibold normal-case tracking-normal text-ink/70 md:text-sm">
+                of total time spent
+              </span>
+            </div>
+          </div>
+        </div>
+
 
         {/* Accuracy improvement — separate bar chart cards */}
         <div className="mt-1.5 grid gap-2 md:grid-cols-2">
