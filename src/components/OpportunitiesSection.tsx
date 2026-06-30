@@ -19,7 +19,6 @@ const ownership: Record<string, Ownership> = {
   "Scientific Finding Tracking": "China & HQ",
   "Virtual Cell": "China & HQ",
   "Site Selection": "China & HQ",
-  "Clinical Study QC/QA": "China & HQ",
   "Protocol Deviation": "China & HQ",
   "CSR Drafting": "China & HQ",
   "Medical Monitoring": "China & HQ",
@@ -37,9 +36,7 @@ const ownership: Record<string, Ownership> = {
   "Operational Data Management": "China & HQ",
   "AI for RWE": "Unexplored",
   "AI-based Virtual Review": "Unexplored",
-  "AE/SAE Detection": "Unexplored",
-  "Audit Report": "Unexplored",
-};
+  "AI for RWE": "Unexplored",
 
 type Phase = { name: string; apps: string[] };
 type Group = { name: string; phases: Phase[] };
