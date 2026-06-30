@@ -139,7 +139,7 @@ export function ScalingSection() {
                   className="whitespace-nowrap text-sm font-bold tracking-[0.2em] text-ink md:text-base"
                   style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
                 >
-                  AI AGENTIC CAPABILITY SCALING-UP
+                  AI AGENTIC CAPABILITY SCALING
                 </div>
               </div>
 
@@ -179,7 +179,7 @@ export function ScalingSection() {
 
                 {/* X-axis label */}
                 <div className="mt-2 text-center text-sm font-bold tracking-[0.2em] text-ink md:text-base">
-                  APPLICATION SCALING-UP (TOOL &amp; DATA)
+                  APPLICATION SCALING (TOOL &amp; DATA)
                 </div>
               </div>
             </div>
