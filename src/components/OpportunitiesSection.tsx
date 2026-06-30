@@ -97,7 +97,7 @@ const groups: Group[] = [
           "IB Updates",
           "Medical Monitoring",
           "Patient Recruitment",
-          "Operation Management Platform",
+          "Operational Data Management",
           "AE/SAE Detection",
           "Digital Pathology",
           "Audit Report",
