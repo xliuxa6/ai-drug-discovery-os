@@ -34,7 +34,7 @@ const ownership: Record<string, Ownership> = {
   "Protocol Review": "Unexplored",
   "IB Drafting": "Unexplored",
   "Patient Recruitment": "Unexplored",
-  "Operation Management Platform": "China & HQ",
+  "Operational Data Management": "China & HQ",
   "AI for RWE": "Unexplored",
   "AI-based Virtual Review": "Unexplored",
   "AE/SAE Detection": "Unexplored",
