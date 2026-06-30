@@ -6,7 +6,7 @@ const ownership: Record<string, Ownership> = {
   // China
   "External Environment Monitoring": "China",
   "Disease Deep-dive": "China",
-  "Target Research & Novel Target Alerts": "China",
+  "Target Research": "China",
   "Asset Benchmarking": "China",
   "Animal Model Translatability Eval.": "China",
   "Molecular Differentiation Analysis": "China",
@@ -53,7 +53,7 @@ const groups: Group[] = [
         apps: [
           "External Environment Monitoring",
           "Disease Deep-dive",
-          "Target Research & Novel Target Alerts",
+          "Target Research",
           "Competitive Intelligence Monitoring",
           "Scientific Finding Tracking",
           "Virtual Cell",
