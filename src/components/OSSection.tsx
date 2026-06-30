@@ -82,7 +82,7 @@ export function OSSection() {
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
         <div className="mb-8 max-w-6xl">
           <h2 className="font-sans text-2xl font-black leading-[1.05] text-ink md:text-3xl lg:text-4xl">
-            Multi-agent Platform for Drug R&D AI OS
+            Multi-agent Platform for Drug R&D AI Operating System
           </h2>
           <p className="mt-6 max-w-5xl text-lg leading-snug text-ink md:text-xl">
             Complex problems are rarely solved by a single agent—they require coordinated multi-agent orchestration - turning fragmented into one coherent workflow.
